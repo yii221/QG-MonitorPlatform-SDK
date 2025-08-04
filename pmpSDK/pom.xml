@@ -120,6 +120,12 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.opengauss</groupId>
+            <artifactId>opengauss-jdbc</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
