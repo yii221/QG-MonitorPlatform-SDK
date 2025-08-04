@@ -8,7 +8,7 @@
         <version>3.5.4</version>
         <relativePath/>
     </parent>
-    <groupId>com</groupId>
+    <groupId>com.qg</groupId>
     <artifactId>pmpSDK</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pmpSDK</name>
@@ -112,50 +112,9 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.24</version>
+            <version>5.8.26</version>
         </dependency>
 
-
     </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Maven 编译器插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <!-- Lombok 处理器 -->
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                        <!-- Spring 配置处理器 -->
-                        <path>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-configuration-processor</artifactId>
-                            <version>${spring-boot.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-            <!-- Spring Boot Maven 插件 -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
