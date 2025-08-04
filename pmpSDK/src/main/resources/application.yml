@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: pmpSDK
+
+logging:
+  level:
+    com.pmpsdk: INFO
+    com.pmpsdk.client.QGAPIClient: DEBUG
+    com.pmpsdk.util.QGLogger: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/pmp-sdk.log

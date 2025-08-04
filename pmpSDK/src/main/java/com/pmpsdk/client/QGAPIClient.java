@@ -7,6 +7,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.dto.UserDTO;
+import com.pmpsdk.log.LogUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,7 @@ public class QGAPIClient {
         this.projectToken = projectToken;
         this.sentryUrl = sentryUrl;
         this.apiBaseUrl = apiBaseUrl;
+        LogUtils.info("QGAPIClient initialized with accessKey: {}, sentryUrl: {}", accessKey, sentryUrl);
     }
 
 
@@ -49,7 +51,9 @@ public class QGAPIClient {
     public String getNameByGet(String name) {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", name);
+        LogUtils.info("Sending GET request with name parameter: {}", name);
         String result = HttpUtil.get(apiBaseUrl + "/api/getUsername/", paramMap);
+        LogUtils.info("Sending GET request with name parameter: {}", name);
         System.out.println(result);
         return result;
     }
@@ -63,7 +67,10 @@ public class QGAPIClient {
     public String getNameByPost(String name) {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", name);
-        String result = HttpUtil.post(apiBaseUrl + "/api/getUsername/", paramMap);
+
+        LogUtils.info("Sending POST request with name parameter: {}", name);
+        String result = HttpUtil.post("http://localhost:8102/api/name/", paramMap);
+        LogUtils.debug("POST request response: {}", result);
         System.out.println(result);
         return result;
     }
@@ -83,26 +90,35 @@ public class QGAPIClient {
         hashMap.put("sign", genSign(body, secretKey));
         // 添加project-token到请求头
         hashMap.put("project-token", projectToken);
+
+        LogUtils.debug("Generated headers: {}", hashMap);
         return hashMap;
     }
 
     /**
-     * 获取用户名
+     * 通过JSON格式发送用户信息获取用户名
      *
-     * @param userDTO
-     * @return
+     * @param userDTO 用户信息DTO对象
+     * @return 服务端返回的结果
      */
     public String getNameByJSON(UserDTO userDTO) {
         String userStr = JSONUtil.toJsonStr(userDTO);
-        HttpResponse httpResponse = HttpRequest.post(apiBaseUrl + "/api/getUsername/")
+        LogUtils.info("Sending JSON POST request with user: {}", userStr);
+
+        HttpResponse httpResponse = HttpRequest.post(sentryUrl)
                 .addHeaders(headerMap(userStr))
                 .body(userStr)
                 .execute();
-        System.out.println(httpResponse.getStatus());
+
+        LogUtils.info("HTTP request status: {}", httpResponse.getStatus());
         String body = httpResponse.body();
+        LogUtils.debug("HTTP response body: {}", body);
+
+        System.out.println(httpResponse.getStatus());
         System.out.println(body);
         return body;
     }
+
 
     /**
      * 生成签名
@@ -112,7 +128,9 @@ public class QGAPIClient {
      * @return
      */
     public static String genSign(String body, String secretKey) {
-        // 使用hutool的SHA256签名算法
-        return DigestUtil.sha256Hex(body + secretKey);
+        LogUtils.debug("Generating signature for body with length: {}", body.length());
+        String sign = DigestUtil.sha256Hex(body + secretKey);
+        LogUtils.debug("Signature generated successfully");
+        return sign;
     }
 }
