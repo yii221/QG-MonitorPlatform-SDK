@@ -16,12 +16,12 @@ public class Log {
     private String source = "backend";
     private String projectId;
     private EnvironmentSnapshot environmentSnapshot;
-
+    private String environment;
 
     public Log() {
     }
 
-    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId, EnvironmentSnapshot environmentSnapshot) {
+    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId, EnvironmentSnapshot environmentSnapshot, String environment) {
         this.id = id;
         this.timestamp = timestamp;
         this.level = level;
@@ -30,6 +30,7 @@ public class Log {
         this.source = source;
         this.projectId = projectId;
         this.environmentSnapshot = environmentSnapshot;
+        this.environment = environment;
     }
 
     /**
@@ -160,7 +161,23 @@ public class Log {
         this.environmentSnapshot = environmentSnapshot;
     }
 
+    /**
+     * 获取
+     * @return environment
+     */
+    public String getEnvironment() {
+        return environment;
+    }
+
+    /**
+     * 设置
+     * @param environment
+     */
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
     public String toString() {
-        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + "}";
+        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + ", environment = " + environment + "}";
     }
 }
