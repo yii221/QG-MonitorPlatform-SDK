@@ -3,6 +3,7 @@ package com.pmpsdk.controller;
 import com.pmpsdk.annotation.Model;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.domain.Result;
+import com.pmpsdk.log.LogUtils;
 import com.pmpsdk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,8 @@ public class UserController {
     @Monitor
     public Result getUser(@PathVariable("id") Integer id) {
         Long userID = id.longValue();
-        int i= 1/0; // 模拟异常
+        LogUtils.info("666");
+        LogUtils.debug("777");
         return userService.getUser(userID);
     }
 

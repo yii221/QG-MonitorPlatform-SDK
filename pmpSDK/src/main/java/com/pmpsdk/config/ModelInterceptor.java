@@ -29,7 +29,7 @@ public class ModelInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("进来啦");
+
 
 
         if (handler instanceof HandlerMethod handlerMethod) {
@@ -50,20 +50,17 @@ public class ModelInterceptor implements HandlerInterceptor {
         request.setAttribute("message", message);
 
 
-        System.out.println("出去啦");
 
         return true;
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        if (ex != null) {
-            System.out.println("请求处理过程中发生异常: " + ex.getMessage());
-        }
+
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("后处理方法执行，通常用于修改视图或添加模型属性1");
+
     }
 }

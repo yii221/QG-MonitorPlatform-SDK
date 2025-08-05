@@ -38,3 +38,14 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
     name: logs/pmp-sdk.log
+
+
+
+qgpmpsdk:
+     client:
+       access-key: "your_access_key_123"
+       secret-key: "your_secret_key_abc"
+       project-token: "your_project_token_123"
+       sentry-url: "your_sentry_url_123"
+       api-base-url: "your_api_base_url_123"
+       environment: "666"

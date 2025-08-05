@@ -4625,33 +4625,421 @@ java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "ex" i
 2025-08-04T21:04:12.908+08:00  INFO 17800 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-04T21:04:12.913+08:00  INFO 17800 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-04T21:04:12.915+08:00  INFO 17800 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
-2025-08-04T21:16:32.618+08:00  INFO 16532 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 16532 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
-2025-08-04T21:16:32.620+08:00  INFO 16532 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-08-04T21:16:33.411+08:00  INFO 16532 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2025-08-04T21:16:33.414+08:00  INFO 16532 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-08-04T21:16:33.442+08:00  INFO 16532 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-2025-08-04T21:16:33.952+08:00  INFO 16532 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-04T21:16:33.967+08:00  INFO 16532 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-04T21:16:33.967+08:00  INFO 16532 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-04T21:16:34.030+08:00  INFO 16532 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-04T21:16:34.030+08:00  INFO 16532 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1367 ms
-2025-08-04T21:16:34.705+08:00  INFO 16532 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
-2025-08-04T21:16:35.079+08:00  WARN 16532 --- [pmpSDK] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2025-08-04T21:16:35.081+08:00  INFO 16532 --- [pmpSDK] [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
-2025-08-04T21:16:35.113+08:00  INFO 16532 --- [pmpSDK] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-08-04T21:16:35.128+08:00 ERROR 16532 --- [pmpSDK] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
+2025-08-04T21:09:08.324+08:00  INFO 13368 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 13368 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:09:08.326+08:00  INFO 13368 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:09:08.755+08:00  INFO 13368 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:09:08.756+08:00  INFO 13368 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:09:08.775+08:00  INFO 13368 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:09:09.075+08:00  INFO 13368 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:09:09.085+08:00  INFO 13368 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:09:09.085+08:00  INFO 13368 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:09:09.119+08:00  INFO 13368 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:09:09.119+08:00  INFO 13368 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 754 ms
+2025-08-04T21:09:09.471+08:00  INFO 13368 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:09:09.646+08:00  INFO 13368 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:09:09.652+08:00  INFO 13368 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.631 seconds (process running for 2.009)
+2025-08-04T21:09:12.119+08:00  INFO 13368 --- [pmpSDK] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:09:12.119+08:00  INFO 13368 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:09:12.120+08:00  INFO 13368 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-04T21:09:24.882+08:00  INFO 13368 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:09:24.886+08:00  INFO 13368 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:09:24.889+08:00  INFO 13368 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:16:20.493+08:00  INFO 19020 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 19020 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:16:20.496+08:00  INFO 19020 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:16:20.918+08:00  INFO 19020 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:16:20.920+08:00  INFO 19020 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:16:20.940+08:00  INFO 19020 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:16:21.234+08:00  INFO 19020 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:16:21.242+08:00  INFO 19020 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:16:21.243+08:00  INFO 19020 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:16:21.271+08:00  INFO 19020 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:16:21.272+08:00  INFO 19020 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 739 ms
+2025-08-04T21:16:21.627+08:00  INFO 19020 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:16:21.797+08:00  INFO 19020 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:16:21.804+08:00  INFO 19020 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.61 seconds (process running for 1.965)
+2025-08-04T21:16:23.201+08:00  INFO 19020 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:16:23.201+08:00  INFO 19020 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:16:23.203+08:00  INFO 19020 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:21:04.399+08:00  INFO 19020 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:21:04.404+08:00  INFO 19020 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:21:04.406+08:00  INFO 19020 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:21:08.101+08:00  INFO 6032 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 6032 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:21:08.103+08:00  INFO 6032 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:21:08.534+08:00  INFO 6032 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:21:08.536+08:00  INFO 6032 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:21:08.554+08:00  INFO 6032 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:21:08.845+08:00  INFO 6032 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:21:08.854+08:00  INFO 6032 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:21:08.855+08:00  INFO 6032 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:21:08.885+08:00  INFO 6032 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:21:08.885+08:00  INFO 6032 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 743 ms
+2025-08-04T21:21:09.222+08:00  INFO 6032 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:21:09.401+08:00  INFO 6032 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:21:09.407+08:00  INFO 6032 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.605 seconds (process running for 1.967)
+2025-08-04T21:21:11.132+08:00  INFO 6032 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:21:11.132+08:00  INFO 6032 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:21:11.133+08:00  INFO 6032 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-04T21:22:16.963+08:00  INFO 6032 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:22:16.969+08:00  INFO 6032 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:22:16.972+08:00  INFO 6032 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:22:20.271+08:00  INFO 18076 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 18076 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:22:20.272+08:00  INFO 18076 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:22:20.704+08:00  INFO 18076 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:22:20.706+08:00  INFO 18076 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:22:20.725+08:00  INFO 18076 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:22:21.021+08:00  INFO 18076 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:22:21.036+08:00  INFO 18076 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:22:21.036+08:00  INFO 18076 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:22:21.064+08:00  INFO 18076 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:22:21.064+08:00  INFO 18076 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 751 ms
+2025-08-04T21:22:21.407+08:00  INFO 18076 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:22:21.585+08:00  INFO 18076 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:22:21.590+08:00  INFO 18076 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.621 seconds (process running for 1.965)
+2025-08-04T21:22:25.423+08:00  INFO 18076 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:22:25.424+08:00  INFO 18076 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:22:25.425+08:00  INFO 18076 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:23:36.864+08:00  INFO 18076 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:23:36.868+08:00  INFO 18076 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:23:36.871+08:00  INFO 18076 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:23:40.078+08:00  INFO 10640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 10640 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:23:40.080+08:00  INFO 10640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:23:40.489+08:00  INFO 10640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:23:40.491+08:00  INFO 10640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:23:40.509+08:00  INFO 10640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:23:40.806+08:00  INFO 10640 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:23:40.816+08:00  INFO 10640 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:23:40.816+08:00  INFO 10640 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:23:40.847+08:00  INFO 10640 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:23:40.847+08:00  INFO 10640 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 733 ms
+2025-08-04T21:23:41.188+08:00  INFO 10640 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:23:41.363+08:00  INFO 10640 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:23:41.368+08:00  INFO 10640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.581 seconds (process running for 1.927)
+2025-08-04T21:23:47.384+08:00  INFO 10640 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:23:47.384+08:00  INFO 10640 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:23:47.385+08:00  INFO 10640 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:24:06.587+08:00  INFO 10640 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:24:06.591+08:00  INFO 10640 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:24:06.594+08:00  INFO 10640 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:24:09.593+08:00  INFO 29676 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 29676 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:24:09.595+08:00  INFO 29676 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:24:10.056+08:00  INFO 29676 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:24:10.058+08:00  INFO 29676 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:24:10.077+08:00  INFO 29676 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:24:10.422+08:00  INFO 29676 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:24:10.433+08:00  INFO 29676 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:24:10.433+08:00  INFO 29676 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:24:10.467+08:00  INFO 29676 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:24:10.468+08:00  INFO 29676 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 834 ms
+2025-08-04T21:24:10.885+08:00  INFO 29676 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:24:11.078+08:00  INFO 29676 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:24:11.086+08:00  INFO 29676 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.839 seconds (process running for 2.441)
+2025-08-04T21:24:30.539+08:00  INFO 29676 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:24:30.544+08:00  INFO 29676 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:24:30.547+08:00  INFO 29676 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:24:33.302+08:00  INFO 25640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 25640 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:24:33.304+08:00  INFO 25640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:24:33.778+08:00  INFO 25640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:24:33.779+08:00  INFO 25640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:24:33.800+08:00  INFO 25640 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:24:34.128+08:00  INFO 25640 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:24:34.138+08:00  INFO 25640 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:24:34.138+08:00  INFO 25640 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:24:34.168+08:00  INFO 25640 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:24:34.168+08:00  INFO 25640 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 824 ms
+2025-08-04T21:24:34.559+08:00  INFO 25640 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:24:34.749+08:00  INFO 25640 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:24:34.755+08:00  INFO 25640 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.81 seconds (process running for 2.233)
+2025-08-04T21:24:47.152+08:00  INFO 25640 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:24:47.157+08:00  INFO 25640 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:24:47.160+08:00  INFO 25640 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:24:53.292+08:00  INFO 16160 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 16160 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:24:53.293+08:00  INFO 16160 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:24:53.742+08:00  INFO 16160 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:24:53.744+08:00  INFO 16160 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:24:53.763+08:00  INFO 16160 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:24:54.077+08:00  INFO 16160 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:24:54.086+08:00  INFO 16160 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:24:54.087+08:00  INFO 16160 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:24:54.117+08:00  INFO 16160 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:24:54.117+08:00  INFO 16160 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 786 ms
+2025-08-04T21:24:54.498+08:00  INFO 16160 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:24:54.693+08:00  INFO 16160 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:24:54.698+08:00  INFO 16160 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.745 seconds (process running for 2.176)
+2025-08-04T21:25:06.961+08:00  INFO 16160 --- [pmpSDK] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:25:06.961+08:00  INFO 16160 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:25:06.962+08:00  INFO 16160 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:26:26.856+08:00  INFO 16160 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:26:26.861+08:00  INFO 16160 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:26:26.864+08:00  INFO 16160 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:27:02.367+08:00  INFO 19100 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 19100 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:27:02.368+08:00  INFO 19100 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:27:02.815+08:00  INFO 19100 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:27:02.816+08:00  INFO 19100 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:27:02.836+08:00  INFO 19100 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:27:03.127+08:00  INFO 19100 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:27:03.137+08:00  INFO 19100 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:27:03.137+08:00  INFO 19100 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:27:03.168+08:00  INFO 19100 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:27:03.169+08:00  INFO 19100 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 758 ms
+2025-08-04T21:27:03.518+08:00  INFO 19100 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:27:03.696+08:00  INFO 19100 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:27:03.702+08:00  INFO 19100 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.633 seconds (process running for 1.984)
+2025-08-04T21:27:05.241+08:00  INFO 19100 --- [pmpSDK] [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:27:05.241+08:00  INFO 19100 --- [pmpSDK] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:27:05.242+08:00  INFO 19100 --- [pmpSDK] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:28:21.905+08:00  INFO 19100 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:28:21.910+08:00  INFO 19100 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:28:21.913+08:00  INFO 19100 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:28:25.149+08:00  INFO 6916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 6916 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:28:25.151+08:00  INFO 6916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:28:25.550+08:00  INFO 6916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:28:25.551+08:00  INFO 6916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:28:25.570+08:00  INFO 6916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:28:25.850+08:00  INFO 6916 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:28:25.860+08:00  INFO 6916 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:28:25.860+08:00  INFO 6916 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:28:25.888+08:00  INFO 6916 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:28:25.888+08:00  INFO 6916 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 702 ms
+2025-08-04T21:28:26.232+08:00  INFO 6916 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:28:26.398+08:00  INFO 6916 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:28:26.405+08:00  INFO 6916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.549 seconds (process running for 1.894)
+2025-08-04T21:28:31.204+08:00  INFO 6916 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:28:31.204+08:00  INFO 6916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:28:31.205+08:00  INFO 6916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:31:17.604+08:00  INFO 6916 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:31:17.609+08:00  INFO 6916 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:31:17.611+08:00  INFO 6916 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T21:31:20.946+08:00  INFO 28744 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 28744 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:31:20.948+08:00  INFO 28744 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:31:21.353+08:00  INFO 28744 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:31:21.355+08:00  INFO 28744 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:31:21.373+08:00  INFO 28744 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:31:21.659+08:00  INFO 28744 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:31:21.667+08:00  INFO 28744 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:31:21.668+08:00  INFO 28744 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:31:21.698+08:00  INFO 28744 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:31:21.698+08:00  INFO 28744 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 717 ms
+2025-08-04T21:31:22.043+08:00  INFO 28744 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: null, sentryUrl: null
+2025-08-04T21:31:22.213+08:00  INFO 28744 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:31:22.218+08:00  INFO 28744 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.564 seconds (process running for 1.918)
+2025-08-04T21:31:24.409+08:00  INFO 28744 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:31:24.409+08:00  INFO 28744 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:31:24.411+08:00  INFO 28744 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-08-04T21:31:24.457+08:00 ERROR 28744 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T21:31:24.464+08:00  INFO 28744 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T21:31:24.474+08:00  INFO 28744 --- [pmpSDK] [Druid-ConnectionPool-Create-1639525090] o.o.core.v3.ConnectionFactoryImpl        : [be949522-ab8c-479a-b7de-fcb19fc8358d] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T21:31:24.725+08:00  INFO 28744 --- [pmpSDK] [Druid-ConnectionPool-Create-1639525090] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:14525/47.113.224.195:5432] Connection is established. ID: be949522-ab8c-479a-b7de-fcb19fc8358d
+2025-08-04T21:31:25.116+08:00  INFO 28744 --- [pmpSDK] [Druid-ConnectionPool-Create-1639525090] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: be949522-ab8c-479a-b7de-fcb19fc8358d
+2025-08-04T21:45:10.196+08:00  INFO 28744 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:45:10.200+08:00  INFO 28744 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:45:10.203+08:00  INFO 28744 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T21:45:10.205+08:00  INFO 28744 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-04T21:45:13.976+08:00  INFO 26272 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 26272 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T21:45:13.977+08:00  INFO 26272 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T21:45:14.415+08:00  INFO 26272 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T21:45:14.417+08:00  INFO 26272 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T21:45:14.439+08:00  INFO 26272 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T21:45:14.727+08:00  INFO 26272 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T21:45:14.736+08:00  INFO 26272 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T21:45:14.737+08:00  INFO 26272 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T21:45:14.763+08:00  INFO 26272 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T21:45:14.764+08:00  INFO 26272 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 749 ms
+2025-08-04T21:45:14.978+08:00  INFO 26272 --- [pmpSDK] [main] com.pmpsdk.log.LogUtils                  : QGAPIClient initialized with accessKey: your_access_key_123, sentryUrl: your_sentry_url_123
+2025-08-04T21:45:15.309+08:00  INFO 26272 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T21:45:15.315+08:00  INFO 26272 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.666 seconds (process running for 2.041)
+2025-08-04T21:45:18.962+08:00  INFO 26272 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T21:45:18.962+08:00  INFO 26272 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T21:45:18.963+08:00  INFO 26272 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T21:45:25.419+08:00  INFO 26272 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T21:45:25.426+08:00  INFO 26272 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T21:45:25.432+08:00  INFO 26272 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T22:13:32.664+08:00  INFO 19192 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 19192 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T22:13:32.666+08:00  INFO 19192 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T22:13:33.093+08:00  INFO 19192 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T22:13:33.094+08:00  INFO 19192 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T22:13:33.111+08:00  INFO 19192 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T22:13:33.395+08:00  INFO 19192 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T22:13:33.436+08:00  INFO 19192 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 730 ms
+2025-08-04T22:13:33.966+08:00  INFO 19192 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T22:13:33.972+08:00  INFO 19192 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.631 seconds (process running for 1.988)
+2025-08-04T22:13:33.974+08:00  INFO 19192 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T22:13:33.979+08:00  INFO 19192 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T22:13:33.981+08:00  INFO 19192 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T22:14:03.205+08:00  INFO 18684 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 18684 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T22:14:03.205+08:00  INFO 18684 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T22:14:03.617+08:00  INFO 18684 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T22:14:03.619+08:00  INFO 18684 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T22:14:03.636+08:00  INFO 18684 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-08-04T22:14:03.935+08:00  INFO 18684 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T22:14:03.944+08:00  INFO 18684 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T22:14:03.944+08:00  INFO 18684 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T22:14:03.974+08:00  INFO 18684 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T22:14:03.974+08:00  INFO 18684 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 733 ms
+2025-08-04T22:14:04.497+08:00  INFO 18684 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T22:14:04.503+08:00  INFO 18684 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.6 seconds (process running for 1.965)
+2025-08-04T22:14:04.505+08:00  INFO 18684 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T22:14:04.509+08:00  INFO 18684 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T22:14:04.512+08:00  INFO 18684 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T22:14:32.551+08:00  INFO 6140 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 6140 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T22:14:32.552+08:00  INFO 6140 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T22:14:32.995+08:00  INFO 6140 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T22:14:32.995+08:00  INFO 6140 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T22:14:33.013+08:00  INFO 6140 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T22:14:33.306+08:00  INFO 6140 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T22:14:33.320+08:00  INFO 6140 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T22:14:33.322+08:00  INFO 6140 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T22:14:33.350+08:00  INFO 6140 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T22:14:33.350+08:00  INFO 6140 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 756 ms
+2025-08-04T22:14:33.879+08:00  INFO 6140 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T22:14:33.885+08:00  INFO 6140 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.652 seconds (process running for 2.012)
+2025-08-04T22:14:36.679+08:00  INFO 6140 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T22:14:36.679+08:00  INFO 6140 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T22:14:36.680+08:00  INFO 6140 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T22:14:36.703+08:00  INFO 6140 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T22:14:37.061+08:00 ERROR 6140 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T22:14:37.066+08:00  INFO 6140 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T22:14:37.077+08:00  INFO 6140 --- [pmpSDK] [Druid-ConnectionPool-Create-2063310349] o.o.core.v3.ConnectionFactoryImpl        : [e9a24b9c-6cc8-457a-b5c8-52b05a27a636] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T22:14:37.325+08:00  INFO 6140 --- [pmpSDK] [Druid-ConnectionPool-Create-2063310349] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:14937/47.113.224.195:5432] Connection is established. ID: e9a24b9c-6cc8-457a-b5c8-52b05a27a636
+2025-08-04T22:14:37.726+08:00  INFO 6140 --- [pmpSDK] [Druid-ConnectionPool-Create-2063310349] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: e9a24b9c-6cc8-457a-b5c8-52b05a27a636
+2025-08-04T22:14:46.566+08:00  INFO 6140 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T22:14:46.571+08:00  INFO 6140 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T22:14:46.577+08:00  INFO 6140 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T22:14:46.579+08:00  INFO 6140 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-04T22:56:45.724+08:00  INFO 16176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 16176 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T22:56:45.725+08:00  INFO 16176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T22:56:46.194+08:00  INFO 16176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T22:56:46.195+08:00  INFO 16176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T22:56:46.215+08:00  INFO 16176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-08-04T22:56:46.519+08:00  INFO 16176 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T22:56:46.528+08:00  INFO 16176 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T22:56:46.528+08:00  INFO 16176 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T22:56:46.564+08:00  INFO 16176 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T22:56:46.564+08:00  INFO 16176 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 794 ms
+2025-08-04T22:56:47.113+08:00  INFO 16176 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T22:56:47.119+08:00  INFO 16176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.732 seconds (process running for 2.161)
+2025-08-04T22:56:51.796+08:00  INFO 16176 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T22:56:51.797+08:00  INFO 16176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T22:56:51.797+08:00  INFO 16176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-04T22:56:51.821+08:00  INFO 16176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T22:56:51.924+08:00 ERROR 16176 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T22:56:51.930+08:00  INFO 16176 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T22:56:51.940+08:00  INFO 16176 --- [pmpSDK] [Druid-ConnectionPool-Create-1454488780] o.o.core.v3.ConnectionFactoryImpl        : [652d7e96-d8ae-4b72-a55f-2cf70da72255] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T22:56:52.178+08:00  INFO 16176 --- [pmpSDK] [Druid-ConnectionPool-Create-1454488780] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:1380/47.113.224.195:5432] Connection is established. ID: 652d7e96-d8ae-4b72-a55f-2cf70da72255
+2025-08-04T22:56:52.565+08:00  INFO 16176 --- [pmpSDK] [Druid-ConnectionPool-Create-1454488780] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 652d7e96-d8ae-4b72-a55f-2cf70da72255
+2025-08-04T23:00:08.897+08:00  INFO 16176 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:00:08.901+08:00  INFO 16176 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:00:08.904+08:00  INFO 16176 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T23:00:08.905+08:00  INFO 16176 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-04T23:00:12.104+08:00  INFO 13576 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 13576 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T23:00:12.106+08:00  INFO 13576 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T23:00:12.520+08:00  INFO 13576 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T23:00:12.521+08:00  INFO 13576 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T23:00:12.540+08:00  INFO 13576 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T23:00:12.828+08:00  INFO 13576 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T23:00:12.837+08:00  INFO 13576 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T23:00:12.837+08:00  INFO 13576 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T23:00:12.865+08:00  INFO 13576 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T23:00:12.866+08:00  INFO 13576 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 725 ms
+2025-08-04T23:00:13.381+08:00  INFO 13576 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T23:00:13.386+08:00  INFO 13576 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.577 seconds (process running for 1.935)
+2025-08-04T23:00:14.950+08:00  INFO 13576 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T23:00:14.950+08:00  INFO 13576 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T23:00:14.951+08:00  INFO 13576 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T23:00:14.975+08:00  INFO 13576 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T23:00:54.400+08:00  INFO 13576 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:00:54.404+08:00  INFO 13576 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:00:54.407+08:00  INFO 13576 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T23:00:56.968+08:00  INFO 23244 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 23244 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T23:00:56.970+08:00  INFO 23244 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T23:00:57.434+08:00  INFO 23244 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T23:00:57.436+08:00  INFO 23244 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T23:00:57.455+08:00  INFO 23244 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T23:00:57.756+08:00  INFO 23244 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T23:00:57.766+08:00  INFO 23244 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T23:00:57.766+08:00  INFO 23244 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T23:00:57.797+08:00  INFO 23244 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T23:00:57.797+08:00  INFO 23244 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 787 ms
+2025-08-04T23:00:58.341+08:00  INFO 23244 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T23:00:58.348+08:00  INFO 23244 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.69 seconds (process running for 2.052)
+2025-08-04T23:01:00.188+08:00  INFO 23244 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T23:01:00.189+08:00  INFO 23244 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T23:01:00.190+08:00  INFO 23244 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T23:01:00.215+08:00  INFO 23244 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T23:01:31.803+08:00  INFO 23244 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:01:31.807+08:00  INFO 23244 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:01:31.810+08:00  INFO 23244 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-04T23:01:35.368+08:00  INFO 22492 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 22492 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T23:01:35.370+08:00  INFO 22492 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T23:01:35.794+08:00  INFO 22492 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T23:01:35.796+08:00  INFO 22492 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T23:01:35.813+08:00  INFO 22492 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T23:01:36.102+08:00  INFO 22492 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T23:01:36.111+08:00  INFO 22492 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T23:01:36.111+08:00  INFO 22492 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T23:01:36.138+08:00  INFO 22492 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T23:01:36.139+08:00  INFO 22492 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 732 ms
+2025-08-04T23:01:36.672+08:00  INFO 22492 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T23:01:36.677+08:00  INFO 22492 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.6 seconds (process running for 1.948)
+2025-08-04T23:01:39.920+08:00  INFO 22492 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T23:01:39.921+08:00  INFO 22492 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T23:01:39.921+08:00  INFO 22492 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-04T23:01:39.945+08:00  INFO 22492 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T23:01:40.023+08:00 ERROR 22492 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T23:01:40.028+08:00  INFO 22492 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T23:01:40.040+08:00  INFO 22492 --- [pmpSDK] [Druid-ConnectionPool-Create-1994993615] o.o.core.v3.ConnectionFactoryImpl        : [c60cded0-cffd-4e3c-8b01-284fd0468f3b] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T23:01:40.296+08:00  INFO 22492 --- [pmpSDK] [Druid-ConnectionPool-Create-1994993615] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:1437/47.113.224.195:5432] Connection is established. ID: c60cded0-cffd-4e3c-8b01-284fd0468f3b
+2025-08-04T23:01:40.696+08:00  INFO 22492 --- [pmpSDK] [Druid-ConnectionPool-Create-1994993615] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: c60cded0-cffd-4e3c-8b01-284fd0468f3b
+2025-08-04T23:02:25.866+08:00  INFO 22492 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:02:25.871+08:00  INFO 22492 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:02:25.874+08:00  INFO 22492 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T23:02:25.875+08:00  INFO 22492 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-04T23:02:29.031+08:00  INFO 16544 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 16544 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T23:02:29.032+08:00  INFO 16544 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T23:02:29.460+08:00  INFO 16544 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T23:02:29.461+08:00  INFO 16544 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T23:02:29.479+08:00  INFO 16544 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-04T23:02:29.770+08:00  INFO 16544 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T23:02:29.779+08:00  INFO 16544 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T23:02:29.779+08:00  INFO 16544 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T23:02:29.807+08:00  INFO 16544 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T23:02:29.807+08:00  INFO 16544 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 737 ms
+2025-08-04T23:02:30.334+08:00  INFO 16544 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T23:02:30.340+08:00  INFO 16544 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.617 seconds (process running for 1.977)
+2025-08-04T23:02:33.233+08:00  INFO 16544 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T23:02:33.234+08:00  INFO 16544 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T23:02:33.235+08:00  INFO 16544 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-04T23:02:33.259+08:00  INFO 16544 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T23:02:33.356+08:00 ERROR 16544 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T23:02:33.362+08:00  INFO 16544 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T23:02:33.374+08:00  INFO 16544 --- [pmpSDK] [Druid-ConnectionPool-Create-1030326213] o.o.core.v3.ConnectionFactoryImpl        : [351a8a6b-601b-432e-adda-32b349fba469] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T23:02:33.631+08:00  INFO 16544 --- [pmpSDK] [Druid-ConnectionPool-Create-1030326213] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:1451/47.113.224.195:5432] Connection is established. ID: 351a8a6b-601b-432e-adda-32b349fba469
+2025-08-04T23:02:34.039+08:00  INFO 16544 --- [pmpSDK] [Druid-ConnectionPool-Create-1030326213] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 351a8a6b-601b-432e-adda-32b349fba469
+2025-08-04T23:03:53.024+08:00  INFO 16544 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:03:53.031+08:00  INFO 16544 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:03:53.036+08:00  INFO 16544 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T23:03:53.038+08:00  INFO 16544 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-04T23:03:56.319+08:00  INFO 25416 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 25416 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-04T23:03:56.321+08:00  INFO 25416 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-04T23:03:56.747+08:00  INFO 25416 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-04T23:03:56.749+08:00  INFO 25416 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-04T23:03:56.767+08:00  INFO 25416 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-04T23:03:57.057+08:00  INFO 25416 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-04T23:03:57.067+08:00  INFO 25416 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-04T23:03:57.067+08:00  INFO 25416 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-04T23:03:57.099+08:00  INFO 25416 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-04T23:03:57.099+08:00  INFO 25416 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 740 ms
+2025-08-04T23:03:57.656+08:00  INFO 25416 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-04T23:03:57.662+08:00  INFO 25416 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 1.649 seconds (process running for 2.011)
+2025-08-04T23:04:02.710+08:00  INFO 25416 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-04T23:04:02.711+08:00  INFO 25416 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-04T23:04:02.711+08:00  INFO 25416 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-04T23:04:02.736+08:00  INFO 25416 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
+2025-08-04T23:04:02.834+08:00 ERROR 25416 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-04T23:04:02.840+08:00  INFO 25416 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-04T23:04:02.851+08:00  INFO 25416 --- [pmpSDK] [Druid-ConnectionPool-Create-1973809577] o.o.core.v3.ConnectionFactoryImpl        : [45483225-02ed-4875-bc94-440a1d630ff2] Try to connect. IP: 47.113.224.195:5432
+2025-08-04T23:04:03.113+08:00  INFO 25416 --- [pmpSDK] [Druid-ConnectionPool-Create-1973809577] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:1468/47.113.224.195:5432] Connection is established. ID: 45483225-02ed-4875-bc94-440a1d630ff2
+2025-08-04T23:04:03.532+08:00  INFO 25416 --- [pmpSDK] [Druid-ConnectionPool-Create-1973809577] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 45483225-02ed-4875-bc94-440a1d630ff2
+2025-08-04T23:04:39.844+08:00  INFO 25416 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-04T23:04:39.848+08:00  INFO 25416 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-04T23:04:39.850+08:00  INFO 25416 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-04T23:04:39.852+08:00  INFO 25416 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
