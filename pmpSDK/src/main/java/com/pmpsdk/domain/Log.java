@@ -179,5 +179,7 @@ public class Log {
 
     public String toString() {
         return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + ", environment = " + environment + "}";
+
     }
+
 }

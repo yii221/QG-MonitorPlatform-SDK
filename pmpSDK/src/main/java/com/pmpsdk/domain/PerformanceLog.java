@@ -15,18 +15,20 @@ public class PerformanceLog {
     private String module;
     private String projectId;
     private boolean slow;
+    private String environment;
 
 
     public PerformanceLog() {
     }
 
-    public PerformanceLog(String api, long duration, long timestamp, String module, String projectId, boolean slow) {
+    public PerformanceLog(String api, long duration, long timestamp, String module, String projectId, boolean slow, String environment) {
         this.api = api;
         this.duration = duration;
         this.timestamp = timestamp;
         this.module = module;
         this.projectId = projectId;
         this.slow = slow;
+        this.environment = environment;
     }
 
     /**
@@ -125,7 +127,23 @@ public class PerformanceLog {
         this.slow = slow;
     }
 
+    /**
+     * 获取
+     * @return environment
+     */
+    public String getEnvironment() {
+        return environment;
+    }
+
+    /**
+     * 设置
+     * @param environment
+     */
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
     public String toString() {
-        return "PerformanceLog{api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", slow = " + slow + "}";
+        return "PerformanceLog{api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", slow = " + slow + ", environment = " + environment + "}";
     }
 }

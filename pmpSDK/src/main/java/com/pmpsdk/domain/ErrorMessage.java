@@ -23,13 +23,13 @@ public class ErrorMessage {
 
     private String projectId;
 
-
+    private String environment;
 
 
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long timestamp, String type, String stack, String module, String source, String level, String projectId) {
+    public ErrorMessage(Long timestamp, String type, String stack, String module, String source, String level, String projectId, String environment) {
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
@@ -37,6 +37,7 @@ public class ErrorMessage {
         this.source = source;
         this.level = level;
         this.projectId = projectId;
+        this.environment = environment;
     }
 
     /**
@@ -151,7 +152,23 @@ public class ErrorMessage {
         this.projectId = projectId;
     }
 
+    /**
+     * 获取
+     * @return environment
+     */
+    public String getEnvironment() {
+        return environment;
+    }
+
+    /**
+     * 设置
+     * @param environment
+     */
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
     public String toString() {
-        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + "}";
+        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + ", environment = " + environment + "}";
     }
 }

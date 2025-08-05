@@ -79,6 +79,7 @@ public class ProjectExceptionAdvice {
             }
 
             message.setProjectId(qgAPIClient.getProjectToken());
+            message.setEnvironment(qgAPIClient.getEnvironment());
 
 
 

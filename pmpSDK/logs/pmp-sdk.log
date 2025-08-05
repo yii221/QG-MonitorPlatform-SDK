@@ -1252,3 +1252,364 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:17:38.192+08:00  INFO 7224 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:17:38.197+08:00  INFO 7224 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:17:38.199+08:00  INFO 7224 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T16:22:41.548+08:00  INFO 20340 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 20340 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:22:41.549+08:00  INFO 20340 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:22:42.000+08:00  INFO 20340 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:22:42.002+08:00  INFO 20340 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:22:42.020+08:00  INFO 20340 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:22:42.512+08:00  INFO 20340 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:22:42.521+08:00  INFO 20340 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:22:42.521+08:00  INFO 20340 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:22:42.550+08:00  INFO 20340 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:22:42.550+08:00  INFO 20340 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 965 ms
+2025-08-05T16:22:43.433+08:00  INFO 20340 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:22:43.439+08:00  INFO 20340 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.213 seconds (process running for 2.594)
+2025-08-05T16:22:44.836+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:22:44.837+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:22:44.837+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-05T16:22:44.881+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+解析处理后信息：EnvironmentSnapshot(osName=Unknown, osArch=null, browserName=Unknown, browserVersion=null, deviceType=Unknown, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:22:44.883+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:22:44.884+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:22:44.903+08:00 ERROR 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:22:44.908+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:22:44.920+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : [fdd63bdc-d46e-421a-bce7-c37d9c166802] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:22:47.410+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7926/47.113.224.195:5432] Connection is established. ID: fdd63bdc-d46e-421a-bce7-c37d9c166802
+2025-08-05T16:22:50.842+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: fdd63bdc-d46e-421a-bce7-c37d9c166802
+2025-08-05T16:22:53.018+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 8135 ms
+2025-08-05T16:23:09.780+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:23:10.205+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 425 ms
+2025-08-05T16:24:18.182+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:24:18.610+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 428 ms
+2025-08-05T16:29:40.741+08:00  INFO 20340 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:29:40.749+08:00  INFO 20340 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:29:40.754+08:00  INFO 20340 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:29:40.758+08:00  INFO 20340 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:29:46.357+08:00  INFO 30528 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 30528 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:29:46.359+08:00  INFO 30528 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:29:46.815+08:00  INFO 30528 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:29:46.816+08:00  INFO 30528 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:29:46.833+08:00  INFO 30528 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:29:47.315+08:00  INFO 30528 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:29:47.325+08:00  INFO 30528 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:29:47.326+08:00  INFO 30528 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:29:47.359+08:00  INFO 30528 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:29:47.360+08:00  INFO 30528 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 964 ms
+2025-08-05T16:29:48.274+08:00  INFO 30528 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:29:48.280+08:00  INFO 30528 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.264 seconds (process running for 2.689)
+2025-08-05T16:29:50.622+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:29:50.622+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:29:50.623+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:29:50.666+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:29:50.668+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:29:50.669+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:29:50.686+08:00 ERROR 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:29:50.692+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:29:50.705+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : [81974fd9-bffc-45a3-a0fd-24d71f521413] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:29:52.202+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8263/47.113.224.195:5432] Connection is established. ID: 81974fd9-bffc-45a3-a0fd-24d71f521413
+2025-08-05T16:29:53.899+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 81974fd9-bffc-45a3-a0fd-24d71f521413
+2025-08-05T16:29:56.048+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5379 ms
+2025-08-05T16:30:11.534+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:30:11.974+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 439 ms
+2025-08-05T16:30:21.665+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:30:22.107+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 442 ms
+2025-08-05T16:32:41.012+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=130.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:32:41.434+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 421 ms
+2025-08-05T16:32:49.281+08:00  INFO 30528 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:32:49.285+08:00  INFO 30528 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:32:49.288+08:00  INFO 30528 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:32:49.290+08:00  INFO 30528 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:32:53.324+08:00  INFO 22892 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 22892 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:32:53.325+08:00  INFO 22892 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:32:53.765+08:00  INFO 22892 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:32:53.766+08:00  INFO 22892 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:32:53.784+08:00  INFO 22892 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:32:54.241+08:00  INFO 22892 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:32:54.250+08:00  INFO 22892 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:32:54.250+08:00  INFO 22892 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:32:54.288+08:00  INFO 22892 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:32:54.288+08:00  INFO 22892 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 926 ms
+2025-08-05T16:32:55.147+08:00  INFO 22892 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:32:55.153+08:00  INFO 22892 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.128 seconds (process running for 2.496)
+2025-08-05T16:32:55.847+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:32:55.848+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:32:55.848+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-08-05T16:32:55.892+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=130.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:32:55.913+08:00 ERROR 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:32:55.918+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:32:55.928+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : [75b9fdda-3ab5-46f8-8ef8-b7f30f285c88] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:32:57.203+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8353/47.113.224.195:5432] Connection is established. ID: 75b9fdda-3ab5-46f8-8ef8-b7f30f285c88
+2025-08-05T16:32:58.708+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 75b9fdda-3ab5-46f8-8ef8-b7f30f285c88
+2025-08-05T16:33:00.601+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4706 ms
+2025-08-05T16:33:33.562+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:33:33.562+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:33:33.563+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:33:33.945+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 382 ms
+2025-08-05T16:38:27.279+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:38:27.666+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 386 ms
+2025-08-05T16:46:28.377+08:00  INFO 22892 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:46:28.381+08:00  INFO 22892 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:46:28.384+08:00  INFO 22892 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:46:28.386+08:00  INFO 22892 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:46:32.802+08:00  INFO 13344 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 13344 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:46:32.804+08:00  INFO 13344 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:46:33.251+08:00  INFO 13344 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:46:33.252+08:00  INFO 13344 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:46:33.270+08:00  INFO 13344 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:46:33.751+08:00  INFO 13344 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:46:33.759+08:00  INFO 13344 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:46:33.759+08:00  INFO 13344 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:46:33.787+08:00  INFO 13344 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:46:33.788+08:00  INFO 13344 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 945 ms
+2025-08-05T16:46:34.677+08:00  INFO 13344 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:46:34.682+08:00  INFO 13344 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.252 seconds (process running for 2.643)
+2025-08-05T16:46:39.078+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:46:39.078+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:46:39.079+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:46:39.123+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:39.125+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:39.126+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:39.143+08:00 ERROR 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:46:39.148+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:46:39.159+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [23bebd00-0c53-46b2-bfa8-5f61ac3d321c] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:46:42.526+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8651/47.113.224.195:5432] Connection is established. ID: 23bebd00-0c53-46b2-bfa8-5f61ac3d321c
+2025-08-05T16:46:43.196+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:44.183+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 23bebd00-0c53-46b2-bfa8-5f61ac3d321c
+2025-08-05T16:46:46.461+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [a6321007-cadb-4744-bd50-87c301040f37] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:46:46.914+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 7788 ms
+2025-08-05T16:46:47.326+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4129 ms
+2025-08-05T16:46:47.458+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:47.459+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:47.460+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:47.866+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8658/47.113.224.195:5432] Connection is established. ID: a6321007-cadb-4744-bd50-87c301040f37
+2025-08-05T16:46:47.871+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 411 ms
+2025-08-05T16:46:49.691+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: a6321007-cadb-4744-bd50-87c301040f37
+2025-08-05T16:46:50.423+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:50.834+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 410 ms
+2025-08-05T16:46:54.756+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:55.176+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 419 ms
+2025-08-05T16:46:59.378+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:59.791+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 412 ms
+2025-08-05T16:47:02.652+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:47:03.084+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 431 ms
+2025-08-05T16:47:09.463+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:47:09.880+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 417 ms
+2025-08-05T16:47:13.008+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:47:13.418+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 409 ms
+2025-08-05T16:47:40.068+08:00  INFO 13344 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:47:40.072+08:00  INFO 13344 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:47:40.075+08:00  INFO 13344 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:47:40.076+08:00  INFO 13344 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:48:00.301+08:00  INFO 11148 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 11148 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:48:00.302+08:00  INFO 11148 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:48:00.758+08:00  INFO 11148 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:48:00.759+08:00  INFO 11148 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:48:00.779+08:00  INFO 11148 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:48:01.255+08:00  INFO 11148 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:48:01.263+08:00  INFO 11148 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:48:01.263+08:00  INFO 11148 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:48:01.293+08:00  INFO 11148 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:48:01.294+08:00  INFO 11148 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
+2025-08-05T16:48:02.194+08:00  INFO 11148 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:48:02.200+08:00  INFO 11148 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.218 seconds (process running for 2.606)
+2025-08-05T16:48:45.161+08:00  INFO 11148 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:48:45.168+08:00  INFO 11148 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:48:45.172+08:00  INFO 11148 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T16:48:49.632+08:00  INFO 28496 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 28496 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:48:49.634+08:00  INFO 28496 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:48:50.162+08:00  INFO 28496 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:48:50.164+08:00  INFO 28496 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:48:50.182+08:00  INFO 28496 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:48:50.661+08:00  INFO 28496 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:48:50.671+08:00  INFO 28496 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:48:50.672+08:00  INFO 28496 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:48:50.701+08:00  INFO 28496 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:48:50.701+08:00  INFO 28496 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1026 ms
+2025-08-05T16:48:51.624+08:00  INFO 28496 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:48:51.630+08:00  INFO 28496 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.385 seconds (process running for 2.809)
+2025-08-05T16:48:53.590+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:48:53.590+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:48:53.591+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:48:53.633+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:48:53.636+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:48:53.637+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:48:53.655+08:00 ERROR 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:48:53.660+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:48:53.672+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [928ac3a0-1c50-41b8-9731-d67d1e4b770d] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:48:54.857+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8801/47.113.224.195:5432] Connection is established. ID: 928ac3a0-1c50-41b8-9731-d67d1e4b770d
+2025-08-05T16:48:56.332+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 928ac3a0-1c50-41b8-9731-d67d1e4b770d
+2025-08-05T16:48:57.663+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:48:57.810+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [fdf928a1-ca4a-439d-b378-f9781cc1b704] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:48:58.215+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4578 ms
+2025-08-05T16:48:58.576+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 912 ms
+2025-08-05T16:48:59.003+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8810/47.113.224.195:5432] Connection is established. ID: fdf928a1-ca4a-439d-b378-f9781cc1b704
+2025-08-05T16:49:00.458+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: fdf928a1-ca4a-439d-b378-f9781cc1b704
+2025-08-05T16:49:26.338+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:49:26.708+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 369 ms
+2025-08-05T16:51:17.266+08:00  INFO 28496 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:51:17.270+08:00  INFO 28496 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:51:17.273+08:00  INFO 28496 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:51:17.274+08:00  INFO 28496 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T17:16:05.517+08:00  INFO 31260 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 31260 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T17:16:05.520+08:00  INFO 31260 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T17:16:06.046+08:00  INFO 31260 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T17:16:06.049+08:00  INFO 31260 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T17:16:06.075+08:00  INFO 31260 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-08-05T17:16:06.640+08:00  INFO 31260 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T17:16:06.652+08:00  INFO 31260 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T17:16:06.652+08:00  INFO 31260 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T17:16:06.701+08:00  INFO 31260 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T17:16:06.701+08:00  INFO 31260 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1139 ms
+2025-08-05T17:16:07.843+08:00  INFO 31260 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T17:16:07.848+08:00  INFO 31260 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.674 seconds (process running for 3.078)
+2025-08-05T17:16:10.797+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T17:16:10.798+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T17:16:10.799+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T17:16:10.842+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T17:16:10.844+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:16:10.845+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T17:16:10.860+08:00 ERROR 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T17:16:10.867+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T17:16:10.878+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : [1ddccced-ca4c-4fb7-9747-090c64ecdac6] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T17:16:12.021+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:9390/47.113.224.195:5432] Connection is established. ID: 1ddccced-ca4c-4fb7-9747-090c64ecdac6
+2025-08-05T17:16:13.483+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 1ddccced-ca4c-4fb7-9747-090c64ecdac6
+2025-08-05T17:16:15.930+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
+2025-08-05T17:17:20.933+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T17:17:21.296+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 362 ms
+2025-08-05T17:17:44.096+08:00  INFO 31260 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T17:17:44.104+08:00  INFO 31260 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T17:17:44.108+08:00  INFO 31260 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T17:17:44.110+08:00  INFO 31260 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T17:18:05.848+08:00  INFO 32176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 32176 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T17:18:05.850+08:00  INFO 32176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T17:18:06.302+08:00  INFO 32176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T17:18:06.303+08:00  INFO 32176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T17:18:06.320+08:00  INFO 32176 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T17:18:06.786+08:00  INFO 32176 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T17:18:06.794+08:00  INFO 32176 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T17:18:06.794+08:00  INFO 32176 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T17:18:06.823+08:00  INFO 32176 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T17:18:06.823+08:00  INFO 32176 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 930 ms
+2025-08-05T17:18:07.696+08:00  INFO 32176 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T17:18:07.702+08:00  INFO 32176 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.162 seconds (process running for 2.52)
+2025-08-05T17:18:10.412+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T17:18:10.412+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T17:18:10.413+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T17:18:10.454+08:00  WARN 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
+
+
+2025-08-05T17:18:10.460+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 0 ms
+2025-08-05T17:18:10.655+08:00 ERROR 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 出错类: com.pmpsdk.controller.UserController
+出错方法: getUser
+出错行号: 36
+异常信息: / by zero
+项目ID: your_project_token_123
+模型类型: user
