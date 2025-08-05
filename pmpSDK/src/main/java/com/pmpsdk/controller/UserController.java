@@ -1,6 +1,6 @@
 package com.pmpsdk.controller;
 
-import com.pmpsdk.annotation.Model;
+import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.domain.Result;
 import com.pmpsdk.log.LogUtils;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2025/8/4 16:19   // 时间
  * @Version: 1.0     // 版本
  */
-@Model(type = "user")
+@Module(type = "user")
 @RestController
 @RequestMapping("/users")
 

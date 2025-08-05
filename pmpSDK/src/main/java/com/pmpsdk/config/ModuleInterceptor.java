@@ -1,6 +1,6 @@
 package com.pmpsdk.config;
 
-import com.pmpsdk.annotation.Model;
+import com.pmpsdk.annotation.Module;
 import com.pmpsdk.domain.Message;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,13 +16,13 @@ import java.util.logging.Handler;
 
 /**
  * @Description: 模块拦截器  // 类说明
- * @ClassName: ModelInterceptor    // 类名
+ * @ClassName: ModuleInterceptor    // 类名
  * @Author: lrt          // 创建者
  * @Date: 2025/8/4 17:12   // 时间
  * @Version: 1.0     // 版本
  */
 @Configuration
-public class ModelInterceptor implements HandlerInterceptor {
+public class ModuleInterceptor implements HandlerInterceptor {
 
 
     private String type;
@@ -33,7 +33,7 @@ public class ModelInterceptor implements HandlerInterceptor {
 
 
         if (handler instanceof HandlerMethod handlerMethod) {
-            Model modelAnnotation = handlerMethod.getBeanType().getAnnotation(Model.class);
+            Module modelAnnotation = handlerMethod.getBeanType().getAnnotation(Module.class);
             if (modelAnnotation == null) {
                 System.out.println("没有Model注解");
             } else {
