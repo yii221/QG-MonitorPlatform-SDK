@@ -10,6 +10,7 @@ import com.pmpsdk.domain.PerformanceLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.crypto.SecretKey;
 import java.util.List;
 
 import static com.pmpsdk.utils.PostUrl.ERROR;
@@ -18,10 +19,27 @@ import static com.pmpsdk.utils.PostUrl.LOG;
 public final class PostToServer {
     private static final Logger logger = LoggerFactory.getLogger(PostToServer.class);
 
+    static SecretKey aseKey;
+
+    String aesKeyStr;
+
+    static {
+        try {
+            aseKey = CryptoUtil.generateAESKey(256);
+            aesKeyStr = CryptoUtil.rsaEncryptAESKey(aseKey, );
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     /**
      * 发送日志
      */
-    private static String postLogJSON(String json) {
+    private static String postLogJSON(String data) throws Exception {
+        String s = CryptoUtil.aesEncrypt(data, aseKey);
+
+        String
         try {
             return HttpUtil.post(LOG.getUrl(), json);
         } catch (Exception e) {
@@ -50,8 +68,6 @@ public final class PostToServer {
             return StrUtil.EMPTY;
         }
     }
-
-
 
     /**
      * 发送任意 json

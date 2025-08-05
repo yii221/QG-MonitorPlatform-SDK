@@ -33,7 +33,7 @@ public class UserController {
     public Result getUser(@PathVariable("id") Integer id) {
         Long userID = id.longValue();
         LogUtils.info("Fetching user with ID: " + userID);
-        int i = 1/0;
+
         return userService.getUser(userID);
     }
 
