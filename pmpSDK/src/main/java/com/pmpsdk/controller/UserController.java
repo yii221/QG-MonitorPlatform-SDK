@@ -3,7 +3,7 @@ package com.pmpsdk.controller;
 import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.domain.Result;
-import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +32,8 @@ public class UserController {
     @Monitor
     public Result getUser(@PathVariable("id") Integer id) {
         Long userID = id.longValue();
-        LogUtils.info("Fetching user with ID: " + userID);
-
+        LogUtil.info("Fetching user with ID: " + userID);
+        int i = 1/0;
         return userService.getUser(userID);
     }
 

@@ -1,10 +1,9 @@
 package com.pmpsdk.aspect;
 
 import com.pmpsdk.domain.EnvironmentSnapshot;
-import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.GetClientIpUtil;
 
-import com.pmpsdk.utils.GetClientResourceUtil;
 import com.pmpsdk.utils.UserAgentUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,7 +42,7 @@ public class SecurityCheckAspect {
         System.out.println("IP: " + ip + ", User-Agent: " + userAgent);
         // 简单示例：判断IP是否在黑名单
         if (/*isBlackIp(ip)*/ true) {
-            LogUtils.warn("检测到黑名单IP访问: " + ip + ", UA: "
+            LogUtil.warn("检测到黑名单IP访问: " + ip + ", UA: "
                     + userAgent + "\n解析处理后信息：" + environmentSnapshot + "\n\n");
         }
         // 如果检查通过，继续执行目标方法

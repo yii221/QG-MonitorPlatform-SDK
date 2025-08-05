@@ -39,7 +39,6 @@ public final class PostToServer {
     private static String postLogJSON(String data) throws Exception {
         String s = CryptoUtil.aesEncrypt(data, aseKey);
 
-        String
         try {
             return HttpUtil.post(LOG.getUrl(), json);
         } catch (Exception e) {
@@ -60,6 +59,9 @@ public final class PostToServer {
         }
     }
 
+    /**
+     * 发送性能
+     */
     private static String postPerformanceJSON(String json) {
         try {
             return HttpUtil.post(LOG.getUrl(), json);
@@ -68,6 +70,7 @@ public final class PostToServer {
             return StrUtil.EMPTY;
         }
     }
+
 
     /**
      * 发送任意 json
