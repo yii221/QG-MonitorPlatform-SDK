@@ -112,7 +112,7 @@ public class Log {
      * 设置
      * @param module
      */
-    public void setModel(String module) {
+    public void setModule(String module) {
         this.module = module;
     }
 

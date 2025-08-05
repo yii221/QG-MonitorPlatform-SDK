@@ -6,6 +6,7 @@ import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.domain.ErrorMessage;
 import com.pmpsdk.domain.Log;
+import com.pmpsdk.domain.PerformanceLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,6 +41,17 @@ public final class PostToServer {
             return StrUtil.EMPTY;
         }
     }
+
+    private static String postPerformanceJSON(String json) {
+        try {
+            return HttpUtil.post(LOG.getUrl(), json);
+        } catch (Exception e) {
+            logger.error("===Q=G==>远程服务器繁忙，请稍后再尝试发送性能日志...", e);
+            return StrUtil.EMPTY;
+        }
+    }
+
+
 
     /**
      * 发送任意 json
@@ -76,6 +88,18 @@ public final class PostToServer {
             logger.debug("日志上报响应: {}", response);
         } catch (Exception e) {
             logger.error("日志上报异常", e);
+        }
+    }
+
+    public static void sendPerformanceLogMessage(List<PerformanceLog> logs) {
+        try {
+            String json = JSONUtil.toJsonStr(logs);
+            logger.debug("准备上报性能日志: {}", json);
+
+            String response = postPerformanceJSON(json);
+            logger.debug("性能日志上报响应: {}", response);
+        } catch (Exception e) {
+            logger.error("性能日志上报异常", e);
         }
     }
 

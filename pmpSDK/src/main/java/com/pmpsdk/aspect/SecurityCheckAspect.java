@@ -1,6 +1,7 @@
 package com.pmpsdk.aspect;
 
 import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.GetClientIpUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,8 +29,11 @@ public class SecurityCheckAspect {
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
         // 在这里进行安全检查
         // 获取请求信息
+
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String ip = request.getRemoteAddr();
+
+        String ip = GetClientIpUtil.getClientIp(request);
+
         String userAgent = request.getHeader("User-Agent");
         System.out.println("IP: " + ip + ", User-Agent: " + userAgent);
         // 简单示例：判断IP是否在黑名单

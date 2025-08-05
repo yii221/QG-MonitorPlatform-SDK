@@ -1074,3 +1074,181 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T15:25:20.093+08:00  INFO 17172 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T15:25:20.097+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
 2025-08-05T15:25:20.100+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T15:39:22.935+08:00  INFO 31724 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 31724 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T15:39:22.936+08:00  INFO 31724 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T15:39:23.377+08:00  INFO 31724 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T15:39:23.378+08:00  INFO 31724 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T15:39:23.398+08:00  INFO 31724 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-08-05T15:39:23.842+08:00  INFO 31724 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-08-05T15:39:23.851+08:00  INFO 31724 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T15:39:23.851+08:00  INFO 31724 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T15:39:23.879+08:00  INFO 31724 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T15:39:23.879+08:00  INFO 31724 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 907 ms
+2025-08-05T15:39:24.708+08:00  INFO 31724 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-08-05T15:39:24.714+08:00  INFO 31724 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.075 seconds (process running for 2.434)
+2025-08-05T15:39:57.597+08:00  INFO 31724 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T15:39:57.602+08:00  INFO 31724 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T15:39:57.606+08:00  INFO 31724 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T15:39:59.682+08:00  INFO 29520 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 29520 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T15:39:59.684+08:00  INFO 29520 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T15:40:00.134+08:00  INFO 29520 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T15:40:00.136+08:00  INFO 29520 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T15:40:00.153+08:00  INFO 29520 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T15:40:00.598+08:00  INFO 29520 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T15:40:00.607+08:00  INFO 29520 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T15:40:00.607+08:00  INFO 29520 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T15:40:00.647+08:00  INFO 29520 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T15:40:00.647+08:00  INFO 29520 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 925 ms
+2025-08-05T15:40:01.434+08:00  INFO 29520 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T15:40:01.439+08:00  INFO 29520 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.079 seconds (process running for 2.452)
+2025-08-05T15:40:03.038+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T15:40:03.038+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T15:40:03.039+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T15:40:03.067+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:40:03.069+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:40:03.070+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:40:03.088+08:00 ERROR 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T15:40:03.093+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T15:40:03.104+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : [4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T15:40:05.090+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:6389/47.113.224.195:5432] Connection is established. ID: 4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3
+2025-08-05T15:40:07.145+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3
+2025-08-05T15:40:10.404+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 7334 ms
+2025-08-05T15:40:38.123+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:40:38.680+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 556 ms
+2025-08-05T15:52:38.972+08:00  INFO 29520 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T15:52:38.980+08:00  INFO 29520 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T15:52:38.984+08:00  INFO 29520 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T15:52:38.987+08:00  INFO 29520 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:09:02.230+08:00  INFO 2916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 2916 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:09:02.231+08:00  INFO 2916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:09:02.667+08:00  INFO 2916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:09:02.668+08:00  INFO 2916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:09:02.684+08:00  INFO 2916 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:09:03.164+08:00  INFO 2916 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:09:03.175+08:00  INFO 2916 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:09:03.176+08:00  INFO 2916 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:09:03.225+08:00  INFO 2916 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:09:03.226+08:00  INFO 2916 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 958 ms
+2025-08-05T16:09:04.154+08:00  INFO 2916 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:09:04.160+08:00  INFO 2916 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.236 seconds (process running for 2.629)
+2025-08-05T16:09:20.269+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:09:20.269+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:09:20.270+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:09:20.300+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:20.302+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:20.303+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:09:20.320+08:00 ERROR 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:09:20.326+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:09:20.337+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : [1dbe6f7e-babb-4ca2-84d1-ba651355a34e] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:09:21.756+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7571/47.113.224.195:5432] Connection is established. ID: 1dbe6f7e-babb-4ca2-84d1-ba651355a34e
+2025-08-05T16:09:24.284+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 1dbe6f7e-babb-4ca2-84d1-ba651355a34e
+2025-08-05T16:09:26.389+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 6086 ms
+2025-08-05T16:09:54.761+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:09:55.174+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 412 ms
+2025-08-05T16:09:59.682+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:10:00.095+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 413 ms
+2025-08-05T16:10:00.824+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:10:01.819+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 995 ms
+2025-08-05T16:10:02.219+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:10:03.017+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 798 ms
+2025-08-05T16:13:13.791+08:00  INFO 2916 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:13:13.795+08:00  INFO 2916 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:13:13.797+08:00  INFO 2916 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:13:13.799+08:00  INFO 2916 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:13:17.349+08:00  INFO 1240 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 1240 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:13:17.350+08:00  INFO 1240 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:13:17.847+08:00  INFO 1240 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:13:17.849+08:00  INFO 1240 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:13:17.870+08:00  INFO 1240 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:13:18.345+08:00  INFO 1240 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:13:18.354+08:00  INFO 1240 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:13:18.355+08:00  INFO 1240 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:13:18.395+08:00  INFO 1240 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:13:18.396+08:00  INFO 1240 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1008 ms
+2025-08-05T16:13:19.195+08:00  INFO 1240 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:13:19.202+08:00  INFO 1240 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.163 seconds (process running for 2.517)
+2025-08-05T16:13:21.964+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:13:21.964+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:13:21.965+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:13:21.991+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:21.993+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:13:22.009+08:00 ERROR 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:13:22.015+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:13:22.026+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : [c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:13:23.581+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7661/47.113.224.195:5432] Connection is established. ID: c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16
+2025-08-05T16:13:26.198+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16
+2025-08-05T16:13:34.987+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:34.987+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:13:43.156+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:43.157+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:13:53.336+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:53.337+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:14:01.052+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:01.053+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:14:07.430+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:07.430+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:14:17.480+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:17.481+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:14:22.868+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:22.868+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:15:37.625+08:00  INFO 1240 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:15:37.629+08:00  INFO 1240 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:15:37.631+08:00  INFO 1240 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:15:37.634+08:00  INFO 1240 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:15:46.378+08:00  INFO 6132 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 6132 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:15:46.380+08:00  INFO 6132 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:15:46.820+08:00  INFO 6132 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:15:46.822+08:00  INFO 6132 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:15:46.839+08:00  INFO 6132 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:15:47.316+08:00  INFO 6132 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:15:47.327+08:00  INFO 6132 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:15:47.327+08:00  INFO 6132 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:15:47.357+08:00  INFO 6132 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:15:47.357+08:00  INFO 6132 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 942 ms
+2025-08-05T16:15:48.245+08:00  INFO 6132 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:15:48.250+08:00  INFO 6132 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.183 seconds (process running for 2.582)
+2025-08-05T16:15:49.814+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T16:15:49.814+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T16:15:49.815+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T16:15:49.845+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:15:49.847+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:15:49.848+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:15:49.866+08:00 ERROR 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T16:15:49.873+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T16:15:49.884+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : [ba9ef696-3b0a-4b04-ac46-bddbb475bd7b] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T16:15:51.050+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7739/47.113.224.195:5432] Connection is established. ID: ba9ef696-3b0a-4b04-ac46-bddbb475bd7b
+2025-08-05T16:15:52.500+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: ba9ef696-3b0a-4b04-ac46-bddbb475bd7b
+2025-08-05T16:15:54.933+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
+2025-08-05T16:16:00.457+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:16:00.823+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 365 ms
+2025-08-05T16:17:10.908+08:00  INFO 6132 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:17:10.916+08:00  INFO 6132 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:17:10.920+08:00  INFO 6132 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T16:17:10.922+08:00  INFO 6132 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-08-05T16:17:14.834+08:00  INFO 7224 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 23.0.1 with PID 7224 (E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 17811 in E:\桌面\sdk\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T16:17:14.835+08:00  INFO 7224 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T16:17:15.297+08:00  INFO 7224 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T16:17:15.299+08:00  INFO 7224 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T16:17:15.318+08:00  INFO 7224 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-08-05T16:17:15.787+08:00  INFO 7224 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T16:17:15.796+08:00  INFO 7224 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T16:17:15.796+08:00  INFO 7224 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T16:17:15.834+08:00  INFO 7224 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T16:17:15.834+08:00  INFO 7224 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 961 ms
+2025-08-05T16:17:16.716+08:00  INFO 7224 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-05T16:17:16.722+08:00  INFO 7224 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.195 seconds (process running for 2.61)
+2025-08-05T16:17:38.192+08:00  INFO 7224 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T16:17:38.197+08:00  INFO 7224 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T16:17:38.199+08:00  INFO 7224 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
