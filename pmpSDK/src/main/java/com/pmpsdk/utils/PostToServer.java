@@ -9,6 +9,8 @@ import com.pmpsdk.domain.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static com.pmpsdk.utils.PostUrl.ERROR;
 import static com.pmpsdk.utils.PostUrl.LOG;
 
@@ -64,15 +66,10 @@ public final class PostToServer {
     }
 
 
-    public static void sendMessage(String level, String message, String model) {
+    public static void sendLogMessage(List<Log> logs) {
         try {
-            Log log = new Log();
-            log.setTimestamp(System.currentTimeMillis());
-            log.setLevel(level);
-            log.setContext(message);
-            log.setModel(model);
 
-            String json = JSONUtil.toJsonStr(log);
+            String json = JSONUtil.toJsonStr(logs);
             logger.debug("准备上报日志: {}", json);
 
             String response = postLogJSON(json);

@@ -1,11 +1,15 @@
 package com.pmpsdk.log;
 
 
+import com.pmpsdk.QGAPIClientConfig;
 import com.pmpsdk.annotation.Model;
+
 import com.pmpsdk.domain.Log;
+import com.pmpsdk.utils.PostToServer;
+import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.stylesheets.LinkStyle;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 
-import static com.pmpsdk.utils.PostToServer.sendMessage;
+
 
 public class LogUtils {
     private static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
@@ -27,6 +31,8 @@ public class LogUtils {
 
     private static final Queue<Log> logQueue = new ConcurrentLinkedQueue<>();
 
+    @Resource
+    private static QGAPIClientConfig qgAPIClientConfig;
 
     static {
         // 定时每秒输出QPS
@@ -39,6 +45,7 @@ public class LogUtils {
             if (!batch.isEmpty()) {
                 try {
                     // 这里将批量日志发送到服务器
+                    PostToServer.sendLogMessage(batch);
                     System.out.println("批量日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
                     logger.error("批量日志上报异常", e);
@@ -61,7 +68,6 @@ public class LogUtils {
         totalCount.increment();
         currentSecondCount.incrementAndGet();
         logQueue.add(buildLog("INFO", message, getModel()));
-        sendMessage("DEBUG", message, getModel());
     }
 
     public static void warn(String message) {
@@ -103,6 +109,7 @@ public class LogUtils {
         log.setLevel(level);
         log.setContext(message);
         log.setModel(model);
+        log.setProjectId(qgAPIClientConfig.qgApiClient().getProjectToken());
         return log;
     }
 

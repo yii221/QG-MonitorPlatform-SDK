@@ -12,7 +12,7 @@ import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
-@Data
+
 public class QGAPIClient {
     private String accessKey;
     private String secretKey;
@@ -52,6 +52,9 @@ public class QGAPIClient {
         this.sentryUrl = sentryUrl;
         this.apiBaseUrl = apiBaseUrl;
         this.environment = environment;
+    }
+
+    public QGAPIClient() {
     }
 
 
@@ -143,5 +146,105 @@ public class QGAPIClient {
         String sign = DigestUtil.sha256Hex(body + secretKey);
 
         return sign;
+    }
+
+    /**
+     * 获取
+     * @return accessKey
+     */
+    public String getAccessKey() {
+        return accessKey;
+    }
+
+    /**
+     * 设置
+     * @param accessKey
+     */
+    public void setAccessKey(String accessKey) {
+        this.accessKey = accessKey;
+    }
+
+    /**
+     * 获取
+     * @return secretKey
+     */
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    /**
+     * 设置
+     * @param secretKey
+     */
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+    /**
+     * 获取
+     * @return projectToken
+     */
+    public String getProjectToken() {
+        return projectToken;
+    }
+
+    /**
+     * 设置
+     * @param projectToken
+     */
+    public void setProjectToken(String projectToken) {
+        this.projectToken = projectToken;
+    }
+
+    /**
+     * 获取
+     * @return sentryUrl
+     */
+    public String getSentryUrl() {
+        return sentryUrl;
+    }
+
+    /**
+     * 设置
+     * @param sentryUrl
+     */
+    public void setSentryUrl(String sentryUrl) {
+        this.sentryUrl = sentryUrl;
+    }
+
+    /**
+     * 获取
+     * @return apiBaseUrl
+     */
+    public String getApiBaseUrl() {
+        return apiBaseUrl;
+    }
+
+    /**
+     * 设置
+     * @param apiBaseUrl
+     */
+    public void setApiBaseUrl(String apiBaseUrl) {
+        this.apiBaseUrl = apiBaseUrl;
+    }
+
+    /**
+     * 获取
+     * @return environment
+     */
+    public String getEnvironment() {
+        return environment;
+    }
+
+    /**
+     * 设置
+     * @param environment
+     */
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
+    public String toString() {
+        return "QGAPIClient{accessKey = " + accessKey + ", secretKey = " + secretKey + ", projectToken = " + projectToken + ", sentryUrl = " + sentryUrl + ", apiBaseUrl = " + apiBaseUrl + ", environment = " + environment + "}";
     }
 }
