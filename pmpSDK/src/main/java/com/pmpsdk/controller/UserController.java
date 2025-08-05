@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Model(type = "user")
 @RestController
 @RequestMapping("/users")
+
 public class UserController {
 
 
@@ -31,8 +32,7 @@ public class UserController {
     @Monitor
     public Result getUser(@PathVariable("id") Integer id) {
         Long userID = id.longValue();
-        LogUtils.info("666");
-        LogUtils.debug("777");
+        LogUtils.info("Fetching user with ID: " + userID);
         return userService.getUser(userID);
     }
 

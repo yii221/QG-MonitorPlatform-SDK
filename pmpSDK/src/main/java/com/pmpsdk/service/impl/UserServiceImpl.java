@@ -1,5 +1,6 @@
 package com.pmpsdk.service.impl;
 
+import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.domain.Result;
 import com.pmpsdk.domain.User;
 import com.pmpsdk.mapper.UserMapper;
@@ -21,6 +22,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
+    @Monitor
     public Result getUser(Long id) {
         Result result = new Result();
 
