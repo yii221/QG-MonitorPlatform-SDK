@@ -28,6 +28,8 @@ import java.util.concurrent.atomic.LongAdder;
 public class LogUtils {
     private static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
 
+
+
     private static final LongAdder totalCount = new LongAdder();
     private static final LongAdder errorCount = new LongAdder();
     private static final AtomicLong currentSecondCount = new AtomicLong(0);
@@ -139,10 +141,18 @@ public class LogUtils {
         log.setLevel(level);
         log.setContext(message);
         log.setModule(module);
+
         QGAPIClient client = SpringContextUtil.getBean(QGAPIClient.class);
         if (client != null) {
             log.setProjectId(client.getProjectToken());
+            log.setEnvironment(client.getEnvironment());
         }
+
+        System.out.println("日志记录: " + log.getLevel() +
+                ", 模块: " + log.getModule() +
+                ", 内容: " + log.getContext() +
+                ", 项目ID: " + log.getProjectId() +
+                ", 环境: " + log.getEnvironment());
         return log;
     }
 

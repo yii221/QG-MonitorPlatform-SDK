@@ -86,13 +86,15 @@ public class PerformanceAspect {
 
 
             log.setProjectId(qgAPIClient.getProjectToken());
+            log.setEnvironment(qgAPIClient.getEnvironment());
 
 
             System.out.println("API: " + log.getApi() +
                     ", Duration: " + log.getDuration() + "ms" +
                     ", Module: " + log.getModule() +
                     ", Project ID: " + log.getProjectId() +
-                    ", Slow: " + log.isSlow());
+                    ", Slow: " + log.isSlow()
+                    + ", Environment: " + log.getEnvironment());
             // 上报性能日志
 
             logQueue.add(log);
