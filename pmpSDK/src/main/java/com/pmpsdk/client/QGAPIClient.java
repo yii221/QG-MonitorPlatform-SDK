@@ -5,10 +5,12 @@ import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
+
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.dto.UserDTO;
 import com.pmpsdk.log.LogUtils;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,25 +22,55 @@ public class QGAPIClient {
     private String sentryUrl;
     // 业务接口地址
     private String apiBaseUrl;
+    // 运行环境
+    private String environment;
 
     /**
      * 构造客户端 API实例
-     *
-     * @param accessKey    访问密钥
-     * @param secretKey    加密密钥
-     * @param projectToken 项目令牌
-     * @param sentryUrl    Sentry网页地址
-     * @param apiBaseUrl   接口地址
      */
-    public QGAPIClient(String accessKey, String secretKey
-            , String projectToken, String sentryUrl
-            , String apiBaseUrl) {
-        this.accessKey = accessKey;
-        this.secretKey = secretKey;
-        this.projectToken = projectToken;
-        this.sentryUrl = sentryUrl;
-        this.apiBaseUrl = apiBaseUrl;
-        LogUtils.info("QGAPIClient initialized with accessKey: {}, sentryUrl: {}", accessKey, sentryUrl);
+    public QGAPIClient(Object... args) {
+        for (Object arg : args) {
+            try {
+                // 获取参数类型和 setter 方法名
+                Class<?> clazz = arg.getClass();
+                String methodName = "set" + capitalize(clazz.getSimpleName());
+
+                // 查找匹配的 setter 方法
+                Method setter = findSetterMethod(this.getClass(), methodName, clazz);
+                if (setter != null) {
+                    setter.invoke(this, arg); // 动态调用 set 方法
+                } else {
+                    System.err.println("Setter not found for: " + methodName);
+                }
+            } catch (Exception e) {
+                System.err.println("Error invoking setter: " + e.getMessage());
+            }
+
+        }
+    }
+
+    /**
+     * 首字母大写
+     * @param str
+     * @return
+     */
+    private String capitalize(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
+    /**
+     * 获取 setter方法
+     * @param clazz
+     * @param methodName
+     * @param paramType
+     * @return
+     */
+    private Method findSetterMethod(Class<?> clazz, String methodName, Class<?> paramType) {
+        try {
+            return clazz.getMethod(methodName, paramType);
+        } catch (NoSuchMethodException e) {
+            return null;
+        }
     }
 
 
