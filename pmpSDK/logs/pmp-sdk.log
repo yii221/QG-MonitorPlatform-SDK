@@ -13,8 +13,8 @@
 2025-08-05T10:31:38.422+08:00  INFO 24784 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T10:31:38.422+08:00  INFO 24784 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T10:31:38.423+08:00  INFO 24784 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T10:31:38.451+08:00  INFO 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 666
-2025-08-05T10:31:59.554+08:00 ERROR 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 日志上报异常
+2025-08-05T10:31:38.451+08:00  INFO 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 666
+2025-08-05T10:31:59.554+08:00 ERROR 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 日志上报异常
 
 cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1350) ~[hutool-all-5.8.26.jar:5.8.26]
@@ -23,8 +23,8 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1027) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:229) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
-	at com.pmpsdk.log.LogUtils.sendToServer(LogUtils.java:67) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.info(LogUtils.java:42) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.sendToServer(LogUtils.java:67) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.info(LogUtils.java:42) ~[classes/:na]
 	at com.pmpsdk.controller.UserController.getUser(UserController.java:34) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -123,7 +123,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1342) ~[hutool-all-5.8.26.jar:5.8.26]
 	... 81 common frames omitted
 
-2025-08-05T10:32:20.602+08:00 ERROR 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 日志上报异常
+2025-08-05T10:32:20.602+08:00 ERROR 24784 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 日志上报异常
 
 cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1350) ~[hutool-all-5.8.26.jar:5.8.26]
@@ -132,8 +132,8 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1027) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:229) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
-	at com.pmpsdk.log.LogUtils.sendToServer(LogUtils.java:67) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.debug(LogUtils.java:18) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.sendToServer(LogUtils.java:67) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.debug(LogUtils.java:18) ~[classes/:na]
 	at com.pmpsdk.controller.UserController.getUser(UserController.java:35) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -376,8 +376,8 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:07:42.150+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:07:42.150+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:07:42.151+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T11:07:42.177+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T11:08:03.271+08:00 ERROR 14484 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 日志上报异常
+2025-08-05T11:07:42.177+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T11:08:03.271+08:00 ERROR 14484 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 日志上报异常
 
 cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1350) ~[hutool-all-5.8.26.jar:5.8.26]
@@ -386,8 +386,8 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1027) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:229) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
-	at com.pmpsdk.log.LogUtils.sendToServer(LogUtils.java:76) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.info(LogUtils.java:46) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.sendToServer(LogUtils.java:76) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.info(LogUtils.java:46) ~[classes/:na]
 	at com.pmpsdk.controller.UserController.getUser(UserController.java:35) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -491,9 +491,9 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:08:03.309+08:00  INFO 14484 --- [pmpSDK] [Druid-ConnectionPool-Create-2110743975] o.o.core.v3.ConnectionFactoryImpl        : [37fcea71-4f89-49fe-843f-cd426ba68746] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T11:08:03.578+08:00  INFO 14484 --- [pmpSDK] [Druid-ConnectionPool-Create-2110743975] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:5826/47.113.224.195:5432] Connection is established. ID: 37fcea71-4f89-49fe-843f-cd426ba68746
 2025-08-05T11:08:03.979+08:00  INFO 14484 --- [pmpSDK] [Druid-ConnectionPool-Create-2110743975] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 37fcea71-4f89-49fe-843f-cd426ba68746
-2025-08-05T11:09:56.790+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:09:56.790+08:00  INFO 14484 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:10:08.201+08:00  INFO 14484 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-05T11:10:17.828+08:00 ERROR 14484 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 日志上报异常
+2025-08-05T11:10:17.828+08:00 ERROR 14484 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : 日志上报异常
 
 cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1350) ~[hutool-all-5.8.26.jar:5.8.26]
@@ -502,8 +502,8 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1027) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:229) ~[hutool-all-5.8.26.jar:5.8.26]
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
-	at com.pmpsdk.log.LogUtils.sendToServer(LogUtils.java:76) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.info(LogUtils.java:46) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.sendToServer(LogUtils.java:76) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.info(LogUtils.java:46) ~[classes/:na]
 	at com.pmpsdk.controller.UserController.getUser(UserController.java:35) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -620,15 +620,15 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:10:31.064+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:10:31.065+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:10:31.066+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T11:10:31.092+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:10:31.092+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:10:31.112+08:00 ERROR 3524 --- [pmpSDK] [http-nio-8080-exec-2] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T11:10:31.118+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T11:10:31.130+08:00  INFO 3524 --- [pmpSDK] [Druid-ConnectionPool-Create-2055374167] o.o.core.v3.ConnectionFactoryImpl        : [bc0c8aa5-b89f-423e-8cc7-2f960d8bf60f] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T11:10:31.391+08:00  INFO 3524 --- [pmpSDK] [Druid-ConnectionPool-Create-2055374167] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:5870/47.113.224.195:5432] Connection is established. ID: bc0c8aa5-b89f-423e-8cc7-2f960d8bf60f
 2025-08-05T11:10:31.787+08:00  INFO 3524 --- [pmpSDK] [Druid-ConnectionPool-Create-2055374167] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: bc0c8aa5-b89f-423e-8cc7-2f960d8bf60f
-2025-08-05T11:10:39.691+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T11:10:40.671+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T11:10:41.524+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:10:39.691+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T11:10:40.671+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T11:10:41.524+08:00  INFO 3524 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:10:47.183+08:00  INFO 3524 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T11:10:47.188+08:00  INFO 3524 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T11:10:47.192+08:00  INFO 3524 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -648,13 +648,13 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:11:20.929+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:11:20.929+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:11:20.930+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T11:11:20.954+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:11:20.954+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:11:20.971+08:00 ERROR 12608 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T11:11:20.978+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T11:11:20.989+08:00  INFO 12608 --- [pmpSDK] [Druid-ConnectionPool-Create-1764182062] o.o.core.v3.ConnectionFactoryImpl        : [61df558d-846b-4f04-9f3c-1b95785936d3] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T11:11:21.258+08:00  INFO 12608 --- [pmpSDK] [Druid-ConnectionPool-Create-1764182062] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:5892/47.113.224.195:5432] Connection is established. ID: 61df558d-846b-4f04-9f3c-1b95785936d3
 2025-08-05T11:11:22.127+08:00  INFO 12608 --- [pmpSDK] [Druid-ConnectionPool-Create-1764182062] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 61df558d-846b-4f04-9f3c-1b95785936d3
-2025-08-05T11:11:23.706+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:11:23.706+08:00  INFO 12608 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:11:28.232+08:00  INFO 12608 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T11:11:28.236+08:00  INFO 12608 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T11:11:28.241+08:00  INFO 12608 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -674,7 +674,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:45:06.191+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:45:06.191+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:45:06.192+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T11:45:06.219+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:45:06.219+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:45:06.241+08:00 ERROR 18888 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T11:45:06.249+08:00  INFO 18888 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T11:45:06.264+08:00  INFO 18888 --- [pmpSDK] [Druid-ConnectionPool-Create-1397013686] o.o.core.v3.ConnectionFactoryImpl        : [d8be7883-a0bd-4ecc-b9b2-f9fdba0f7b2d] Try to connect. IP: 47.113.224.195:5432
@@ -699,7 +699,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:50:15.333+08:00  INFO 28608 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:50:15.334+08:00  INFO 28608 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:50:15.334+08:00  INFO 28608 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-08-05T11:50:15.361+08:00  INFO 28608 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:50:15.361+08:00  INFO 28608 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:51:40.658+08:00  INFO 28608 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T11:51:40.663+08:00  INFO 28608 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T11:51:40.665+08:00  INFO 28608 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
@@ -718,7 +718,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:51:47.406+08:00  INFO 25324 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T11:51:47.406+08:00  INFO 25324 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T11:51:47.407+08:00  INFO 25324 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T11:51:47.433+08:00  INFO 25324 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T11:51:47.433+08:00  INFO 25324 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T11:54:07.765+08:00  INFO 25324 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T11:54:07.769+08:00  INFO 25324 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T11:54:07.772+08:00  INFO 25324 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
@@ -795,7 +795,7 @@ Identify and stop the process that's listening on port 8081 or configure this ap
 2025-08-05T12:05:00.261+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T12:05:00.261+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T12:05:00.262+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T12:05:00.294+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T12:05:00.294+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T12:05:00.315+08:00 ERROR 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T12:05:00.321+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T12:05:00.339+08:00  INFO 17012 --- [pmpSDK] [Druid-ConnectionPool-Create-72322556] o.o.core.v3.ConnectionFactoryImpl        : [cbead798-901d-46d5-a98e-1a680475afd8] Try to connect. IP: 47.113.224.195:5432
@@ -812,7 +812,7 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
 	at com.pmpsdk.utils.PostToServer.postLogJSON(PostToServer.java:25) ~[classes/:na]
 	at com.pmpsdk.utils.PostToServer.sendLogMessage(PostToServer.java:75) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.lambda$static$0(LogUtils.java:48) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.lambda$static$0(LogUtils.java:48) ~[classes/:na]
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
@@ -862,14 +862,14 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T12:21:27.540+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T12:21:27.540+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T12:21:27.541+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T12:21:27.566+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T12:21:27.567+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T12:21:27.566+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T12:21:27.567+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T12:21:27.584+08:00 ERROR 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T12:21:27.589+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T12:21:27.600+08:00  INFO 14472 --- [pmpSDK] [Druid-ConnectionPool-Create-233676858] o.o.core.v3.ConnectionFactoryImpl        : [02a86f14-331f-4497-9cc7-ad4313a14b22] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T12:21:29.100+08:00  INFO 14472 --- [pmpSDK] [Druid-ConnectionPool-Create-233676858] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:14128/47.113.224.195:5432] Connection is established. ID: 02a86f14-331f-4497-9cc7-ad4313a14b22
 2025-08-05T12:21:30.736+08:00  INFO 14472 --- [pmpSDK] [Druid-ConnectionPool-Create-233676858] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 02a86f14-331f-4497-9cc7-ad4313a14b22
-2025-08-05T12:21:32.799+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5232 ms
+2025-08-05T12:21:32.799+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 5232 ms
 2025-08-05T12:21:49.690+08:00 ERROR 14472 --- [pmpSDK] [pool-2-thread-1] com.pmpsdk.utils.PostToServer            : ===Q=G==>远程服务器繁忙，请稍后再尝试发送日志...
 
 cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
@@ -881,7 +881,7 @@ cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: co
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
 	at com.pmpsdk.utils.PostToServer.postLogJSON(PostToServer.java:25) ~[classes/:na]
 	at com.pmpsdk.utils.PostToServer.sendLogMessage(PostToServer.java:75) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.lambda$static$0(LogUtils.java:48) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.lambda$static$0(LogUtils.java:48) ~[classes/:na]
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
@@ -912,9 +912,9 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1342) ~[hutool-all-5.8.26.jar:5.8.26]
 	... 14 common frames omitted
 
-2025-08-05T12:21:58.216+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T12:21:58.216+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T12:21:58.619+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 403 ms
+2025-08-05T12:21:58.216+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T12:21:58.216+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T12:21:58.619+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 403 ms
 2025-08-05T12:22:20.827+08:00 ERROR 14472 --- [pmpSDK] [pool-2-thread-1] com.pmpsdk.utils.PostToServer            : ===Q=G==>远程服务器繁忙，请稍后再尝试发送日志...
 
 cn.hutool.http.HttpException: Unexpected end of file from server
@@ -928,7 +928,7 @@ cn.hutool.http.HttpException: Unexpected end of file from server
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
 	at com.pmpsdk.utils.PostToServer.postLogJSON(PostToServer.java:25) ~[classes/:na]
 	at com.pmpsdk.utils.PostToServer.sendLogMessage(PostToServer.java:75) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.lambda$static$0(LogUtils.java:48) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.lambda$static$0(LogUtils.java:48) ~[classes/:na]
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
@@ -947,9 +947,9 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 	at cn.hutool.http.HttpResponse.init(HttpResponse.java:528) ~[hutool-all-5.8.26.jar:5.8.26]
 	... 16 common frames omitted
 
-2025-08-05T12:22:31.908+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T12:22:31.908+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T12:22:32.381+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 473 ms
+2025-08-05T12:22:31.908+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T12:22:31.908+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T12:22:32.381+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 473 ms
 2025-08-05T12:22:36.459+08:00 ERROR 14472 --- [pmpSDK] [pool-2-thread-1] com.pmpsdk.utils.PostToServer            : ===Q=G==>远程服务器繁忙，请稍后再尝试发送日志...
 
 cn.hutool.http.HttpException: Unexpected end of file from server
@@ -963,7 +963,7 @@ cn.hutool.http.HttpException: Unexpected end of file from server
 	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
 	at com.pmpsdk.utils.PostToServer.postLogJSON(PostToServer.java:25) ~[classes/:na]
 	at com.pmpsdk.utils.PostToServer.sendLogMessage(PostToServer.java:75) ~[classes/:na]
-	at com.pmpsdk.log.LogUtils.lambda$static$0(LogUtils.java:48) ~[classes/:na]
+	at com.pmpsdk.utils.LogUtil.lambda$static$0(LogUtils.java:48) ~[classes/:na]
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
@@ -982,12 +982,12 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 	at cn.hutool.http.HttpResponse.init(HttpResponse.java:528) ~[hutool-all-5.8.26.jar:5.8.26]
 	... 16 common frames omitted
 
-2025-08-05T12:22:42.500+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T12:22:42.500+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T12:22:42.915+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 415 ms
-2025-08-05T12:22:46.865+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T12:22:46.866+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T12:22:47.269+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 403 ms
+2025-08-05T12:22:42.500+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T12:22:42.500+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T12:22:42.915+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 415 ms
+2025-08-05T12:22:46.865+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T12:22:46.866+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T12:22:47.269+08:00  INFO 14472 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 403 ms
 2025-08-05T14:58:33.622+08:00  INFO 14472 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T14:58:33.629+08:00  INFO 14472 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T14:58:33.635+08:00  INFO 14472 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1022,7 +1022,7 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T15:02:01.312+08:00  INFO 11480 --- [pmpSDK] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T15:02:01.312+08:00  INFO 11480 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T15:02:01.313+08:00  INFO 11480 --- [pmpSDK] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T15:02:01.338+08:00  WARN 11480 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:02:01.338+08:00  WARN 11480 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
 2025-08-05T15:03:10.397+08:00  INFO 11480 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T15:03:10.401+08:00  INFO 11480 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T15:03:10.403+08:00  INFO 11480 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
@@ -1041,35 +1041,35 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T15:03:17.521+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T15:03:17.521+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T15:03:17.522+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-08-05T15:03:17.549+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T15:03:17.551+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:03:17.551+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:03:17.549+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:03:17.551+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:03:17.551+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T15:03:17.569+08:00 ERROR 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T15:03:17.575+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T15:03:17.589+08:00  INFO 17172 --- [pmpSDK] [Druid-ConnectionPool-Create-1911658050] o.o.core.v3.ConnectionFactoryImpl        : [7135391a-e742-4d3d-8741-4452fc006985] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T15:03:18.824+08:00  INFO 17172 --- [pmpSDK] [Druid-ConnectionPool-Create-1911658050] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:5026/47.113.224.195:5432] Connection is established. ID: 7135391a-e742-4d3d-8741-4452fc006985
 2025-08-05T15:03:20.265+08:00  INFO 17172 --- [pmpSDK] [Druid-ConnectionPool-Create-1911658050] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 7135391a-e742-4d3d-8741-4452fc006985
-2025-08-05T15:03:22.798+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5247 ms
-2025-08-05T15:05:13.945+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T15:05:13.945+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:05:13.946+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:05:14.309+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 363 ms
-2025-08-05T15:05:35.231+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T15:05:35.231+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:05:35.232+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:05:35.593+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 361 ms
-2025-08-05T15:05:36.649+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:05:37.019+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 369 ms
-2025-08-05T15:12:26.886+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
-2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:12:27.242+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 355 ms
-2025-08-05T15:12:51.275+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
-2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:12:51.665+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 389 ms
+2025-08-05T15:03:22.798+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 5247 ms
+2025-08-05T15:05:13.945+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:05:13.945+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:05:13.946+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:05:14.309+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 363 ms
+2025-08-05T15:05:35.231+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:05:35.231+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:05:35.232+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:05:35.593+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 361 ms
+2025-08-05T15:05:36.649+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:05:37.019+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 369 ms
+2025-08-05T15:12:26.886+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:12:27.242+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 355 ms
+2025-08-05T15:12:51.275+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:12:51.665+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 389 ms
 2025-08-05T15:25:20.086+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T15:25:20.093+08:00  INFO 17172 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T15:25:20.097+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1104,19 +1104,19 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T15:40:03.038+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T15:40:03.038+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T15:40:03.039+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T15:40:03.067+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T15:40:03.069+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:40:03.070+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:40:03.067+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T15:40:03.069+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:40:03.070+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T15:40:03.088+08:00 ERROR 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T15:40:03.093+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T15:40:03.104+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : [4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T15:40:05.090+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:6389/47.113.224.195:5432] Connection is established. ID: 4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3
 2025-08-05T15:40:07.145+08:00  INFO 29520 --- [pmpSDK] [Druid-ConnectionPool-Create-1210541475] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 4a6fac46-ea3a-4bf6-afa8-bdfa55f6c0f3
-2025-08-05T15:40:10.404+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 7334 ms
-2025-08-05T15:40:38.123+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
-2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T15:40:38.680+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 556 ms
+2025-08-05T15:40:10.404+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 7334 ms
+2025-08-05T15:40:38.123+08:00  WARN 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:40:38.124+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T15:40:38.680+08:00  INFO 29520 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 556 ms
 2025-08-05T15:52:38.972+08:00  INFO 29520 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T15:52:38.980+08:00  INFO 29520 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T15:52:38.984+08:00  INFO 29520 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1136,31 +1136,31 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:09:20.269+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:09:20.269+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:09:20.270+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:09:20.300+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:09:20.302+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:09:20.303+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:09:20.300+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:20.302+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:20.303+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:09:20.320+08:00 ERROR 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:09:20.326+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:09:20.337+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : [1dbe6f7e-babb-4ca2-84d1-ba651355a34e] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:09:21.756+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7571/47.113.224.195:5432] Connection is established. ID: 1dbe6f7e-babb-4ca2-84d1-ba651355a34e
 2025-08-05T16:09:24.284+08:00  INFO 2916 --- [pmpSDK] [Druid-ConnectionPool-Create-880095536] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 1dbe6f7e-babb-4ca2-84d1-ba651355a34e
-2025-08-05T16:09:26.389+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 6086 ms
-2025-08-05T16:09:54.761+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:09:55.174+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 412 ms
-2025-08-05T16:09:59.682+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:10:00.095+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 413 ms
-2025-08-05T16:10:00.824+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:10:01.819+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 995 ms
-2025-08-05T16:10:02.219+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:10:03.017+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 798 ms
+2025-08-05T16:09:26.389+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 6086 ms
+2025-08-05T16:09:54.761+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:54.762+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:09:55.174+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 412 ms
+2025-08-05T16:09:59.682+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:09:59.682+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:10:00.095+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 413 ms
+2025-08-05T16:10:00.824+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:10:00.824+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:10:01.819+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 995 ms
+2025-08-05T16:10:02.219+08:00  WARN 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:10:02.219+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:10:03.017+08:00  INFO 2916 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 798 ms
 2025-08-05T16:13:13.791+08:00  INFO 2916 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:13:13.795+08:00  INFO 2916 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:13:13.797+08:00  INFO 2916 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1180,27 +1180,27 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:13:21.964+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:13:21.964+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:13:21.965+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:13:21.991+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:13:21.993+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:13:21.991+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:21.993+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:13:22.009+08:00 ERROR 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:13:22.015+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-4] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:13:22.026+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : [c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:13:23.581+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7661/47.113.224.195:5432] Connection is established. ID: c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16
 2025-08-05T16:13:26.198+08:00  INFO 1240 --- [pmpSDK] [Druid-ConnectionPool-Create-1278264029] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: c1341e4a-0abc-442e-bbb7-1b7f1dc5aa16
-2025-08-05T16:13:34.987+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:13:34.987+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:13:43.156+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:13:43.157+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:13:53.336+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:13:53.337+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:14:01.052+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:14:01.053+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:14:07.430+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:14:07.430+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:14:17.480+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:14:17.481+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:14:22.868+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:14:22.868+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:13:34.987+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:34.987+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:13:43.156+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:43.157+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:13:53.336+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:13:53.337+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:14:01.052+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:01.053+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:14:07.430+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:07.430+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:14:17.480+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:17.481+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:14:22.868+08:00  WARN 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:14:22.868+08:00  INFO 1240 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:15:37.625+08:00  INFO 1240 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:15:37.629+08:00  INFO 1240 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:15:37.631+08:00  INFO 1240 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1220,19 +1220,19 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:15:49.814+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:15:49.814+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:15:49.815+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:15:49.845+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:15:49.847+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:15:49.848+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:15:49.845+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:15:49.847+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:15:49.848+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:15:49.866+08:00 ERROR 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:15:49.873+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:15:49.884+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : [ba9ef696-3b0a-4b04-ac46-bddbb475bd7b] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:15:51.050+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7739/47.113.224.195:5432] Connection is established. ID: ba9ef696-3b0a-4b04-ac46-bddbb475bd7b
 2025-08-05T16:15:52.500+08:00  INFO 6132 --- [pmpSDK] [Druid-ConnectionPool-Create-558225294] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: ba9ef696-3b0a-4b04-ac46-bddbb475bd7b
-2025-08-05T16:15:54.933+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
-2025-08-05T16:16:00.457+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
-2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:16:00.823+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 365 ms
+2025-08-05T16:15:54.933+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
+2025-08-05T16:16:00.457+08:00  WARN 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:16:00.458+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:16:00.823+08:00  INFO 6132 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 365 ms
 2025-08-05T16:17:10.908+08:00  INFO 6132 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:17:10.916+08:00  INFO 6132 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:17:10.920+08:00  INFO 6132 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1267,32 +1267,32 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:22:44.836+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:22:44.837+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:22:44.837+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-08-05T16:22:44.881+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
+2025-08-05T16:22:44.881+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: PostmanRuntime/7.45.0
 解析处理后信息：EnvironmentSnapshot(osName=Unknown, osArch=null, browserName=Unknown, browserVersion=null, deviceType=Unknown, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:22:44.883+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:22:44.884+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:22:44.883+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:22:44.884+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:22:44.903+08:00 ERROR 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:22:44.908+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:22:44.920+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : [fdd63bdc-d46e-421a-bce7-c37d9c166802] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:22:47.410+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:7926/47.113.224.195:5432] Connection is established. ID: fdd63bdc-d46e-421a-bce7-c37d9c166802
 2025-08-05T16:22:50.842+08:00  INFO 20340 --- [pmpSDK] [Druid-ConnectionPool-Create-1578649054] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: fdd63bdc-d46e-421a-bce7-c37d9c166802
-2025-08-05T16:22:53.018+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 8135 ms
-2025-08-05T16:23:09.780+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:22:53.018+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 8135 ms
+2025-08-05T16:23:09.780+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:23:10.205+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 425 ms
-2025-08-05T16:24:18.182+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:23:09.780+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:23:10.205+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 425 ms
+2025-08-05T16:24:18.182+08:00  WARN 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:24:18.610+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 428 ms
+2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:24:18.182+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:24:18.610+08:00  INFO 20340 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 428 ms
 2025-08-05T16:29:40.741+08:00  INFO 20340 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:29:40.749+08:00  INFO 20340 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:29:40.754+08:00  INFO 20340 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1312,39 +1312,39 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:29:50.622+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:29:50.622+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:29:50.623+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:29:50.666+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:29:50.666+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:29:50.668+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:29:50.669+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:29:50.668+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:29:50.669+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:29:50.686+08:00 ERROR 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:29:50.692+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:29:50.705+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : [81974fd9-bffc-45a3-a0fd-24d71f521413] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:29:52.202+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8263/47.113.224.195:5432] Connection is established. ID: 81974fd9-bffc-45a3-a0fd-24d71f521413
 2025-08-05T16:29:53.899+08:00  INFO 30528 --- [pmpSDK] [Druid-ConnectionPool-Create-457813260] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 81974fd9-bffc-45a3-a0fd-24d71f521413
-2025-08-05T16:29:56.048+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5379 ms
-2025-08-05T16:30:11.534+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:29:56.048+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 5379 ms
+2025-08-05T16:30:11.534+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:30:11.974+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 439 ms
-2025-08-05T16:30:21.665+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:30:11.535+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:30:11.974+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 439 ms
+2025-08-05T16:30:21.665+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:30:22.107+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 442 ms
-2025-08-05T16:32:41.012+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
+2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:30:21.665+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:30:22.107+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 442 ms
+2025-08-05T16:32:41.012+08:00  WARN 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=130.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:32:41.434+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 421 ms
+2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:32:41.013+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:32:41.434+08:00  INFO 30528 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 421 ms
 2025-08-05T16:32:49.281+08:00  INFO 30528 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:32:49.285+08:00  INFO 30528 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:32:49.288+08:00  INFO 30528 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1364,32 +1364,32 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:32:55.847+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:32:55.848+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:32:55.848+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-08-05T16:32:55.892+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
+2025-08-05T16:32:55.892+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 192.168.1.233, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 QuarkPC/4.2.7.457
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=130.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:32:55.895+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:32:55.913+08:00 ERROR 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:32:55.918+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:32:55.928+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : [75b9fdda-3ab5-46f8-8ef8-b7f30f285c88] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:32:57.203+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8353/47.113.224.195:5432] Connection is established. ID: 75b9fdda-3ab5-46f8-8ef8-b7f30f285c88
 2025-08-05T16:32:58.708+08:00  INFO 22892 --- [pmpSDK] [Druid-ConnectionPool-Create-295491842] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 75b9fdda-3ab5-46f8-8ef8-b7f30f285c88
-2025-08-05T16:33:00.601+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4706 ms
-2025-08-05T16:33:33.562+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:33:00.601+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 4706 ms
+2025-08-05T16:33:33.562+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:33:33.562+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:33:33.563+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:33:33.945+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 382 ms
-2025-08-05T16:38:27.279+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:33:33.562+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:33:33.563+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:33:33.945+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 382 ms
+2025-08-05T16:38:27.279+08:00  WARN 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:38:27.666+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 386 ms
+2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:38:27.280+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:38:27.666+08:00  INFO 22892 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 386 ms
 2025-08-05T16:46:28.377+08:00  INFO 22892 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:46:28.381+08:00  INFO 22892 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:46:28.384+08:00  INFO 22892 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1409,77 +1409,77 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:46:39.078+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:46:39.078+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:46:39.079+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:46:39.123+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:46:39.123+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:39.125+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:39.126+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:39.125+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:39.126+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:46:39.143+08:00 ERROR 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:46:39.148+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:46:39.159+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [23bebd00-0c53-46b2-bfa8-5f61ac3d321c] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:46:42.526+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8651/47.113.224.195:5432] Connection is established. ID: 23bebd00-0c53-46b2-bfa8-5f61ac3d321c
-2025-08-05T16:46:43.196+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:46:43.196+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:43.197+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:46:44.183+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 23bebd00-0c53-46b2-bfa8-5f61ac3d321c
 2025-08-05T16:46:46.461+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [a6321007-cadb-4744-bd50-87c301040f37] Try to connect. IP: 47.113.224.195:5432
-2025-08-05T16:46:46.914+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 7788 ms
-2025-08-05T16:46:47.326+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4129 ms
-2025-08-05T16:46:47.458+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:46:46.914+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 7788 ms
+2025-08-05T16:46:47.326+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 4129 ms
+2025-08-05T16:46:47.458+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:47.459+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:47.460+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:46:47.459+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:47.460+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:46:47.866+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8658/47.113.224.195:5432] Connection is established. ID: a6321007-cadb-4744-bd50-87c301040f37
-2025-08-05T16:46:47.871+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 411 ms
+2025-08-05T16:46:47.871+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 411 ms
 2025-08-05T16:46:49.691+08:00  INFO 13344 --- [pmpSDK] [Druid-ConnectionPool-Create-1768835678] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: a6321007-cadb-4744-bd50-87c301040f37
-2025-08-05T16:46:50.423+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:46:50.423+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:46:50.834+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 410 ms
-2025-08-05T16:46:54.756+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:50.424+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:46:50.834+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-8] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 410 ms
+2025-08-05T16:46:54.756+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:46:55.176+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 419 ms
-2025-08-05T16:46:59.378+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:54.757+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:46:55.176+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 419 ms
+2025-08-05T16:46:59.378+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:46:59.791+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 412 ms
-2025-08-05T16:47:02.652+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:46:59.379+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:46:59.791+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 412 ms
+2025-08-05T16:47:02.652+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:47:03.084+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 431 ms
-2025-08-05T16:47:09.463+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:02.653+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:47:03.084+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-7] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 431 ms
+2025-08-05T16:47:09.463+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:47:09.880+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 417 ms
-2025-08-05T16:47:13.008+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:09.463+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:47:09.880+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-5] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 417 ms
+2025-08-05T16:47:13.008+08:00  WARN 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:47:13.418+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 409 ms
+2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:47:13.009+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:47:13.418+08:00  INFO 13344 --- [pmpSDK] [http-nio-8080-exec-9] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 409 ms
 2025-08-05T16:47:40.068+08:00  INFO 13344 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:47:40.072+08:00  INFO 13344 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:47:40.075+08:00  INFO 13344 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1514,35 +1514,35 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T16:48:53.590+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T16:48:53.590+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T16:48:53.591+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T16:48:53.633+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:48:53.633+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:48:53.636+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:48:53.637+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:48:53.636+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:48:53.637+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:48:53.655+08:00 ERROR 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T16:48:53.660+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T16:48:53.672+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [928ac3a0-1c50-41b8-9731-d67d1e4b770d] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T16:48:54.857+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8801/47.113.224.195:5432] Connection is established. ID: 928ac3a0-1c50-41b8-9731-d67d1e4b770d
 2025-08-05T16:48:56.332+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 928ac3a0-1c50-41b8-9731-d67d1e4b770d
-2025-08-05T16:48:57.663+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:48:57.663+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:48:57.664+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T16:48:57.810+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [fdf928a1-ca4a-439d-b378-f9781cc1b704] Try to connect. IP: 47.113.224.195:5432
-2025-08-05T16:48:58.215+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 4578 ms
-2025-08-05T16:48:58.576+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 912 ms
+2025-08-05T16:48:58.215+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 4578 ms
+2025-08-05T16:48:58.576+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-2] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 912 ms
 2025-08-05T16:48:59.003+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:8810/47.113.224.195:5432] Connection is established. ID: fdf928a1-ca4a-439d-b378-f9781cc1b704
 2025-08-05T16:49:00.458+08:00  INFO 28496 --- [pmpSDK] [Druid-ConnectionPool-Create-1656188950] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: fdf928a1-ca4a-439d-b378-f9781cc1b704
-2025-08-05T16:49:26.338+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T16:49:26.338+08:00  WARN 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T16:49:26.708+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 369 ms
+2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T16:49:26.339+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T16:49:26.708+08:00  INFO 28496 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 369 ms
 2025-08-05T16:51:17.266+08:00  INFO 28496 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T16:51:17.270+08:00  INFO 28496 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T16:51:17.273+08:00  INFO 28496 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1562,25 +1562,25 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T17:16:10.797+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T17:16:10.798+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T17:16:10.799+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T17:16:10.842+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T17:16:10.842+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T17:16:10.844+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T17:16:10.845+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T17:16:10.844+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:16:10.845+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
 2025-08-05T17:16:10.860+08:00 ERROR 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
 2025-08-05T17:16:10.867+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 2025-08-05T17:16:10.878+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : [1ddccced-ca4c-4fb7-9747-090c64ecdac6] Try to connect. IP: 47.113.224.195:5432
 2025-08-05T17:16:12.021+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : [172.29.0.1:9390/47.113.224.195:5432] Connection is established. ID: 1ddccced-ca4c-4fb7-9747-090c64ecdac6
 2025-08-05T17:16:13.483+08:00  INFO 31260 --- [pmpSDK] [Druid-ConnectionPool-Create-29861879] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: 1ddccced-ca4c-4fb7-9747-090c64ecdac6
-2025-08-05T17:16:15.930+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
-2025-08-05T17:17:20.933+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T17:16:15.930+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 5086 ms
+2025-08-05T17:17:20.933+08:00  WARN 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T17:17:21.296+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 362 ms
+2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:17:20.934+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T17:17:21.296+08:00  INFO 31260 --- [pmpSDK] [http-nio-8080-exec-4] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 362 ms
 2025-08-05T17:17:44.096+08:00  INFO 31260 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T17:17:44.104+08:00  INFO 31260 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T17:17:44.108+08:00  INFO 31260 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
@@ -1600,16 +1600,31 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T17:18:10.412+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-08-05T17:18:10.412+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-08-05T17:18:10.413+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-05T17:18:10.454+08:00  WARN 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+2025-08-05T17:18:10.454+08:00  WARN 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 检测到黑名单IP访问: 0:0:0:0:0:0:0:1, UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
 解析处理后信息：EnvironmentSnapshot(osName=Windows 10, osArch=null, browserName=Chrome 13, browserVersion=138.0.0.0, deviceType=Computer, deviceBrand=null, deviceModel=null, ipAddress=null, networkType=null, appVersion=null, screenResolution=null)
 
 
-2025-08-05T17:18:10.460+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
-2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
-2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 0 ms
-2025-08-05T17:18:10.655+08:00 ERROR 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.log.LogUtils                  : 出错类: com.pmpsdk.controller.UserController
+2025-08-05T17:18:10.460+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : Fetching user with ID: 1
+2025-08-05T17:18:10.461+08:00  INFO 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : REST Controller Method UserController.getUser(..) executed in 0 ms
+2025-08-05T17:18:10.655+08:00 ERROR 32176 --- [pmpSDK] [http-nio-8080-exec-1] com.pmpsdk.utils.LogUtil                  : 出错类: com.pmpsdk.controller.UserController
 出错方法: getUser
 出错行号: 36
 异常信息: / by zero
 项目ID: your_project_token_123
 模型类型: user
+2025-08-05T20:05:28.817+08:00  INFO 68188 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 68188 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T20:05:28.820+08:00  INFO 68188 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T20:05:29.387+08:00  INFO 68188 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T20:05:29.390+08:00  INFO 68188 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T20:05:29.419+08:00  INFO 68188 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-08-05T20:05:30.002+08:00  INFO 68188 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-08-05T20:05:30.015+08:00  INFO 68188 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T20:05:30.015+08:00  INFO 68188 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T20:05:30.062+08:00  INFO 68188 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T20:05:30.062+08:00  INFO 68188 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1214 ms
+2025-08-05T20:05:31.143+08:00  INFO 68188 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-08-05T20:05:31.147+08:00  INFO 68188 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.703 seconds (process running for 3.151)
+2025-08-05T20:06:27.652+08:00  INFO 68188 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T20:06:27.669+08:00  INFO 68188 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T20:06:27.674+08:00  INFO 68188 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...

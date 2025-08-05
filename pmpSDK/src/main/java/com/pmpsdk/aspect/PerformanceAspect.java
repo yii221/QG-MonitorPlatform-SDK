@@ -3,7 +3,7 @@ package com.pmpsdk.aspect;
 import com.pmpsdk.annotation.Module;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.PerformanceLog;
-import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -56,7 +56,7 @@ public class PerformanceAspect {
                     PostToServer.sendPerformanceLogMessage(batch);
                     System.out.println("批量性能日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
-                    LogUtils.error("批量性能日志上报异常"+e.getMessage());
+                    LogUtil.error("批量性能日志上报异常"+e.getMessage());
                 }
             }
         }, 1, 1, TimeUnit.SECONDS);

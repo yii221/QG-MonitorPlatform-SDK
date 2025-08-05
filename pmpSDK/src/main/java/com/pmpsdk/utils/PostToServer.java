@@ -42,6 +42,9 @@ public final class PostToServer {
         }
     }
 
+    /**
+     * 发送性能
+     */
     private static String postPerformanceJSON(String json) {
         try {
             return HttpUtil.post(LOG.getUrl(), json);
@@ -50,7 +53,6 @@ public final class PostToServer {
             return StrUtil.EMPTY;
         }
     }
-
 
 
     /**

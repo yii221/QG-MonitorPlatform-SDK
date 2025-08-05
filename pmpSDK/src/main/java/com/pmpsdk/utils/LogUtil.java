@@ -1,15 +1,10 @@
-package com.pmpsdk.log;
+package com.pmpsdk.utils;
 
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.pmpsdk.QGAPIClientConfig;
 import com.pmpsdk.annotation.Module;
 
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.Log;
-import com.pmpsdk.utils.PostToServer;
-import com.pmpsdk.utils.SpringContextUtil;
-import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,8 +20,8 @@ import java.util.concurrent.atomic.LongAdder;
 
 
 
-public class LogUtils {
-    private static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
+public class LogUtil {
+    private static final Logger logger = LoggerFactory.getLogger(LogUtil.class);
 
 
 

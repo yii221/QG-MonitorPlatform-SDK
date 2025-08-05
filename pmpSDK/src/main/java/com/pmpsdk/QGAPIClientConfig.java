@@ -2,6 +2,7 @@ package com.pmpsdk;
 
 
 import com.pmpsdk.client.QGAPIClient;
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

@@ -7,8 +7,6 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.dto.UserDTO;
-import com.pmpsdk.log.LogUtils;
-import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +19,6 @@ public class QGAPIClient {
     private String sentryUrl;
     // 业务接口地址
     private String apiBaseUrl;
-
     private String environment = "test"; // 默认环境为生产环境
 
     /**
@@ -32,17 +29,8 @@ public class QGAPIClient {
      * @param projectToken 项目令牌
      * @param sentryUrl    Sentry网页地址
      * @param apiBaseUrl   接口地址
+     * @param environment  环境
      */
-    public QGAPIClient(String accessKey, String secretKey
-            , String projectToken, String sentryUrl
-            , String apiBaseUrl) {
-        this.accessKey = accessKey;
-        this.secretKey = secretKey;
-        this.projectToken = projectToken;
-        this.sentryUrl = sentryUrl;
-        this.apiBaseUrl = apiBaseUrl;
-    }
-
     public QGAPIClient(String accessKey, String secretKey
             , String projectToken, String sentryUrl
             , String apiBaseUrl, String environment) {
@@ -147,6 +135,7 @@ public class QGAPIClient {
 
         return sign;
     }
+
 
     /**
      * 获取

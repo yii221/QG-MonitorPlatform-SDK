@@ -1,16 +1,11 @@
 package com.pmpsdk.aspect;
 
-import com.pmpsdk.domain.PerformanceLog;
-import com.pmpsdk.log.LogUtils;
-import com.pmpsdk.utils.PostToServer;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
@@ -27,7 +22,8 @@ public class MethodInvocationAspect {
     // @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
     @Around("within(com.pmpsdk.controller..*) || " +
             "within(com.pmpsdk.service..*) || " +
-            "within(com.pmpsdk.mapper..*)")
+            "within(com.pmpsdk.mapper..*) || " +
+            "execution(* com.pmpsdk.exception.ProjectExceptionAdvice.doOtherException(..))")
     public Object countMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().toShortString();
 
