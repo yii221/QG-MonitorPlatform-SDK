@@ -722,3 +722,128 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-05T11:54:07.765+08:00  INFO 25324 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-08-05T11:54:07.769+08:00  INFO 25324 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-05T11:54:07.772+08:00  INFO 25324 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T11:59:50.657+08:00  INFO 66968 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 66968 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T11:59:50.658+08:00  INFO 66968 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T11:59:51.225+08:00  INFO 66968 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T11:59:51.227+08:00  INFO 66968 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T11:59:51.252+08:00  INFO 66968 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2025-08-05T11:59:51.890+08:00  INFO 66968 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-05T11:59:51.908+08:00  INFO 66968 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T11:59:51.908+08:00  INFO 66968 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T11:59:51.961+08:00  INFO 66968 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T11:59:51.961+08:00  INFO 66968 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1266 ms
+2025-08-05T11:59:52.884+08:00  WARN 66968 --- [pmpSDK] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-08-05T11:59:52.886+08:00  INFO 66968 --- [pmpSDK] [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T11:59:52.919+08:00  INFO 66968 --- [pmpSDK] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-05T11:59:52.930+08:00 ERROR 66968 --- [pmpSDK] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-08-05T12:04:04.206+08:00  INFO 58536 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 58536 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T12:04:04.209+08:00  INFO 58536 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T12:04:04.873+08:00  INFO 58536 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T12:04:04.876+08:00  INFO 58536 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T12:04:04.900+08:00  INFO 58536 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2025-08-05T12:04:05.510+08:00  INFO 58536 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-05T12:04:05.521+08:00  INFO 58536 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T12:04:05.521+08:00  INFO 58536 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T12:04:05.569+08:00  INFO 58536 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T12:04:05.570+08:00  INFO 58536 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1331 ms
+2025-08-05T12:04:06.451+08:00  WARN 58536 --- [pmpSDK] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-08-05T12:04:06.452+08:00  INFO 58536 --- [pmpSDK] [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2025-08-05T12:04:06.473+08:00  INFO 58536 --- [pmpSDK] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-05T12:04:06.482+08:00 ERROR 58536 --- [pmpSDK] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2025-08-05T12:04:20.067+08:00  INFO 17012 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 17012 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
+2025-08-05T12:04:20.070+08:00  INFO 17012 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-08-05T12:04:20.632+08:00  INFO 17012 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-05T12:04:20.633+08:00  INFO 17012 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-05T12:04:20.661+08:00  INFO 17012 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-08-05T12:04:21.311+08:00  INFO 17012 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-08-05T12:04:21.321+08:00  INFO 17012 --- [pmpSDK] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-05T12:04:21.322+08:00  INFO 17012 --- [pmpSDK] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-05T12:04:21.381+08:00  INFO 17012 --- [pmpSDK] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-05T12:04:21.381+08:00  INFO 17012 --- [pmpSDK] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1277 ms
+2025-08-05T12:04:22.501+08:00  INFO 17012 --- [pmpSDK] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-08-05T12:04:22.508+08:00  INFO 17012 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Started PmpSdkApplication in 2.81 seconds (process running for 3.292)
+2025-08-05T12:05:00.261+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05T12:05:00.261+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-05T12:05:00.262+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-05T12:05:00.294+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T12:05:00.315+08:00 ERROR 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.alibaba.druid.pool.DruidDataSource   : testWhileIdle is true, validationQuery not set
+2025-08-05T12:05:00.321+08:00  INFO 17012 --- [pmpSDK] [http-nio-8083-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-08-05T12:05:00.339+08:00  INFO 17012 --- [pmpSDK] [Druid-ConnectionPool-Create-72322556] o.o.core.v3.ConnectionFactoryImpl        : [cbead798-901d-46d5-a98e-1a680475afd8] Try to connect. IP: 47.113.224.195:5432
+2025-08-05T12:05:00.383+08:00  INFO 17012 --- [pmpSDK] [Druid-ConnectionPool-Create-72322556] o.o.core.v3.ConnectionFactoryImpl        : [10.33.64.65:64962/47.113.224.195:5432] Connection is established. ID: cbead798-901d-46d5-a98e-1a680475afd8
+2025-08-05T12:05:00.466+08:00  INFO 17012 --- [pmpSDK] [Druid-ConnectionPool-Create-72322556] o.o.core.v3.ConnectionFactoryImpl        : Connect complete. ID: cbead798-901d-46d5-a98e-1a680475afd8
+2025-08-05T12:05:22.446+08:00 ERROR 17012 --- [pmpSDK] [pool-2-thread-1] com.pmpsdk.utils.PostToServer            : ===Q=G==>远程服务器繁忙，请稍后再尝试发送日志...
+
+cn.hutool.core.io.IORuntimeException: ConnectException: Connection timed out: connect
+	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1350) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpRequest.doExecute(HttpRequest.java:1188) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1051) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpRequest.execute(HttpRequest.java:1027) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpUtil.post(HttpUtil.java:229) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpUtil.post(HttpUtil.java:210) ~[hutool-all-5.8.26.jar:5.8.26]
+	at com.pmpsdk.utils.PostToServer.postLogJSON(PostToServer.java:25) ~[classes/:na]
+	at com.pmpsdk.utils.PostToServer.sendLogMessage(PostToServer.java:75) ~[classes/:na]
+	at com.pmpsdk.log.LogUtils.lambda$static$0(LogUtils.java:48) ~[classes/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.connect(Net.java:589) ~[na:na]
+	at java.base/sun.nio.ch.Net.connect(Net.java:578) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:686) ~[na:na]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:183) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:531) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:636) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:386) ~[na:na]
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:408) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1319) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1252) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1138) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1067) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1461) ~[na:na]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1432) ~[na:na]
+	at cn.hutool.http.HttpConnection.getOutputStream(HttpConnection.java:458) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpRequest.sendFormUrlEncoded(HttpRequest.java:1367) ~[hutool-all-5.8.26.jar:5.8.26]
+	at cn.hutool.http.HttpRequest.send(HttpRequest.java:1342) ~[hutool-all-5.8.26.jar:5.8.26]
+	... 14 common frames omitted
+
+2025-08-05T12:07:41.667+08:00  INFO 17012 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T12:07:41.681+08:00  INFO 17012 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T12:07:41.685+08:00  INFO 17012 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T12:07:41.686+08:00  INFO 17012 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

@@ -4,8 +4,10 @@ package com.pmpsdk.log;
 import com.pmpsdk.QGAPIClientConfig;
 import com.pmpsdk.annotation.Model;
 
+import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.Log;
 import com.pmpsdk.utils.PostToServer;
+import com.pmpsdk.utils.SpringContextUtil;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +33,6 @@ public class LogUtils {
 
     private static final Queue<Log> logQueue = new ConcurrentLinkedQueue<>();
 
-    @Resource
-    private static QGAPIClientConfig qgAPIClientConfig;
 
     static {
         // 定时每秒输出QPS
@@ -109,7 +109,10 @@ public class LogUtils {
         log.setLevel(level);
         log.setContext(message);
         log.setModel(model);
-        log.setProjectId(qgAPIClientConfig.qgApiClient().getProjectToken());
+        QGAPIClient client = SpringContextUtil.getBean(QGAPIClient.class);
+        if (client != null) {
+            log.setProjectId(client.getProjectToken());
+        }
         return log;
     }
 
