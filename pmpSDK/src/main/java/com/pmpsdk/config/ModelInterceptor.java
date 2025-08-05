@@ -29,7 +29,7 @@ public class ModelInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
+        Message message = new Message();
 
 
         if (handler instanceof HandlerMethod handlerMethod) {
@@ -39,13 +39,14 @@ public class ModelInterceptor implements HandlerInterceptor {
             } else {
                 type = modelAnnotation.type();
                 System.out.println(type);
+                message.setModel(type);
             }/*
             type = modelAnnotation.type();
             System.out.println(type);*/
 
         }
-        Message message = new Message();
-        message.setModel(type);
+
+
 
         request.setAttribute("message", message);
 

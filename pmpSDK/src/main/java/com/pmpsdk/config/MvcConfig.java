@@ -16,8 +16,8 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new ModelInterceptor()).excludePathPatterns("/errors").order(1);
-        registry.addInterceptor(new MonitorInterceptor()).excludePathPatterns("/errors").order(0);
+        //registry.addInterceptor(new ModelInterceptor()).excludePathPatterns("/errors").order(1);
+        //registry.addInterceptor(new MonitorInterceptor()).excludePathPatterns("/errors").order(0);
 
     }
 }
