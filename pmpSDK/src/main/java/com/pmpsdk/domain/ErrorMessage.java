@@ -15,7 +15,7 @@ public class ErrorMessage {
 
     private String stack;
 
-    private String model;
+    private String module;
 
     private String source = "backend";
 
@@ -29,11 +29,11 @@ public class ErrorMessage {
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long timestamp, String type, String stack, String model, String source, String level, String projectId) {
+    public ErrorMessage(Long timestamp, String type, String stack, String module, String source, String level, String projectId) {
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
-        this.model = model;
+        this.module = module;
         this.source = source;
         this.level = level;
         this.projectId = projectId;
@@ -89,18 +89,18 @@ public class ErrorMessage {
 
     /**
      * 获取
-     * @return model
+     * @return module
      */
-    public String getModel() {
-        return model;
+    public String getModule() {
+        return module;
     }
 
     /**
      * 设置
-     * @param model
+     * @param module
      */
-    public void setModel(String model) {
-        this.model = model;
+    public void setModule(String module) {
+        this.module = module;
     }
 
     /**
@@ -152,6 +152,6 @@ public class ErrorMessage {
     }
 
     public String toString() {
-        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", model = " + model + ", source = " + source + ", level = " + level + ", projectId = " + projectId + "}";
+        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + "}";
     }
 }

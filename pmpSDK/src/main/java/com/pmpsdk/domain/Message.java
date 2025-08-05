@@ -21,7 +21,7 @@ public class Message {
 
     private String data;
 
-    private String model;
+    private String module;
 
     private String source = "backend";
 
@@ -37,12 +37,12 @@ public class Message {
     public Message() {
     }
 
-    public Message(Long timestamp, String type, String stack, String data, String model, String source, String level, Long userId, String projectId) {
+    public Message(Long timestamp, String type, String stack, String data, String module, String source, String level, Long userId, String projectId) {
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
         this.data = data;
-        this.model = model;
+        this.module = module;
         this.source = source;
         this.level = level;
         this.userId = userId;
@@ -115,18 +115,18 @@ public class Message {
 
     /**
      * 获取
-     * @return model
+     * @return module
      */
-    public String getModel() {
-        return model;
+    public String getModule() {
+        return module;
     }
 
     /**
      * 设置
-     * @param model
+     * @param module
      */
-    public void setModel(String model) {
-        this.model = model;
+    public void setModel(String module) {
+        this.module = module;
     }
 
     /**
@@ -209,6 +209,6 @@ public class Message {
     }
 
     public String toString() {
-        return "Message{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", data = " + data + ", model = " + model + ", source = " + source + ", level = " + level + ", userId = " + userId + ", projectId = " + projectId + "}";
+        return "Message{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", data = " + data + ", module = " + module + ", source = " + source + ", level = " + level + ", userId = " + userId + ", projectId = " + projectId + "}";
     }
 }

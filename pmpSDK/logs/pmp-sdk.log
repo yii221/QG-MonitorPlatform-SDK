@@ -1062,3 +1062,15 @@ Caused by: java.net.SocketException: Unexpected end of file from server
 2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
 2025-08-05T15:05:36.650+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
 2025-08-05T15:05:37.019+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-3] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 369 ms
+2025-08-05T15:12:26.886+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:12:26.887+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:12:27.242+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-10] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 355 ms
+2025-08-05T15:12:51.275+08:00  WARN 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : 检测到黑名单IP访问: 192.168.1.233, UA: Apifox/1.0.0 (https://apifox.com)
+2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Monitoring REST Controller Method: UserController.getUser(..)
+2025-08-05T15:12:51.276+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : Fetching user with ID: 1
+2025-08-05T15:12:51.665+08:00  INFO 17172 --- [pmpSDK] [http-nio-8080-exec-6] com.pmpsdk.log.LogUtils                  : REST Controller Method UserController.getUser(..) executed in 389 ms
+2025-08-05T15:25:20.086+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-05T15:25:20.093+08:00  INFO 17172 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-05T15:25:20.097+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-05T15:25:20.100+08:00  INFO 17172 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

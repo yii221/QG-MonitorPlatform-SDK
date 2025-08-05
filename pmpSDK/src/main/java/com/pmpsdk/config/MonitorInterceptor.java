@@ -1,6 +1,6 @@
 package com.pmpsdk.config;
 
-import com.pmpsdk.annotation.Model;
+
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.domain.Message;
 import jakarta.servlet.http.HttpServletRequest;

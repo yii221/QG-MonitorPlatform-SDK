@@ -16,7 +16,7 @@ public class Log {
 
     private String context;
 
-    private String model;
+    private String module;
 
     private String source = "backend";
     
@@ -26,12 +26,12 @@ public class Log {
     public Log() {
     }
 
-    public Log(Long id, Long timestamp, String level, String context, String model, String source, String projectId) {
+    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId) {
         this.id = id;
         this.timestamp = timestamp;
         this.level = level;
         this.context = context;
-        this.model = model;
+        this.module = module;
         this.source = source;
         this.projectId = projectId;
     }
@@ -102,18 +102,18 @@ public class Log {
 
     /**
      * 获取
-     * @return model
+     * @return module
      */
-    public String getModel() {
-        return model;
+    public String getModule() {
+        return module;
     }
 
     /**
      * 设置
-     * @param model
+     * @param module
      */
-    public void setModel(String model) {
-        this.model = model;
+    public void setModel(String module) {
+        this.module = module;
     }
 
     /**
@@ -149,6 +149,6 @@ public class Log {
     }
 
     public String toString() {
-        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", model = " + model + ", source = " + source + ", projectId = " + projectId + "}";
+        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + "}";
     }
 }

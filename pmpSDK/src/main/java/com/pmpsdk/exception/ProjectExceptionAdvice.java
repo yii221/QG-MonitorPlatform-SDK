@@ -1,7 +1,7 @@
 package com.pmpsdk.exception;
 
 
-import com.pmpsdk.annotation.Model;
+import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.ErrorMessage;
@@ -68,11 +68,11 @@ public class ProjectExceptionAdvice {
             message.setTimestamp(System.currentTimeMillis());
 
             Class<?> clazz = Class.forName(errorClass);
-            Model modelAnnotation = clazz.getAnnotation(Model.class);
+            Module modelAnnotation = clazz.getAnnotation(Module.class);
 
             if (modelAnnotation != null) {
                 String type = modelAnnotation.type();
-                message.setModel(type);
+                message.setModule(type);
                 System.out.println("Model注解类型: " + type);
             } else {
                 System.out.println("没有Model注解");
@@ -91,7 +91,7 @@ public class ProjectExceptionAdvice {
                         PostToServer.sendErrorMessage(message);
                         LogUtils.error(message.getStack()+
                                 "\n项目ID: " + message.getProjectId() +
-                                "\n模型类型: " + message.getModel());
+                                "\n模型类型: " + message.getModule());
                     }
                 }
             }
