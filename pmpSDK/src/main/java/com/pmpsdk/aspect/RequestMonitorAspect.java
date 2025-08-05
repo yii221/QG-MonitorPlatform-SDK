@@ -4,6 +4,7 @@ import com.pmpsdk.log.LogUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import com.pmpsdk.annotation.Monitor;
 /**
@@ -15,6 +16,7 @@ import com.pmpsdk.annotation.Monitor;
  */
 @Aspect
 @Component
+@Order(1)
 public class RequestMonitorAspect {
 
     @Around("@annotation(com.pmpsdk.annotation.Monitor)")

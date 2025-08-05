@@ -1,7 +1,6 @@
 package com.pmpsdk.exception;
 
 
-import cn.hutool.json.JSON;
 import com.pmpsdk.annotation.Model;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.client.QGAPIClient;
@@ -24,7 +23,6 @@ public class ProjectExceptionAdvice {
     public void doSystemException(SystemException ex) throws ClassNotFoundException {
         System.out.println("==>\n系统异常:  "
                 + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
-
         errorMethod(ex);
     }
 
@@ -38,10 +36,7 @@ public class ProjectExceptionAdvice {
     @ExceptionHandler(Exception.class)
     public void doOtherException(Exception ex) throws Exception {
         System.out.println("==>\n未知异常:\n" + ex.getMessage() + "\n<==");
-
-        System.out.println("111");
         errorMethod(ex);
-        System.out.println("222");
     }
 
 
@@ -71,7 +66,6 @@ public class ProjectExceptionAdvice {
 
             message.setType("OtherException");
             message.setTimestamp(System.currentTimeMillis());
-            // message.setLevel("ERROR");
 
             Class<?> clazz = Class.forName(errorClass);
             Model modelAnnotation = clazz.getAnnotation(Model.class);
