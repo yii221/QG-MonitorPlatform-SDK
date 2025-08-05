@@ -1,42 +1,55 @@
 package com.pmpsdk.domain;
 
 /**
- * @Description: 报错信息  // 类说明
- * @ClassName: ErrorMessage    // 类名
+ * @Description: 日志应用类  // 类说明
+ * @ClassName: Log    // 类名
  * @Author: lrt          // 创建者
- * @Date: 2025/8/4 20:45   // 时间
+ * @Date: 2025/8/4 22:36   // 时间
  * @Version: 1.0     // 版本
  */
-public class ErrorMessage {
-
+public class Log {
+    private Long id;
+    
     private Long timestamp;
 
-    private String type;
+    private String level;
 
-    private String stack;
+    private String context;
 
     private String model;
 
     private String source = "backend";
-
-    private String level;
-
+    
     private String projectId;
 
 
-
-
-    public ErrorMessage() {
+    public Log() {
     }
 
-    public ErrorMessage(Long timestamp, String type, String stack, String model, String source, String level, String projectId) {
+    public Log(Long id, Long timestamp, String level, String context, String model, String source, String projectId) {
+        this.id = id;
         this.timestamp = timestamp;
-        this.type = type;
-        this.stack = stack;
+        this.level = level;
+        this.context = context;
         this.model = model;
         this.source = source;
-        this.level = level;
         this.projectId = projectId;
+    }
+
+    /**
+     * 获取
+     * @return id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * 设置
+     * @param id
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -57,34 +70,34 @@ public class ErrorMessage {
 
     /**
      * 获取
-     * @return type
+     * @return level
      */
-    public String getType() {
-        return type;
+    public String getLevel() {
+        return level;
     }
 
     /**
      * 设置
-     * @param type
+     * @param level
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     /**
      * 获取
-     * @return stack
+     * @return context
      */
-    public String getStack() {
-        return stack;
+    public String getContext() {
+        return context;
     }
 
     /**
      * 设置
-     * @param stack
+     * @param context
      */
-    public void setStack(String stack) {
-        this.stack = stack;
+    public void setContext(String context) {
+        this.context = context;
     }
 
     /**
@@ -121,22 +134,6 @@ public class ErrorMessage {
 
     /**
      * 获取
-     * @return level
-     */
-    public String getLevel() {
-        return level;
-    }
-
-    /**
-     * 设置
-     * @param level
-     */
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    /**
-     * 获取
      * @return projectId
      */
     public String getProjectId() {
@@ -152,6 +149,6 @@ public class ErrorMessage {
     }
 
     public String toString() {
-        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", model = " + model + ", source = " + source + ", level = " + level + ", projectId = " + projectId + "}";
+        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", model = " + model + ", source = " + source + ", projectId = " + projectId + "}";
     }
 }
