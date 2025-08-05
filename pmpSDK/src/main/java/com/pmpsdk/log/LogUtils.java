@@ -7,7 +7,7 @@ import com.pmpsdk.domain.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.pmpsdk.utils.PostToServer.sendToServer;
+import static com.pmpsdk.utils.PostToServer.sendMessage;
 
 public class LogUtils {
     private static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
@@ -15,7 +15,7 @@ public class LogUtils {
     // ------ 日志记录方法 ------
     public static void debug(String message) {
         logger.debug(message);
-        sendToServer("DEBUG", message, getModel());
+        sendMessage("DEBUG", message, getModel());
     }
 
     private static String getModel() {
@@ -35,17 +35,17 @@ public class LogUtils {
 
     public static void info(String message) {
         logger.info(message);
-        sendToServer("INFO", message, getModel());
+        sendMessage("INFO", message, getModel());
     }
 
     public static void warn(String message) {
         logger.warn(message);
-        sendToServer("WARN", message, getModel());
+        sendMessage("WARN", message, getModel());
     }
 
     public static void error(String message) {
         logger.error(message);
-        sendToServer("ERROR", message, getModel());
+        sendMessage("ERROR", message, getModel());
     }
 
 }

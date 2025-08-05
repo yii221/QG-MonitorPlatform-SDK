@@ -94,7 +94,7 @@ public class ProjectExceptionAdvice {
                     System.out.println("出错方法666: " + method.getName());
                     if (method.isAnnotationPresent(Monitor.class)) {
                         System.out.println("方法上有Monitor注解");
-                        PostToServer.sendMessage(message);
+                        PostToServer.sendErrorMessage(message);
                         LogUtils.error(message.getStack()+
                                 "\n项目ID: " + message.getProjectId() +
                                 "\n模型类型: " + message.getModel());

@@ -18,7 +18,7 @@ public final class PostToServer {
     /**
      * 发送日志
      */
-    public static String postLogJSON(String json) {
+    private static String postLogJSON(String json) {
         try {
             return HttpUtil.post(LOG.getUrl(), json);
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public final class PostToServer {
     /**
      * 发送错误
      */
-    public static String postErrorJSON(String json) {
+    private static String postErrorJSON(String json) {
         try {
             return HttpUtil.post(ERROR.getUrl(), json);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public final class PostToServer {
     /**
      * 发送任意 json
      */
-    public static String postJSON(String url, String json) {
+    private static String postJSON(String url, String json) {
         try {
             return HttpUtil.post(url, json);
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public final class PostToServer {
         }
     }
 
-    public static void sendMessage(ErrorMessage message) {
+    public static void sendErrorMessage(ErrorMessage message) {
         try {
             JSON json = cn.hutool.json.JSONUtil.parse(message);
             logger.debug("准备发送消息: {}", json.toString());
@@ -64,7 +64,7 @@ public final class PostToServer {
     }
 
 
-    public static void sendToServer(String level, String message, String model) {
+    public static void sendMessage(String level, String message, String model) {
         try {
             Log log = new Log();
             log.setTimestamp(System.currentTimeMillis());
@@ -81,4 +81,15 @@ public final class PostToServer {
             logger.error("日志上报异常", e);
         }
     }
+
+    /**
+     * 发送通用JSON到任意URL
+     */
+    public static String sendJson(String url, String jsonData) {
+        logger.debug("准备发送JSON到: {}", url);
+        String response = postJSON(url, jsonData);
+        logger.debug("服务器响应: {}", response);
+        return response;
+    }
+
 }
