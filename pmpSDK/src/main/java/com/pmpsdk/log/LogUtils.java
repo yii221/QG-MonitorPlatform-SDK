@@ -7,38 +7,34 @@ import com.pmpsdk.domain.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.pmpsdk.utils.PostToServer.sendToServer;
 
 public class LogUtils {
     private static final Logger logger = LoggerFactory.getLogger(LogUtils.class);
 
-    // ------ 日志记录方法（同步本地日志和HTTP上报） ------
+    // ------ 日志记录方法 ------
     public static void debug(String message) {
         logger.debug(message);
-        String model = getModel();
-        sendToServer("DEBUG", message, model);
+        sendToServer("DEBUG", message, getModel());
     }
 
-    private static String  getModel() {
-        // 获取调用者类名
+    private static String getModel() {
         String callerClassName = Thread.currentThread().getStackTrace()[3].getClassName();
         try {
             Class<?> callerClass = Class.forName(callerClassName);
-            // 假设你要获取 @YourAnnotation 注解
             Model annotation = callerClass.getAnnotation(Model.class);
             if (annotation != null) {
-                // 这里可以处理注解内容
-                System.out.println("注解值: " + annotation.type());
-            return annotation.type();
+                logger.trace("获取到Model注解值: {}", annotation.type());
+                return annotation.type();
             }
         } catch (ClassNotFoundException e) {
-            logger.error("找不到调用者类", e);
+            logger.error("找不到调用者类: {}", callerClassName, e);
         }
         return "UnknownModel";
     }
 
     public static void info(String message) {
         logger.info(message);
-
         sendToServer("INFO", message, getModel());
     }
 
@@ -51,28 +47,5 @@ public class LogUtils {
         logger.error(message);
         sendToServer("ERROR", message, getModel());
     }
-
-
-    // ------ 私有方法：HTTP上报逻辑 ------
-    private static void sendToServer(String level, String message, String model) {
-
-        try {
-            Log log = new Log();
-            log.setTimestamp(System.currentTimeMillis());
-            log.setLevel(level);
-            log.setContext(message);
-            log.setModel(model);
-
-
-            String response = HttpUtil.post("http://192.168.1.233:8080/messages/log", JSONUtil.toJsonStr(log));
-
-            System.out.println("日志上报响应: " + response);
-
-        } catch (Exception e) {
-            logger.error("日志上报异常", e);
-        }
-    }
-
-
 
 }

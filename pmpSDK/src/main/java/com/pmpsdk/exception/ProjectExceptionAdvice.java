@@ -1,25 +1,18 @@
 package com.pmpsdk.exception;
 
 
-import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSON;
-import com.pmpsdk.QGAPIClientConfig;
 import com.pmpsdk.annotation.Model;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.ErrorMessage;
-import com.pmpsdk.domain.Message;
-import com.pmpsdk.domain.Result;
 import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.lang.reflect.Method;
-
-import static com.pmpsdk.domain.Code.INTERNAL_ERROR;
 
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
@@ -51,18 +44,6 @@ public class ProjectExceptionAdvice {
         System.out.println("222");
     }
 
-
-    private void sendMessage(ErrorMessage message) {
-        // 这里可以实现发送消息的逻辑，比如通过消息队列、日志系统等
-        System.out.println("发送消息: " + message);
-
-        JSON json = cn.hutool.json.JSONUtil.parse(message);
-        System.out.println("JSON格式的消息: " + json.toString());
-
-        String respond = HttpUtil.post("http://192.168.1.233:8080/messages/error", json.toString());
-
-        System.out.println("响应结果: " + respond);
-    }
 
 
     private void errorMethod(Exception ex) throws ClassNotFoundException {
@@ -113,7 +94,7 @@ public class ProjectExceptionAdvice {
                     System.out.println("出错方法666: " + method.getName());
                     if (method.isAnnotationPresent(Monitor.class)) {
                         System.out.println("方法上有Monitor注解");
-                        sendMessage(message);
+                        PostToServer.sendMessage(message);
                         LogUtils.error(message.getStack()+
                                 "\n项目ID: " + message.getProjectId() +
                                 "\n模型类型: " + message.getModel());
