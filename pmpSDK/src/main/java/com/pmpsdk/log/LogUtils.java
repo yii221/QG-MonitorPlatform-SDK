@@ -1,8 +1,9 @@
 package com.pmpsdk.log;
 
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.pmpsdk.QGAPIClientConfig;
-import com.pmpsdk.annotation.Model;
+import com.pmpsdk.annotation.Module;
 
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.Log;
@@ -60,21 +61,42 @@ public class LogUtils {
         logger.debug(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
-        logQueue.add(buildLog("DEBUG", message, getModel()));
+        logQueue.add(buildLog("DEBUG", message, getModule()));
+    }
+
+    public static void debug(String message,String module) {
+        logger.debug(message);
+        totalCount.increment();
+        currentSecondCount.incrementAndGet();
+        logQueue.add(buildLog("DEBUG", message, module != null ? module : getModule()));
     }
 
     public static void info(String message) {
         logger.info(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
-        logQueue.add(buildLog("INFO", message, getModel()));
+        logQueue.add(buildLog("INFO", message, getModule()));
+    }
+
+    public static void info(String message, String module) {
+        logger.info(message);
+        totalCount.increment();
+        currentSecondCount.incrementAndGet();
+        logQueue.add(buildLog("INFO", message,module != null ? module :  getModule()));
     }
 
     public static void warn(String message) {
         logger.warn(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
-        logQueue.add(buildLog("WARN", message, getModel()));
+        logQueue.add(buildLog("WARN", message, getModule()));
+    }
+
+    public static void warn(String message, String module) {
+        logger.warn(message);
+        totalCount.increment();
+        currentSecondCount.incrementAndGet();
+        logQueue.add(buildLog("WARN", message, module != null ? module : getModule()));
     }
 
     public static void error(String message) {
@@ -82,15 +104,23 @@ public class LogUtils {
         totalCount.increment();
         errorCount.increment();
         currentSecondCount.incrementAndGet();
-        logQueue.add(buildLog("ERROR", message, getModel()));
+        logQueue.add(buildLog("ERROR", message, getModule()));
+    }
+
+    public static void error(String message, String module) {
+        logger.error(message);
+        totalCount.increment();
+        errorCount.increment();
+        currentSecondCount.incrementAndGet();
+        logQueue.add(buildLog("ERROR", message, module != null ? module : getModule()));
     }
 
 
-    private static String getModel() {
+    private static String getModule() {
         String callerClassName = Thread.currentThread().getStackTrace()[3].getClassName();
         try {
             Class<?> callerClass = Class.forName(callerClassName);
-            Model annotation = callerClass.getAnnotation(Model.class);
+            Module annotation = callerClass.getAnnotation(Module.class);
             if (annotation != null) {
                 logger.trace("获取到Model注解值: {}", annotation.type());
                 return annotation.type();
@@ -103,12 +133,12 @@ public class LogUtils {
 
 
 
-    private static Log buildLog(String level, String message, String model) {
+    private static Log buildLog(String level, String message, String module) {
         Log log = new Log();
         log.setTimestamp(System.currentTimeMillis());
         log.setLevel(level);
         log.setContext(message);
-        log.setModel(model);
+        log.setModule(module);
         QGAPIClient client = SpringContextUtil.getBean(QGAPIClient.class);
         if (client != null) {
             log.setProjectId(client.getProjectToken());

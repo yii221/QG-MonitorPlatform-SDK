@@ -3,8 +3,10 @@ package com.pmpsdk.aspect;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.log.LogUtils;
 import com.pmpsdk.utils.GetClientIpUtil;
+
 import com.pmpsdk.utils.GetClientResourceUtil;
 import com.pmpsdk.utils.UserAgentUtil;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -31,8 +33,10 @@ public class SecurityCheckAspect {
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
         // 在这里进行安全检查
         // 获取请求信息
+
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = GetClientIpUtil.getClientIp(request);
+
         String userAgent = request.getHeader("User-Agent");
         EnvironmentSnapshot environmentSnapshot = UserAgentUtil.parseUserAgent(userAgent);
         System.out.println("\n\nEnvironmentSnapshot: " + environmentSnapshot + "\n\n");
