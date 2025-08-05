@@ -54,7 +54,7 @@ public class LogUtils {
         }, 1, 1, TimeUnit.SECONDS);
     }
 
-    // ------ 日志记录方法（同步本地日志和HTTP上报） ------
+
     // ------ 日志记录方法 ------
     public static void debug(String message) {
         logger.debug(message);
