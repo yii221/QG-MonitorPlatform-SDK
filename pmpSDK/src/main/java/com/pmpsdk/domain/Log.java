@@ -9,24 +9,19 @@ package com.pmpsdk.domain;
  */
 public class Log {
     private Long id;
-    
     private Long timestamp;
-
     private String level;
-
     private String context;
-
     private String module;
-
     private String source = "backend";
-    
     private String projectId;
+    private EnvironmentSnapshot environmentSnapshot;
 
 
     public Log() {
     }
 
-    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId) {
+    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId, EnvironmentSnapshot environmentSnapshot) {
         this.id = id;
         this.timestamp = timestamp;
         this.level = level;
@@ -34,6 +29,7 @@ public class Log {
         this.module = module;
         this.source = source;
         this.projectId = projectId;
+        this.environmentSnapshot = environmentSnapshot;
     }
 
     /**
@@ -112,7 +108,7 @@ public class Log {
      * 设置
      * @param module
      */
-    public void setModel(String module) {
+    public void setModule(String module) {
         this.module = module;
     }
 
@@ -148,7 +144,23 @@ public class Log {
         this.projectId = projectId;
     }
 
+    /**
+     * 获取
+     * @return environmentSnapshot
+     */
+    public EnvironmentSnapshot getEnvironmentSnapshot() {
+        return environmentSnapshot;
+    }
+
+    /**
+     * 设置
+     * @param environmentSnapshot
+     */
+    public void setEnvironmentSnapshot(EnvironmentSnapshot environmentSnapshot) {
+        this.environmentSnapshot = environmentSnapshot;
+    }
+
     public String toString() {
-        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + "}";
+        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + "}";
     }
 }

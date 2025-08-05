@@ -1,6 +1,10 @@
 package com.pmpsdk.aspect;
 
+import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.log.LogUtils;
+import com.pmpsdk.utils.GetClientIpUtil;
+import com.pmpsdk.utils.GetClientResourceUtil;
+import com.pmpsdk.utils.UserAgentUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -23,18 +27,20 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class SecurityCheckAspect {
 
 
-
     @Around("@within(org.springframework.web.bind.annotation.RestController)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
         // 在这里进行安全检查
         // 获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String ip = request.getRemoteAddr();
+        String ip = GetClientIpUtil.getClientIp(request);
         String userAgent = request.getHeader("User-Agent");
+        EnvironmentSnapshot environmentSnapshot = UserAgentUtil.parseUserAgent(userAgent);
+        System.out.println("\n\nEnvironmentSnapshot: " + environmentSnapshot + "\n\n");
         System.out.println("IP: " + ip + ", User-Agent: " + userAgent);
         // 简单示例：判断IP是否在黑名单
         if (/*isBlackIp(ip)*/ true) {
-            LogUtils.warn("检测到黑名单IP访问: " + ip + ", UA: " + userAgent);
+            LogUtils.warn("检测到黑名单IP访问: " + ip + ", UA: "
+                    + userAgent + "\n解析处理后信息：" + environmentSnapshot + "\n\n");
         }
         // 如果检查通过，继续执行目标方法
         return joinPoint.proceed();
