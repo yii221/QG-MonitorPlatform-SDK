@@ -4,28 +4,19 @@ import lombok.Data;
 
 @Data
 public class EnvironmentSnapshot {
-    // 操作系统信息
-    private String osName;
-    private String osArch;
+    // 基础信息
+    private String ip;
+    private String protocol; // "http" 或 "https"
+    private String httpMethod; // "GET"/"POST"等
 
-    // 浏览器信息
+    // 设备与浏览器
     private String browserName;
     private String browserVersion;
-
-    // 设备信息
-    private String deviceType;
-
-    private String deviceBrand;
-    private String deviceModel;
-
-    // 网络信息
-    private String networkType;
-
-    // 应用信息
-    private String appVersion;
+    private String osName;
+    private String osArch; // x86/x64/ARM
+    private String language; // 浏览器语言
 
 
-
-
+    private boolean isAjax;
 
 }
