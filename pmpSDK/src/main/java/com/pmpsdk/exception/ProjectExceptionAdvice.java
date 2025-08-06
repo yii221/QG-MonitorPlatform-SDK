@@ -143,7 +143,10 @@ public class ProjectExceptionAdvice {
                         /**************    记录日志    ***************/
                         LogUtil.error(message.getStack() +
                                 "\n项目ID: " + message.getProjectId() +
-                                "\n模型类型: " + message.getModule());
+                                "\n模型类型: " + message.getModule() +
+                                "\n环境: " + message.getEnvironment() +
+                                "\n异常类型: " + message.getType() +
+                                "\n时间戳: " + message.getTimestamp());
                     }
                 }
             }

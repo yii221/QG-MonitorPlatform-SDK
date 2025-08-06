@@ -19,7 +19,7 @@ public class FileUtilTest {
         // 测试创建文件
         FileUtil.create("test.txt");
         // 写入文件内容
-        FileUtil.writeLines(Path.of("test.txt"), List.of("Hello, World!", "This is a test file."));
+        FileUtil.writeLines(Path.of("test.txt"), List.of("666", "This is a test file."));
         // 读取文件内容
         FileUtil.readLines(Path.of("test.txt")).forEach(System.out::println);
     }

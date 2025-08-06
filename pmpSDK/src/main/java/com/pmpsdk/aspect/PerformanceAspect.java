@@ -55,6 +55,7 @@ public class PerformanceAspect {
                     // 这里将批量日志发送到服务器
                     PostToServer.sendPerformanceLogMessage(batch);
                     System.out.println("批量性能日志上报: " + batch.size() + " 条");
+                    LogUtil.info("批量性能日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
                     LogUtil.error("批量性能日志上报异常"+e.getMessage());
                 }
@@ -96,7 +97,12 @@ public class PerformanceAspect {
                     ", Slow: " + log.isSlow()
                     + ", Environment: " + log.getEnvironment());
             // 上报性能日志
-
+            LogUtil.info("性能检测到：API: " + log.getApi() +
+                    ", Duration: " + log.getDuration() + "ms" +
+                    ", Module: " + log.getModule() +
+                    ", Project ID: " + log.getProjectId() +
+                    ", Slow: " + log.isSlow()
+                    + ", Environment: " + log.getEnvironment());
             logQueue.add(log);
 
         }

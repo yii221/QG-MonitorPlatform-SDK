@@ -1,0 +1,30 @@
+Log:
+    {
+    id: 1,(自增吧)
+    timestamp: 1754537990821,
+    level: "INFO",
+    message: "This is a log message",
+    module: "user",
+    source: "backend",
+    projectId: "project123",
+    environmentSnapshot :{
+
+    },
+    environment: "test"
+}
+
+
+ErrorMessage:
+    {
+    id: 1,
+    timestamp: 1754537990821,
+    type: "",
+    message: "This is an error message",
+    module: "user",
+    source: "backend",
+    projectId: "project123",
+    environmentSnapshot :{
+
+    },
+    environment: "test"
+}

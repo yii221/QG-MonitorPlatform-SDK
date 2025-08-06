@@ -8,6 +8,7 @@ package com.pmpsdk.domain;
  * @Version: 1.0     // 版本
  */
 public class ErrorMessage {
+    private Long id;
 
     private Long timestamp;
 
@@ -25,11 +26,11 @@ public class ErrorMessage {
 
     private String environment;
 
-
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long timestamp, String type, String stack, String module, String source, String level, String projectId, String environment) {
+    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String level, String projectId, String environment) {
+        this.id = id;
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
@@ -38,6 +39,22 @@ public class ErrorMessage {
         this.level = level;
         this.projectId = projectId;
         this.environment = environment;
+    }
+
+    /**
+     * 获取
+     * @return id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * 设置
+     * @param id
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -169,6 +186,6 @@ public class ErrorMessage {
     }
 
     public String toString() {
-        return "ErrorMessage{timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + ", environment = " + environment + "}";
+        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + ", environment = " + environment + "}";
     }
 }
