@@ -1,6 +1,8 @@
 package com.pmpsdk.aspect;
 
+import cn.hutool.json.JSONUtil;
 import com.pmpsdk.domain.EnvironmentSnapshot;
+import com.pmpsdk.domain.Result;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.GetClientIpUtil;
 
@@ -11,9 +13,12 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
 
 /**
  * @Description: 校验访问  // 类说明
@@ -36,15 +41,22 @@ public class SecurityCheckAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = GetClientIpUtil.getClientIp(request);
 
+        // TODO: 检测 ip是否在黑名单中
+        if (shouldIntercept(ip)) {
+            System.err.println("\n\n=======ip在黑名单中********\n\n");
+            LogUtil.warn("拦截IP: {}", ip);
+            return JSONUtil.toJsonStr(new Result(403, "访问被拒绝"));
+        }
+
         String userAgent = request.getHeader("User-Agent");
         EnvironmentSnapshot environmentSnapshot = UserAgentUtil.parseUserAgent(userAgent);
         System.out.println("\n\nEnvironmentSnapshot: " + environmentSnapshot + "\n\n");
         System.out.println("IP: " + ip + ", User-Agent: " + userAgent);
-        // 简单示例：判断IP是否在黑名单
-        if (/*isBlackIp(ip)*/ true) {
-            LogUtil.warn("检测到黑名单IP访问: " + ip + ", UA: "
-                    + userAgent + "\n解析处理后信息：" + environmentSnapshot + "\n\n");
-        }
+//        // 简单示例：判断IP是否在黑名单
+//        if (/*isBlackIp(ip)*/ true) {
+//            LogUtil.warn("检测到黑名单IP访问: " + ip + ", userAgent: "
+//                    + userAgent + "\n解析处理后信息：" + environmentSnapshot + "\n\n");
+//        }
         // 如果检查通过，继续执行目标方法
         return joinPoint.proceed();
     }

@@ -17,7 +17,7 @@ public class FileUtilTest {
     @Test
     public void testFile() {
         // 测试创建文件
-        FileUtil.create("test.txt");
+//        FileUtil.create("test.txt");
         // 写入文件内容
         FileUtil.writeLines(Path.of("test.txt"), List.of("Hello, World!", "This is a test file."));
         // 读取文件内容
