@@ -59,7 +59,7 @@ public class PerformanceAspect {
                     LogUtil.error("批量性能日志上报异常"+e.getMessage());
                 }
             }
-        }, 1, 1, TimeUnit.SECONDS);
+        }, 0, 1, TimeUnit.SECONDS);
     }
 
 
