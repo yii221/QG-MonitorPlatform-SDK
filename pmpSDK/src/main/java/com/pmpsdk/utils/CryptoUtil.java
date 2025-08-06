@@ -25,6 +25,10 @@ public class CryptoUtil {
         // 私有构造函数，防止实例化
     }
 
+    public static PublicKey getPublicKey() throws Exception {
+        return getPublicKeyFromString(PUBLIC_KEY);
+    }
+
 
     // 生成AES密钥
     public static SecretKey generateAESKey(int keySize) throws Exception {
