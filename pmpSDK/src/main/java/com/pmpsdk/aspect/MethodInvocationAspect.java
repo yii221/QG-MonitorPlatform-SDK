@@ -57,10 +57,10 @@ public class MethodInvocationAspect {
 
 
     // 👇最后再放出来
-    // @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
-    @Around("within(com.pmpsdk.controller..*) || " +
+     @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
+    /*@Around("within(com.pmpsdk.controller..*) || " +
             "within(com.pmpsdk.service..*) || " +
-            "within(com.pmpsdk.mapper..*)")
+            "within(com.pmpsdk.mapper..*)")*/
     public Object countMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
         // TODO: 获取方法名
         String methodName = joinPoint.getSignature().toShortString();

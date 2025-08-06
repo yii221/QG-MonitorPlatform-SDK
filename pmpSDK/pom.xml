@@ -12,20 +12,43 @@
     <artifactId>pmpSDK</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pmpSDK</name>
-    <description>pmpSDK</description>
-    <url/>
+    <description> - 项目监控平台依赖</description>
+    <url>https://github.com/yii221/QG-MonitorPlatform-SDK.git</url>
+
+    <!-- GitHub 发布配置 -->
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/your-github-username/pmpSDK</url>
+        </repository>
+    </distributionManagement>
+
+
     <licenses>
-        <license/>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
     </licenses>
+
     <developers>
-        <developer/>
+        <developer>
+            <id>qg</id>
+            <name>qg</name>
+            <email>qg@gmail.com</email>
+        </developer>
     </developers>
+
+
+
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <url>https://github.com/yii221/QG-MonitorPlatform-SDK</url>
+        <connection>scm:git:https://github.com/yii221/QG-MonitorPlatform-SDK.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:yii221/QG-MonitorPlatform-SDK.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
+
     <properties>
         <java.version>17</java.version>
         <lombok.version>1.18.30</lombok.version>
