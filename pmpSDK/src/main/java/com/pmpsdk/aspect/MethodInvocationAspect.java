@@ -1,5 +1,6 @@
 package com.pmpsdk.aspect;
 
+import com.pmpsdk.utils.IpBlacklistUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -30,12 +31,10 @@ public class MethodInvocationAspect {
     private static final long WINDOW_TIME_MS = 1000;
     private static final int MALICIOUS_THRESHOLD = 20;
 
-    /**
-     * 定时，每10秒打印方法调用统计
-     */
+    // TODO: 定时，每10秒打印方法调用统计
     static {
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-            /** 清理空队列 **/
+            // TODO: 清理空队列
             methodInvocationWindows
                     .entrySet()
                     .removeIf(entry -> entry.getValue().isEmpty());
@@ -68,35 +67,36 @@ public class MethodInvocationAspect {
     // @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
     @Around("within(com.pmpsdk.controller..*) || " +
             "within(com.pmpsdk.service..*) || " +
-            "within(com.pmpsdk.mapper..*) || " +
-            "execution(* com.pmpsdk.exception.ProjectExceptionAdvice.doOtherException(..))")
+            "within(com.pmpsdk.mapper..*)")
     public Object countMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
-        /** 获取方法名 **/
+        // TODO: 获取方法名
         String methodName = joinPoint.getSignature().toShortString();
 
-        /** 方法调用次数统计 **/
+        // TODO: 方法调用次数统计
         methodInvocationCounts
                 .computeIfAbsent(methodName, k -> new AtomicInteger(0))
                 .incrementAndGet();
 
-        /** 恶意攻击检测 **/
+        // TODO: 恶意攻击检测
         try {
-            /** 获取当前请求 **/
+            // TODO: 获取当前请求
             ServletRequestAttributes attributes =
                     (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpServletRequest request = attributes.getRequest();
-            /** 获取客户端IP **/
+            // TODO: 获取客户端IP
             String clientIp = getClientIp(request);
             String methodWithIp = methodName + "@" + clientIp;
 
-            /** 判断是否为恶意攻击 **/
+            // TODO: 判断是否为恶意攻击
             if (isMaliciousAttack(methodWithIp)) {
                 System.err.println("\n\n====>恶意攻击检测: " + methodWithIp + "\n\n");
                 // 可以选择抛出异常来阻止请求
                 // throw new SecurityException("请求频率过高");
+                // TODO: 加入黑名单
+                IpBlacklistUtil.addToBlacklist(clientIp);
             }
         } catch (IllegalStateException e) {
-            /** 非Web请求（如定时任务）跳过检测 **/
+            // TODO: 非Web请求（如定时任务）跳过检测
             System.out.println("非Web请求，跳过恶意攻击检测");
         }
 
@@ -111,22 +111,22 @@ public class MethodInvocationAspect {
      */
     private boolean isMaliciousAttack(String methodWithIp) {
         long currentTime = System.currentTimeMillis();
-        /** 获取或创建时间戳队列 **/
+        // TODO: 获取或创建时间戳队列
         Queue<Long> windowQueue = methodInvocationWindows.computeIfAbsent(
                 methodWithIp, k -> new ConcurrentLinkedQueue<>()
         );
 
         synchronized (windowQueue) {
-            /** 移除过期的窗口 **/
+            // TODO: 移除过期的窗口
             while (!windowQueue.isEmpty() && (currentTime - windowQueue.peek()) > WINDOW_TIME_MS) {
                 windowQueue.poll();
             }
 
-            /** 添加当前窗口时间戳 **/
+            // TODO: 添加当前窗口时间戳
             windowQueue.add(currentTime);
 
 
-            /** 判断是否超过恶意调用阈值 **/
+            // TODO: 判断是否超过恶意调用阈值
             return windowQueue.size() >= MALICIOUS_THRESHOLD;
         }
 

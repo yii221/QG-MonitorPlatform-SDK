@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 import static java.nio.file.Files.createFile;
@@ -23,54 +24,65 @@ public class FileUtil {
 
 
     /**
+     * @return void
      * @Author lrt
      * @Description //TODO创建文件
      * @Date 10:56 2025/8/6
      * @Param
-     * @return void
      **/
-    public static void create(String filePath) {
+    public static void create(String filePath, Path path) {
         File file = new File(filePath);
         try {
             file.createNewFile();
             System.out.println("文件创建成功");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignored) {}
     }
 
 
     /**
+     * @param path
+     * @return java.util.List<java.lang.String>
      * @Author lrt
      * @Description //TODO 读取文件内容
      * @Date 10:58 2025/8/6
      * @Param
- * @param path
-     * @return java.util.List<java.lang.String>
      **/
     public static List<String> readLines(Path path) {
         try {
             return Files.readAllLines(path);
         } catch (IOException e) {
-            e.printStackTrace();
             return List.of();
         }
     }
 
     /**
-     * @Author lrt
-     * @Description //TODO 写入文件内容
-     * @Date 10:59 2025/8/6
-     * @Param
- * @param path
- * @param lines
-     * @return void
-     **/
+     * 覆盖写入文件内容
+     * @param path
+     * @param lines
+     */
     public static void writeLines(Path path, List<String> lines) {
         try {
-            Files.write(path, lines);
+            Files.write(path, lines,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("写入文件失败: " + e.getMessage());
         }
     }
+
+    /**
+     * 追加写入单行内容
+     * @param path
+     * @param line
+     */
+    public static void appendLine(Path path, String line) {
+        try {
+            Files.writeString(path, line + System.lineSeparator(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            System.err.println("追加文件失败: " + e.getMessage());
+        }
+    }
+
 }
