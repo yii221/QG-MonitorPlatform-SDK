@@ -5,7 +5,7 @@ import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.ErrorMessage;
-//import com.pmpsdk.unuse.AlertUtil;
+
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 
@@ -14,61 +14,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.lang.reflect.Method;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
-
-//    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
-//    private static final ConcurrentHashMap<String, Long> lastAlertTime = new ConcurrentHashMap<>();
-//
-//    /**
-//     * 异常阈值配置
-//     */
-//    private static final int EXCEPTION_THRESHOLD = 10;
-//    private static final long ALERT_INTERVAL = TimeUnit.MINUTES.toMillis(15);
-//
     @Resource
     private QGAPIClient qgAPIClient;
-//
-//    /**
-//     * 异常数量计数器，每分钟重置
-//     *
-//     *
-//     */
-//    static {
-//        Executors.newSingleThreadScheduledExecutor()
-//                .scheduleAtFixedRate(exceptionCount::clear, 1, 1, TimeUnit.MINUTES);
-//    }
 
-    /**
-     * 处理被标记为系统异常的异常
-     *
-     * @param ex
-     * @throws ClassNotFoundException
-     */
-    @ExceptionHandler(SystemException.class)
-    public void doSystemException(SystemException ex) throws ClassNotFoundException {
-        System.out.println("==>\n系统异常:  "
-                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
-    }
-
-    /**
-     * 处理被标记为业务异常的异常
-     *
-     * @param ex
-     * @throws ClassNotFoundException
-     */
-    @ExceptionHandler(BusinessException.class)
-    public void doBusinessException(BusinessException ex) throws ClassNotFoundException {
-        System.out.println("==>\n业务异常: "
-                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
-    }
 
     /**
      * 处理未被注解标记的异常
@@ -77,7 +28,7 @@ public class ProjectExceptionAdvice {
      * @throws Exception
      */
     @ExceptionHandler(Exception.class)
-    public void doOtherException(Exception ex) throws Exception {
+    public void CatchException(Exception ex) throws Exception {
         System.out.println("==>\n未知异常:\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
     }
@@ -93,7 +44,6 @@ public class ProjectExceptionAdvice {
 
         // 获取异常类型
         Class<?> exceptionClass = ex.getClass();
-        System.out.println("异常类型: " + exceptionClass.getName());
 
         // 获取异常发生的类和方法
         StackTraceElement[] stackTrace = ex.getStackTrace();
@@ -101,11 +51,9 @@ public class ProjectExceptionAdvice {
             String errorClass = stackTrace[0].getClassName();
             String errorMethod = stackTrace[0].getMethodName();
             int lineNumber = stackTrace[0].getLineNumber();
-            System.out.println("出错类: " + errorClass);
-            System.out.println("出错方法: " + errorMethod);
-            System.out.println("出错行号: " + lineNumber);
 
             ErrorMessage message = new ErrorMessage();
+            message.setType(exceptionClass.getSimpleName());
 
             message.setStack("出错类: " + errorClass + "\n" +
                     "出错方法: " + errorMethod + "\n" +
@@ -121,7 +69,6 @@ public class ProjectExceptionAdvice {
             if (modelAnnotation != null) {
                 String type = modelAnnotation.type();
                 message.setModule(type);
-                System.out.println("Model注解类型: " + type);
 //                countException(message.getType(), type);
 //                /**************    检查是否需要告警    ***************/
 //                if (shouldAlert(message.getType(), type)) {
@@ -129,7 +76,7 @@ public class ProjectExceptionAdvice {
 //                    sendAlert(message.getType(), type, count, message);
 //                }
             } else {
-                System.out.println("没有Model注解");
+                message.setModule("UnknownModel");
             }
 
             message.setProjectId(qgAPIClient.getProjectToken());
@@ -153,6 +100,55 @@ public class ProjectExceptionAdvice {
 
         }
     }
+
+
+
+    //    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
+//    private static final ConcurrentHashMap<String, Long> lastAlertTime = new ConcurrentHashMap<>();
+//
+//    /**
+//     * 异常阈值配置
+//     */
+//    private static final int EXCEPTION_THRESHOLD = 10;
+//    private static final long ALERT_INTERVAL = TimeUnit.MINUTES.toMillis(15);
+//
+
+//
+//    /**
+//     * 异常数量计数器，每分钟重置
+//     *
+//     *
+//     */
+//    static {
+//        Executors.newSingleThreadScheduledExecutor()
+//                .scheduleAtFixedRate(exceptionCount::clear, 1, 1, TimeUnit.MINUTES);
+//    }
+
+    /**
+     * 处理被标记为系统异常的异常
+     *
+     * @param ex
+     * @throws ClassNotFoundException
+     *//*
+    @ExceptionHandler(SystemException.class)
+    public void doSystemException(SystemException ex) throws ClassNotFoundException {
+        System.out.println("==>\n系统异常:  "
+                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
+        errorMethod(ex);
+    }
+
+    *//**
+     * 处理被标记为业务异常的异常
+     *
+     * @param ex
+     * @throws ClassNotFoundException
+     *//*
+    @ExceptionHandler(BusinessException.class)
+    public void doBusinessException(BusinessException ex) throws ClassNotFoundException {
+        System.out.println("==>\n业务异常: "
+                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
+        errorMethod(ex);
+    }*/
 
 //    /**
 //     * 统计异常数量

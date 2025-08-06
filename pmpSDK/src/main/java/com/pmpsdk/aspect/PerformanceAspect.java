@@ -38,7 +38,6 @@ public class PerformanceAspect {
     private QGAPIClient qgAPIClient;
 
 
-
     private static final long SLOW_THRESHOLD = 1000; // 慢请求阈值，单位毫秒
     private static final LongAdder qps = new LongAdder();
     private static final Queue<PerformanceLog> logQueue = new ConcurrentLinkedQueue<>();
@@ -54,17 +53,16 @@ public class PerformanceAspect {
                 try {
                     // 这里将批量日志发送到服务器
                     PostToServer.sendPerformanceLogMessage(batch);
-                    System.out.println("批量性能日志上报: " + batch.size() + " 条");
                     LogUtil.info("批量性能日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
-                    LogUtil.error("批量性能日志上报异常"+e.getMessage());
+                    LogUtil.error("批量性能日志上报异常" + e.getMessage());
                 }
             }
         }, 0, 1, TimeUnit.SECONDS);
     }
 
 
-    @Around("@within(org.springframework.web.bind.annotation.RestController)")
+    @Around("(@annotation(com.pmpsdk.annotation.Monitor))&&(@within(org.springframework.web.bind.annotation.RestController)||@within(org.springframework.stereotype.Controller))")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
         long start = System.currentTimeMillis();
         try {
@@ -90,19 +88,16 @@ public class PerformanceAspect {
             log.setEnvironment(qgAPIClient.getEnvironment());
 
 
-            System.out.println("API: " + log.getApi() +
-                    ", Duration: " + log.getDuration() + "ms" +
-                    ", Module: " + log.getModule() +
-                    ", Project ID: " + log.getProjectId() +
-                    ", Slow: " + log.isSlow()
-                    + ", Environment: " + log.getEnvironment());
+            String methodName = pjp.getSignature().toShortString();
+
             // 上报性能日志
-            LogUtil.info("性能检测到：API: " + log.getApi() +
-                    ", Duration: " + log.getDuration() + "ms" +
-                    ", Module: " + log.getModule() +
-                    ", Project ID: " + log.getProjectId() +
-                    ", Slow: " + log.isSlow()
-                    + ", Environment: " + log.getEnvironment());
+            LogUtil.info("被监测的方法：" + methodName +
+                    "\n性能检测到：API: " + log.getApi() +
+                    ", \nDuration: " + log.getDuration() + "ms" +
+                    ", \nModule: " + log.getModule() +
+                    ", \nProject ID: " + log.getProjectId() +
+                    ", \nSlow: " + log.isSlow()
+                    + ", \nEnvironment: " + log.getEnvironment());
             logQueue.add(log);
 
         }

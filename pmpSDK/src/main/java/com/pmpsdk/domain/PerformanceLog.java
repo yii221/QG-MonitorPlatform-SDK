@@ -9,11 +9,13 @@ package com.pmpsdk.domain;
  */
 
 public class PerformanceLog {
+    private Long id;
     private String api;
     private long duration;
     private long timestamp;
     private String module;
     private String projectId;
+    private String source = "backend";
     private boolean slow;
     private String environment;
 
@@ -21,14 +23,32 @@ public class PerformanceLog {
     public PerformanceLog() {
     }
 
-    public PerformanceLog(String api, long duration, long timestamp, String module, String projectId, boolean slow, String environment) {
+    public PerformanceLog(Long id, String api, long duration, long timestamp, String module, String projectId, String source, boolean slow, String environment) {
+        this.id = id;
         this.api = api;
         this.duration = duration;
         this.timestamp = timestamp;
         this.module = module;
         this.projectId = projectId;
+        this.source = source;
         this.slow = slow;
         this.environment = environment;
+    }
+
+    /**
+     * 获取
+     * @return id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * 设置
+     * @param id
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -113,6 +133,22 @@ public class PerformanceLog {
 
     /**
      * 获取
+     * @return source
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * 设置
+     * @param source
+     */
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    /**
+     * 获取
      * @return slow
      */
     public boolean isSlow() {
@@ -144,6 +180,6 @@ public class PerformanceLog {
     }
 
     public String toString() {
-        return "PerformanceLog{api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", slow = " + slow + ", environment = " + environment + "}";
+        return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + "}";
     }
 }

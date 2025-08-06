@@ -20,8 +20,6 @@ public class ErrorMessage {
 
     private String source = "backend";
 
-    private String level;
-
     private String projectId;
 
     private String environment;
@@ -29,14 +27,14 @@ public class ErrorMessage {
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String level, String projectId, String environment) {
+    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String projectId, String environment) {
         this.id = id;
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
         this.module = module;
         this.source = source;
-        this.level = level;
+
         this.projectId = projectId;
         this.environment = environment;
     }
@@ -137,21 +135,7 @@ public class ErrorMessage {
         this.source = source;
     }
 
-    /**
-     * 获取
-     * @return level
-     */
-    public String getLevel() {
-        return level;
-    }
 
-    /**
-     * 设置
-     * @param level
-     */
-    public void setLevel(String level) {
-        this.level = level;
-    }
 
     /**
      * 获取
@@ -186,6 +170,6 @@ public class ErrorMessage {
     }
 
     public String toString() {
-        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", level = " + level + ", projectId = " + projectId + ", environment = " + environment + "}";
+        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + "}";
     }
 }

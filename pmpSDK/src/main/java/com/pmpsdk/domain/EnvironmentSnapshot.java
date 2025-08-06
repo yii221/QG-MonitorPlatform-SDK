@@ -13,19 +13,18 @@ public class EnvironmentSnapshot {
     private String browserVersion;
 
     // 设备信息
-    private String deviceType; // PC/Mobile/Tablet
+    private String deviceType;
+
     private String deviceBrand;
     private String deviceModel;
 
     // 网络信息
-    private String ipAddress;
     private String networkType;
 
     // 应用信息
     private String appVersion;
 
-    // 屏幕信息
-    private String screenResolution;
+
 
 
 
