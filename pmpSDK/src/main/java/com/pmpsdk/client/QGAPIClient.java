@@ -16,10 +16,9 @@ public class QGAPIClient {
      * @param environment  环境
      */
     public QGAPIClient(String projectToken, String environment) {
-
         this.projectToken = projectToken;
-
         this.environment = environment;
+        System.err.println("QGAPIClient:" + projectToken + ":" + environment);
     }
 
     public QGAPIClient() {

@@ -57,9 +57,8 @@ public class SecurityCheckAspect {
 
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
-            LogUtil.warn("拦截IP: {"+ip+"}");
-            throw new Exception("IP地址已被拦截，请联系管理员。");
-            /*return "IP地址已被拦截，请联系管理员。";*/
+            LogUtil.warn("拦截IP: " + ip);
+            return "IP地址已被拦截，请联系管理员。";
         }
 
         String userAgent = request.getHeader("User-Agent");

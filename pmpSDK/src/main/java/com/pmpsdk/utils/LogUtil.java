@@ -72,7 +72,7 @@ public class LogUtil {
     }
 
     /**
-     *  debug
+     * debug
      * @param message
      * @param module
      */
