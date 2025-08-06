@@ -75,8 +75,6 @@ public class SecurityCheckAspect {
         // TODO：放进 map集合
         environmentSnapshot.putIfAbsent(ip, snapshot);
 
-        System.err.println("获取环境快照成功:" +  snapshot);
-
         // TODO：继续执行目标方法
         return joinPoint.proceed();
     }
