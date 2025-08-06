@@ -1,6 +1,5 @@
 package com.pmpsdk.aspect;
 
-
 import com.pmpsdk.domain.EnvironmentSnapshot;
 
 import com.pmpsdk.utils.LogUtil;
@@ -17,6 +16,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
 
 /**
@@ -31,6 +34,17 @@ import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
 @Order(0)
 public class SecurityCheckAspect {
 
+    /**
+     * 通过 ip，绑定环境快照
+     */
+    private static final ConcurrentHashMap<String, EnvironmentSnapshot> environmentSnapshot = new ConcurrentHashMap<>();
+
+    // TODO: 定时，每分钟清空一次环境快照
+    static {
+        Executors
+                .newSingleThreadScheduledExecutor()
+                .scheduleAtFixedRate(environmentSnapshot::clear, 0, 1, TimeUnit.MINUTES);
+    }
 
     @Around("@within(org.springframework.web.bind.annotation.RestController) || @within(org.springframework.stereotype.Controller)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -56,7 +70,10 @@ public class SecurityCheckAspect {
 
         // TODO：获取语言
         snapshot.setLanguage(request.getHeader("Accept-Language"));
-        snapshot.setAjax("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
+        snapshot.setIsAjax("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
+
+        // TODO：放进 map集合
+        environmentSnapshot.putIfAbsent(ip, snapshot);
 
         System.err.println("获取环境快照成功:" +  snapshot);
 
