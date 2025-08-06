@@ -3,6 +3,7 @@ package com.pmpsdk.config;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HtmlUtil;
 import cn.hutool.json.JSONUtil;
+import com.pmpsdk.annotation.ThrowSDKException;
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
+@ThrowSDKException
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     /**

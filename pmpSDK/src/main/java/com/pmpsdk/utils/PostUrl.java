@@ -1,5 +1,8 @@
 package com.pmpsdk.utils;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
+@ThrowSDKException
 public enum PostUrl {
     LOG("http://192.168.1.233:8080/messages/log"),
     ERROR("http://192.168.1.233:8080/messages/error"),

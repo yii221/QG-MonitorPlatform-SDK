@@ -1,12 +1,13 @@
 package com.pmpsdk.config;
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
-
+@ThrowSDKException
 @WebFilter(urlPatterns = "/*")
 public class XssFilter implements Filter {
     @Override

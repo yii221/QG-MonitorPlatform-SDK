@@ -1,5 +1,7 @@
 package com.pmpsdk.domain;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 /**
  * @Description: 日志应用类  // 类说明
  * @ClassName: Log    // 类名
@@ -7,6 +9,7 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/4 22:36   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 public class Log {
     private Long id;
     private Long timestamp;

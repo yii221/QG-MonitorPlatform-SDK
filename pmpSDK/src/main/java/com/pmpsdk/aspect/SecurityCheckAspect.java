@@ -1,5 +1,6 @@
 package com.pmpsdk.aspect;
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 
 import com.pmpsdk.utils.LogUtil;
@@ -29,6 +30,7 @@ import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
  * @Date: 2025/8/5 14:57   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 @Aspect
 @Component
 @Order(0)

@@ -1,5 +1,7 @@
 package com.pmpsdk.domain;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 /**
  * @Description: 报错信息  // 类说明
  * @ClassName: ErrorMessage    // 类名
@@ -7,6 +9,7 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/4 20:45   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 public class ErrorMessage {
     private Long id;
 

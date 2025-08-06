@@ -1,5 +1,6 @@
 package com.pmpsdk.aspect;
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.utils.IpBlacklistUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,6 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.pmpsdk.utils.GetClientIpUtil.getClientIp;
 
+@ThrowSDKException
 @Aspect
 @Component
 public class MethodInvocationAspect {
@@ -26,36 +28,27 @@ public class MethodInvocationAspect {
     /**
      * 恶意调用阈值
      * 1秒内
-     * 调用20次
+     * 调用30次
      */
     private static final long WINDOW_TIME_MS = 1000;
-    private static final int MALICIOUS_THRESHOLD = 20;
+    private static final int MALICIOUS_THRESHOLD = 30;
 
-    // TODO: 定时，每10秒打印方法调用统计
+    // TODO: 定时，清理空队列
     static {
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-            // TODO: 清理空队列
             methodInvocationWindows
                     .entrySet()
                     .removeIf(entry -> entry.getValue().isEmpty());
-
-            Map<String, Integer> methodStats = getMethodInvocationStatistics();
-            if (!methodStats.isEmpty()) {
-                try {
-                    methodInvocationWindows.forEach((methodWithIp, queue) -> {
-                        // 解析方法名和IP（格式：methodName@IP）
-                        String[] parts = methodWithIp.split("@", 2);
-                        String methodName = parts[0];
-                        String ip = parts.length > 1 ? parts[1] : "N/A";
-                    });
-                } catch (Exception e) {
-                    // 异常处理
-                }
-            }
         }, 1, 10, TimeUnit.SECONDS);
     }
 
 
+    /**
+     * 统计方法调用次数
+     * @param joinPoint
+     * @return
+     * @throws Throwable
+     */
     @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
     public Object countMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
         // TODO: 获取方法名
@@ -78,10 +71,10 @@ public class MethodInvocationAspect {
 
             // TODO: 判断是否为恶意攻击
             if (isMaliciousAttack(methodWithIp)) {
-                // 可以选择抛出异常来阻止请求
-                // throw new SecurityException("请求频率过高");
                 // TODO: 加入黑名单
                 IpBlacklistUtil.addToBlacklist(clientIp);
+                System.err.println(getMethodInvocationStatistics());
+                return "访问被拒绝：IP已被列入黑名单";
             }
         } catch (IllegalStateException e) {
             // TODO: 非Web请求（如定时任务）跳过检测
@@ -111,7 +104,6 @@ public class MethodInvocationAspect {
 
             // TODO: 添加当前窗口时间戳
             windowQueue.add(currentTime);
-
 
             // TODO: 判断是否超过恶意调用阈值
             return windowQueue.size() >= MALICIOUS_THRESHOLD;

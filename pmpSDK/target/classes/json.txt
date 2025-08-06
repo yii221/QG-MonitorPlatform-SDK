@@ -1,0 +1,37 @@
+Log:
+    {
+    id: 1,
+    timestamp: 1754537990821,
+    level: "INFO",
+    message: "This is a log message",
+    module: "user",
+    source: "backend",
+    projectId: "project123",
+    environment: "test"
+}
+
+
+ErrorMessage:
+    {
+    id: 1,
+    timestamp: 1754537990821,
+    type: "Exception",
+    stack: "出错类: userController\n出错方法: getUser\n出错行号: 33\n异常信息: 666"
+    module: "user",
+    source: "backend",
+    projectId: "project123",
+    environment: "test"
+}
+
+PerformanceLog:
+    {
+    id: 1,
+    api: "getUser",
+    duration: 150,
+    timestamp: 1754537990821,
+    module: "user",
+    projectId: "project123",
+    source: "backend",
+    slow: true,
+    environment: "test",
+}
