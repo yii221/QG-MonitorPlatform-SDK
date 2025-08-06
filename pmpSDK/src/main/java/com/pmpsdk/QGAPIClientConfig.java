@@ -42,7 +42,7 @@ import org.springframework.context.annotation.Configuration;
 public class QGAPIClientConfig {
 
     private String projectToken;
-    private String environment = "test"; // 默认值为 "test"
+    private String environment = "默认test";
 
 
     @Bean
