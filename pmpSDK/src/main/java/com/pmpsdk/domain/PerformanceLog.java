@@ -20,12 +20,13 @@ public class PerformanceLog {
     private String source = "backend";
     private boolean slow;
     private String environment;
+    private EnvironmentSnapshot environmentSnapshot;
 
 
     public PerformanceLog() {
     }
 
-    public PerformanceLog(Long id, String api, long duration, long timestamp, String module, String projectId, String source, boolean slow, String environment) {
+    public PerformanceLog(Long id, String api, long duration, long timestamp, String module, String projectId, String source, boolean slow, String environment, EnvironmentSnapshot environmentSnapshot) {
         this.id = id;
         this.api = api;
         this.duration = duration;
@@ -35,6 +36,7 @@ public class PerformanceLog {
         this.source = source;
         this.slow = slow;
         this.environment = environment;
+        this.environmentSnapshot = environmentSnapshot;
     }
 
     /**
@@ -181,7 +183,23 @@ public class PerformanceLog {
         this.environment = environment;
     }
 
+    /**
+     * 获取
+     * @return environmentSnapshot
+     */
+    public EnvironmentSnapshot getEnvironmentSnapshot() {
+        return environmentSnapshot;
+    }
+
+    /**
+     * 设置
+     * @param environmentSnapshot
+     */
+    public void setEnvironmentSnapshot(EnvironmentSnapshot environmentSnapshot) {
+        this.environmentSnapshot = environmentSnapshot;
+    }
+
     public String toString() {
-        return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + "}";
+        return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
     }
 }

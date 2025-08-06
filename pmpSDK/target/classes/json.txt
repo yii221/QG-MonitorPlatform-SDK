@@ -7,7 +7,18 @@ Log:
     module: "user",
     source: "backend",
     projectId: "project123",
-    environment: "test"
+    environment: "test",
+    EnvironmentSnapshot：{
+            ip：192.168.1.156,
+            protocol: "HTTP",
+            httpMethod: "GET",
+            browserName: "Chrome",
+            browserVersion: "89.0.4389.82",
+            osName: "Windows 10",
+            osVersion: "10.0",
+            language: "zh-CN",
+            isAjax: false,
+        }
 }
 
 
@@ -20,7 +31,18 @@ ErrorMessage:
     module: "user",
     source: "backend",
     projectId: "project123",
-    environment: "test"
+    environment: "test",
+    EnvironmentSnapshot：{
+            ip：192.168.1.156,
+            protocol: "HTTP",
+            httpMethod: "GET",
+            browserName: "Chrome",
+            browserVersion: "89.0.4389.82",
+            osName: "Windows 10",
+            osVersion: "10.0",
+            language: "zh-CN",
+            isAjax: false,
+        }
 }
 
 PerformanceLog:
@@ -34,4 +56,15 @@ PerformanceLog:
     source: "backend",
     slow: true,
     environment: "test",
+    EnvironmentSnapshot：{
+        ip：192.168.1.156,
+        protocol: "HTTP",
+        httpMethod: "GET",
+        browserName: "Chrome",
+        browserVersion: "89.0.4389.82",
+        osName: "Windows 10",
+        osVersion: "10.0",
+        language: "zh-CN",
+        isAjax: false,
+    }
 }

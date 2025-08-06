@@ -3,10 +3,12 @@ package com.pmpsdk.aspect;
 import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
+import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.PerformanceLog;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,6 +16,8 @@ import org.aspectj.lang.annotation.Aspect;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +70,9 @@ public class PerformanceAspect {
 
     @Around("(@annotation(com.pmpsdk.annotation.Monitor))&&(@within(org.springframework.web.bind.annotation.RestController)||@within(org.springframework.stereotype.Controller))")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
+        String ip  = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
+        EnvironmentSnapshot environmentSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+
         long start = System.currentTimeMillis();
         try {
             return pjp.proceed();
@@ -88,6 +95,7 @@ public class PerformanceAspect {
 
             log.setProjectId(qgAPIClient.getProjectToken());
             log.setEnvironment(qgAPIClient.getEnvironment());
+            log.setEnvironmentSnapshot(environmentSnapshot);
 
 
             String methodName = pjp.getSignature().toShortString();
@@ -99,7 +107,8 @@ public class PerformanceAspect {
                     ", \nModule: " + log.getModule() +
                     ", \nProject ID: " + log.getProjectId() +
                     ", \nSlow: " + log.isSlow()
-                    + ", \nEnvironment: " + log.getEnvironment());
+                    + ", \nEnvironment: " + log.getEnvironment()
+                    + ", \nEnvironment Snapshot: " + log.getEnvironmentSnapshot());
             logQueue.add(log);
 
         }

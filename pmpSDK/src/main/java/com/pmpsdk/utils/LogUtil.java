@@ -4,11 +4,18 @@ package com.pmpsdk.utils;
 import com.pmpsdk.annotation.Module;
 
 import com.pmpsdk.annotation.ThrowSDKException;
+import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
+import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.Log;
 
+
+
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 
 import java.util.ArrayList;
@@ -180,6 +187,20 @@ public class LogUtil {
         log.setContext(message);
         log.setModule(module);
 
+        HttpServletRequest request = null;
+        try {
+            ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            if (attrs != null) {
+                request = attrs.getRequest();
+            }
+        } catch (Exception ignored) {}
+
+        if (request != null) {
+            String ip = GetClientIpUtil.getClientIp(request);
+            EnvironmentSnapshot snapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+            log.setEnvironmentSnapshot(snapshot);
+        }
+
         QGAPIClient client = SpringContextUtil.getBean(QGAPIClient.class);
         if (client != null) {
             log.setProjectId(client.getProjectToken());
@@ -190,7 +211,8 @@ public class LogUtil {
                 ", 模块: " + log.getModule() +
                 ", 内容: " + log.getContext() +
                 ", 项目ID: " + log.getProjectId() +
-                ", 环境: " + log.getEnvironment());
+                ", 环境: " + log.getEnvironment() +
+                ", 环境快照: " + log.getEnvironmentSnapshot());
         return log;
     }
 

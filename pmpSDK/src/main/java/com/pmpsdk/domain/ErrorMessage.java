@@ -27,19 +27,22 @@ public class ErrorMessage {
 
     private String environment;
 
+    private EnvironmentSnapshot environmentSnapshot;
+
+
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String projectId, String environment) {
+    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String projectId, String environment, EnvironmentSnapshot environmentSnapshot) {
         this.id = id;
         this.timestamp = timestamp;
         this.type = type;
         this.stack = stack;
         this.module = module;
         this.source = source;
-
         this.projectId = projectId;
         this.environment = environment;
+        this.environmentSnapshot = environmentSnapshot;
     }
 
     /**
@@ -138,8 +141,6 @@ public class ErrorMessage {
         this.source = source;
     }
 
-
-
     /**
      * 获取
      * @return projectId
@@ -172,7 +173,23 @@ public class ErrorMessage {
         this.environment = environment;
     }
 
+    /**
+     * 获取
+     * @return environmentSnapshot
+     */
+    public EnvironmentSnapshot getEnvironmentSnapshot() {
+        return environmentSnapshot;
+    }
+
+    /**
+     * 设置
+     * @param environmentSnapshot
+     */
+    public void setEnvironmentSnapshot(EnvironmentSnapshot environmentSnapshot) {
+        this.environmentSnapshot = environmentSnapshot;
+    }
+
     public String toString() {
-        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + "}";
+        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
     }
 }
