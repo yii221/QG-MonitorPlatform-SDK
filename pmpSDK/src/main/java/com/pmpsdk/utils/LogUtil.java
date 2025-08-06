@@ -3,6 +3,7 @@ package com.pmpsdk.utils;
 
 import com.pmpsdk.annotation.Module;
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
@@ -27,12 +28,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 
 
-
+@ThrowSDKException
 public class LogUtil {
     private static final Logger logger = LoggerFactory.getLogger(LogUtil.class);
-
-
-
 
     private static final LongAdder totalCount = new LongAdder();
     private static final LongAdder errorCount = new LongAdder();
@@ -62,7 +60,10 @@ public class LogUtil {
     }
 
 
-    // ------ 日志记录方法 ------
+    /**
+     * debug
+     * @param message
+     */
     public static void debug(String message) {
         logger.debug(message);
         totalCount.increment();
@@ -70,6 +71,11 @@ public class LogUtil {
         logQueue.add(buildLog("DEBUG", message, getModule()));
     }
 
+    /**
+     *  debug
+     * @param message
+     * @param module
+     */
     public static void debug(String message,String module) {
         logger.debug(message);
         totalCount.increment();
@@ -77,6 +83,10 @@ public class LogUtil {
         logQueue.add(buildLog("DEBUG", message, module != null ? module : getModule()));
     }
 
+    /**
+     * info
+     * @param message
+     */
     public static void info(String message) {
         logger.info(message);
         totalCount.increment();
@@ -84,6 +94,11 @@ public class LogUtil {
         logQueue.add(buildLog("INFO", message, getModule()));
     }
 
+    /**
+     * info
+     * @param message
+     * @param module
+     */
     public static void info(String message, String module) {
         logger.info(message);
         totalCount.increment();
@@ -91,6 +106,10 @@ public class LogUtil {
         logQueue.add(buildLog("INFO", message,module != null ? module :  getModule()));
     }
 
+    /**
+     * warn
+     * @param message
+     */
     public static void warn(String message) {
         logger.warn(message);
         totalCount.increment();
@@ -98,6 +117,11 @@ public class LogUtil {
         logQueue.add(buildLog("WARN", message, getModule()));
     }
 
+    /**
+     * warn
+     * @param message
+     * @param module
+     */
     public static void warn(String message, String module) {
         logger.warn(message);
         totalCount.increment();
@@ -105,6 +129,11 @@ public class LogUtil {
         logQueue.add(buildLog("WARN", message, module != null ? module : getModule()));
     }
 
+
+    /**
+     * error
+     * @param message
+     */
     public static void error(String message) {
         logger.error(message);
         totalCount.increment();
@@ -113,6 +142,11 @@ public class LogUtil {
         logQueue.add(buildLog("ERROR", message, getModule()));
     }
 
+    /**
+     * error
+     * @param message
+     * @param module
+     */
     public static void error(String message, String module) {
         logger.error(message);
         totalCount.increment();
@@ -121,24 +155,31 @@ public class LogUtil {
         logQueue.add(buildLog("ERROR", message, module != null ? module : getModule()));
     }
 
-
+    /**
+     * 获取当前模块名
+     * @return
+     */
     private static String getModule() {
         String callerClassName = Thread.currentThread().getStackTrace()[3].getClassName();
         try {
             Class<?> callerClass = Class.forName(callerClassName);
             Module annotation = callerClass.getAnnotation(Module.class);
             if (annotation != null) {
-                logger.trace("获取到Model注解值: {}", annotation.type());
                 return annotation.type();
             }
         } catch (ClassNotFoundException e) {
-            logger.error("找不到调用者类: {}", callerClassName, e);
         }
-        return "UnknownModel";
+        return "未定义";
     }
 
 
-
+    /**
+     * 构建日志对象
+     * @param level
+     * @param message
+     * @param module
+     * @return
+     */
     private static Log buildLog(String level, String message, String module) {
         Log log = new Log();
         log.setTimestamp(System.currentTimeMillis());

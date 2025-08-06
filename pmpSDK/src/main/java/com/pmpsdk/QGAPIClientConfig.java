@@ -1,6 +1,7 @@
 package com.pmpsdk;
 
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
@@ -36,6 +37,7 @@ import org.springframework.context.annotation.Configuration;
  * qgpmpsdk.client.sentry-url=your_sentry_url_123
  * qgpmpsdk.client.api-base-url=your_api_base_url_123
  */
+@ThrowSDKException
 @ConfigurationProperties("qgpmpsdk.client")
 public class QGAPIClientConfig {
 

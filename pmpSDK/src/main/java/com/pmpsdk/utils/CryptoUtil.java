@@ -1,5 +1,7 @@
 package com.pmpsdk.utils;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -15,6 +17,7 @@ import java.util.Base64;
  * @Date: 2025/8/5 17:32   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 public class CryptoUtil {
 
     private static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuIsxakJdfey1bMqM4exeRLiG3PfNr5ycYSjgi1Dsi26GEKPuqQOfcQaru/R08iOOlpaUa+Y99BMeoE2FjodDuwAHV0Pwmr1hETtvA6WMeB7cG/IbxzZ7nWQ50h3LidL8D6KQRHHM+awN9PE2kRvlVEidHuN7TwqCqNkybZ54373mc6GogoWLRktIuLhF+yxARWrlUXbEzRJmbdEl2oRI52zFkweanAAiRKn/ATTlAx0yA6EAqgJYS0Uv2q8ymFVeXciaDNegoCPillpa/zPm531uYaalyoS5r/0aDur/8hfeSvCp35z8Uj+lVAX/ZYvQkzvRL5mOxjmRKv9pYG1XdwIDAQAB";

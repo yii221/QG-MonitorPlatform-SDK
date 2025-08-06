@@ -1,12 +1,13 @@
 package com.pmpsdk.utils;
 
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-
+@ThrowSDKException
 @Component
 public class SpringContextUtil implements ApplicationContextAware {
     private static ApplicationContext applicationContext;

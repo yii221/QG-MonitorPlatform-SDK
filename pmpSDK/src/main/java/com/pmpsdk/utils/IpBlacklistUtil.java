@@ -1,12 +1,14 @@
 package com.pmpsdk.utils;
 
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.util.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
+@ThrowSDKException
 public class IpBlacklistUtil {
 
     /**

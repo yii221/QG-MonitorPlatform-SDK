@@ -1,6 +1,7 @@
 package com.pmpsdk.aspect;
 
 import com.pmpsdk.annotation.Module;
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.PerformanceLog;
@@ -33,6 +34,7 @@ import java.util.concurrent.atomic.LongAdder;
  * @Date: 2025/8/5 15:47   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 @Aspect
 @Component
 @Order(1)

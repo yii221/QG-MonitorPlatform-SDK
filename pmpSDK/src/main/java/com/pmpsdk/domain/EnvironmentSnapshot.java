@@ -1,5 +1,8 @@
 package com.pmpsdk.domain;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
+@ThrowSDKException
 public class EnvironmentSnapshot {
     // 基础信息
     private String ip;

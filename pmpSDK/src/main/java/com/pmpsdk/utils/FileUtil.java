@@ -1,5 +1,7 @@
 package com.pmpsdk.utils;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,6 +18,7 @@ import static java.nio.file.Files.createFile;
  * @Date: 2025/8/6 10:53   // 时间
  * @Version: 1.0     // 版本
  */
+@ThrowSDKException
 public class FileUtil {
 
     private FileUtil() {

@@ -1,5 +1,7 @@
 package com.pmpsdk.domain;
 
+import com.pmpsdk.annotation.ThrowSDKException;
+
 /**
  * @Description: 性能日志  // 类说明
  * @ClassName: PerformanceLog    // 类名
@@ -7,7 +9,7 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/5 15:48   // 时间
  * @Version: 1.0     // 版本
  */
-
+@ThrowSDKException
 public class PerformanceLog {
     private Long id;
     private String api;

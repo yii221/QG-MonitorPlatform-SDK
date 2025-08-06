@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.domain.ErrorMessage;
 import com.pmpsdk.domain.Log;
 import com.pmpsdk.domain.PerformanceLog;
@@ -15,7 +16,7 @@ import java.util.List;
 
 import static com.pmpsdk.utils.PostUrl.ERROR;
 import static com.pmpsdk.utils.PostUrl.LOG;
-
+@ThrowSDKException
 public final class PostToServer {
     private static final Logger logger = LoggerFactory.getLogger(PostToServer.class);
 

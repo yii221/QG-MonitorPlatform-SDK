@@ -4,6 +4,7 @@ package com.pmpsdk.exception;
 import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.aspect.SecurityCheckAspect;
+import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.ErrorMessage;
@@ -20,10 +21,23 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.lang.reflect.Method;
 
+@ThrowSDKException
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
     @Resource
     private QGAPIClient qgAPIClient;
+
+    /**
+     * 处理未被注解标记的异常
+     *
+     * @param ex
+     * @throws Exception
+     */
+    @ExceptionHandler(SDKException.class)
+    public void DealSDKException(SDKException ex) throws Exception {
+        System.out.println("==>\nsdk内部异常:\n" + ex.getMessage() + "\n<==");
+        errorMethod(ex);
+    }
 
 
     /**

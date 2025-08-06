@@ -1,8 +1,9 @@
 package com.pmpsdk.client;
 
 import cn.hutool.crypto.digest.DigestUtil;
+import com.pmpsdk.annotation.ThrowSDKException;
 
-
+@ThrowSDKException
 public class QGAPIClient {
 
     private String projectToken;
