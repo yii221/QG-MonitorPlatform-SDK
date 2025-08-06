@@ -1,0 +1,45 @@
+{
+  "groups": [
+    {
+      "name": "qgpmpsdk.client",
+      "type": "com.pmpsdk.QGAPIClientConfig",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "qgpmpsdk.client.access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.api-base-url",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.environment",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.project-token",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.sentry-url",
+      "type": "java.lang.String",
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}

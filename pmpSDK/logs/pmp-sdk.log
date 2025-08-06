@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2025-08-06T13:10:59.384+08:00  INFO 75624 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : Starting PmpSdkApplication using Java 21.0.5 with PID 75624 (C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\target\classes started by 14527 in C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK)
 2025-08-06T13:10:59.386+08:00  INFO 75624 --- [pmpSDK] [main] com.pmpsdk.PmpSdkApplication             : No active profile set, falling back to 1 default profile: "default"
 2025-08-06T13:10:59.910+08:00  INFO 75624 --- [pmpSDK] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
@@ -962,3 +963,5 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-08-06T16:23:05.589+08:00  INFO 76240 --- [pmpSDK] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-08-06T16:23:05.592+08:00  INFO 76240 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
 2025-08-06T16:23:05.593+08:00  INFO 76240 --- [pmpSDK] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+=======
+>>>>>>> 4e91362aca58c46f56db296cf293eb42702171aa

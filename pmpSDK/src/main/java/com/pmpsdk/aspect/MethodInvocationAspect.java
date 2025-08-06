@@ -42,19 +42,12 @@ public class MethodInvocationAspect {
             Map<String, Integer> methodStats = getMethodInvocationStatistics();
             if (!methodStats.isEmpty()) {
                 try {
-                    System.out.println("\n========== 方法+IP调用统计 ==========");
                     methodInvocationWindows.forEach((methodWithIp, queue) -> {
                         // 解析方法名和IP（格式：methodName@IP）
                         String[] parts = methodWithIp.split("@", 2);
                         String methodName = parts[0];
                         String ip = parts.length > 1 ? parts[1] : "N/A";
-
-                        System.out.printf(
-                                "方法: %-40s | IP: %-15s | 最近1分钟调用次数: %d\n",
-                                methodName, ip, queue.size()
-                        );
                     });
-                    System.out.println("======================================");
                 } catch (Exception e) {
                     // 异常处理
                 }
@@ -89,7 +82,6 @@ public class MethodInvocationAspect {
 
             // TODO: 判断是否为恶意攻击
             if (isMaliciousAttack(methodWithIp)) {
-                System.err.println("\n\n====>恶意攻击检测: " + methodWithIp + "\n\n");
                 // 可以选择抛出异常来阻止请求
                 // throw new SecurityException("请求频率过高");
                 // TODO: 加入黑名单
@@ -97,7 +89,6 @@ public class MethodInvocationAspect {
             }
         } catch (IllegalStateException e) {
             // TODO: 非Web请求（如定时任务）跳过检测
-            System.out.println("非Web请求，跳过恶意攻击检测");
         }
 
         return joinPoint.proceed();

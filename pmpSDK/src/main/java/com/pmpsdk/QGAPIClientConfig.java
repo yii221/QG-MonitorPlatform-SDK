@@ -39,17 +39,12 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("qgpmpsdk.client")
 public class QGAPIClientConfig {
 
-    private String accessKey;
-    private String secretKey;
     private String projectToken;
-    private String sentryUrl;
-    private String apiBaseUrl;
     private String environment = "test"; // 默认值为 "test"
-
 
 
     @Bean
     public QGAPIClient qgApiClient() {
-        return new QGAPIClient(accessKey, secretKey, projectToken, sentryUrl, apiBaseUrl, environment);
+        return new QGAPIClient(projectToken, environment);
     }
 }

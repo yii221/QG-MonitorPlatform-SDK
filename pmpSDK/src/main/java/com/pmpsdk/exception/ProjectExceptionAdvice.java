@@ -5,7 +5,7 @@ import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.ErrorMessage;
-//import com.pmpsdk.unuse.AlertUtil;
+
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 
@@ -14,15 +14,96 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.lang.reflect.Method;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
+    @Resource
+    private QGAPIClient qgAPIClient;
 
-//    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
+
+    /**
+     * 处理未被注解标记的异常
+     *
+     * @param ex
+     * @throws Exception
+     */
+    @ExceptionHandler(Exception.class)
+    public void CatchException(Exception ex) throws Exception {
+        System.out.println("==>\n未知异常:\n" + ex.getMessage() + "\n<==");
+        errorMethod(ex);
+    }
+
+
+    /**
+     * 获取异常信息
+     *
+     * @param ex
+     * @throws ClassNotFoundException
+     */
+    private void errorMethod(Exception ex) throws ClassNotFoundException {
+
+        // 获取异常类型
+        Class<?> exceptionClass = ex.getClass();
+
+        // 获取异常发生的类和方法
+        StackTraceElement[] stackTrace = ex.getStackTrace();
+        if (stackTrace.length > 0) {
+            String errorClass = stackTrace[0].getClassName();
+            String errorMethod = stackTrace[0].getMethodName();
+            int lineNumber = stackTrace[0].getLineNumber();
+
+            ErrorMessage message = new ErrorMessage();
+            message.setType(exceptionClass.getSimpleName());
+
+            message.setStack("出错类: " + errorClass + "\n" +
+                    "出错方法: " + errorMethod + "\n" +
+                    "出错行号: " + lineNumber + "\n" +
+                    "异常信息: " + ex.getMessage());
+
+            message.setType("OtherException");
+            message.setTimestamp(System.currentTimeMillis());
+
+            Class<?> clazz = Class.forName(errorClass);
+            Module modelAnnotation = clazz.getAnnotation(Module.class);
+
+            if (modelAnnotation != null) {
+                String type = modelAnnotation.type();
+                message.setModule(type);
+//                countException(message.getType(), type);
+//                /**************    检查是否需要告警    ***************/
+//                if (shouldAlert(message.getType(), type)) {
+//                    int count = exceptionCount.get(type + ":" + message.getType()).get();
+//                    sendAlert(message.getType(), type, count, message);
+//                }
+            } else {
+                message.setModule("UnknownModel");
+            }
+
+            message.setProjectId(qgAPIClient.getProjectToken());
+            message.setEnvironment(qgAPIClient.getEnvironment());
+
+            // 获取方法上的注解
+            for (Method method : clazz.getDeclaredMethods()) {
+                if (method.getName().equals(errorMethod)) {
+                    if (method.isAnnotationPresent(Monitor.class)) {
+                        PostToServer.sendErrorMessage(message);
+                        /**************    记录日志    ***************/
+                        LogUtil.error(message.getStack() +
+                                "\n项目ID: " + message.getProjectId() +
+                                "\n模型类型: " + message.getModule() +
+                                "\n环境: " + message.getEnvironment() +
+                                "\n异常类型: " + message.getType() +
+                                "\n时间戳: " + message.getTimestamp());
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+    //    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
 //    private static final ConcurrentHashMap<String, Long> lastAlertTime = new ConcurrentHashMap<>();
 //
 //    /**
@@ -31,8 +112,7 @@ public class ProjectExceptionAdvice {
 //    private static final int EXCEPTION_THRESHOLD = 10;
 //    private static final long ALERT_INTERVAL = TimeUnit.MINUTES.toMillis(15);
 //
-    @Resource
-    private QGAPIClient qgAPIClient;
+
 //
 //    /**
 //     * 异常数量计数器，每分钟重置
@@ -49,7 +129,7 @@ public class ProjectExceptionAdvice {
      *
      * @param ex
      * @throws ClassNotFoundException
-     */
+     *//*
     @ExceptionHandler(SystemException.class)
     public void doSystemException(SystemException ex) throws ClassNotFoundException {
         System.out.println("==>\n系统异常:  "
@@ -57,99 +137,18 @@ public class ProjectExceptionAdvice {
         errorMethod(ex);
     }
 
-    /**
+    *//**
      * 处理被标记为业务异常的异常
      *
      * @param ex
      * @throws ClassNotFoundException
-     */
+     *//*
     @ExceptionHandler(BusinessException.class)
     public void doBusinessException(BusinessException ex) throws ClassNotFoundException {
         System.out.println("==>\n业务异常: "
                 + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
-    }
-
-    /**
-     * 处理未被注解标记的异常
-     *
-     * @param ex
-     * @throws Exception
-     */
-    @ExceptionHandler(Exception.class)
-    public void doOtherException(Exception ex) throws Exception {
-        System.out.println("==>\n未知异常:\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
-    }
-
-
-    /**
-     * 获取异常信息
-     *
-     * @param ex
-     * @throws ClassNotFoundException
-     */
-    private void errorMethod(Exception ex) throws ClassNotFoundException {
-
-        // 获取异常类型
-        Class<?> exceptionClass = ex.getClass();
-        System.out.println("异常类型: " + exceptionClass.getName());
-
-        // 获取异常发生的类和方法
-        StackTraceElement[] stackTrace = ex.getStackTrace();
-        if (stackTrace.length > 0) {
-            String errorClass = stackTrace[0].getClassName();
-            String errorMethod = stackTrace[0].getMethodName();
-            int lineNumber = stackTrace[0].getLineNumber();
-            System.out.println("出错类: " + errorClass);
-            System.out.println("出错方法: " + errorMethod);
-            System.out.println("出错行号: " + lineNumber);
-
-            ErrorMessage message = new ErrorMessage();
-
-            message.setStack("出错类: " + errorClass + "\n" +
-                    "出错方法: " + errorMethod + "\n" +
-                    "出错行号: " + lineNumber + "\n" +
-                    "异常信息: " + ex.getMessage());
-
-            message.setType("OtherException");
-            message.setTimestamp(System.currentTimeMillis());
-
-            Class<?> clazz = Class.forName(errorClass);
-            Module modelAnnotation = clazz.getAnnotation(Module.class);
-
-            if (modelAnnotation != null) {
-                String type = modelAnnotation.type();
-                message.setModule(type);
-                System.out.println("Model注解类型: " + type);
-//                countException(message.getType(), type);
-//                /**************    检查是否需要告警    ***************/
-//                if (shouldAlert(message.getType(), type)) {
-//                    int count = exceptionCount.get(type + ":" + message.getType()).get();
-//                    sendAlert(message.getType(), type, count, message);
-//                }
-            } else {
-                System.out.println("没有Model注解");
-            }
-
-            message.setProjectId(qgAPIClient.getProjectToken());
-            message.setEnvironment(qgAPIClient.getEnvironment());
-
-            // 获取方法上的注解
-            for (Method method : clazz.getDeclaredMethods()) {
-                if (method.getName().equals(errorMethod)) {
-                    if (method.isAnnotationPresent(Monitor.class)) {
-                        PostToServer.sendErrorMessage(message);
-                        /**************    记录日志    ***************/
-                        LogUtil.error(message.getStack() +
-                                "\n项目ID: " + message.getProjectId() +
-                                "\n模型类型: " + message.getModule());
-                    }
-                }
-            }
-
-        }
-    }
+    }*/
 
 //    /**
 //     * 统计异常数量

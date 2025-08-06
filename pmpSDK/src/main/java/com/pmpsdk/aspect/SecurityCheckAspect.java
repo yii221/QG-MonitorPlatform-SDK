@@ -1,8 +1,8 @@
 package com.pmpsdk.aspect;
 
-import cn.hutool.json.JSONUtil;
+
 import com.pmpsdk.domain.EnvironmentSnapshot;
-import com.pmpsdk.domain.Result;
+
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.GetClientIpUtil;
 
@@ -13,7 +13,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.annotation.Order;
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -33,7 +32,7 @@ import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
 public class SecurityCheckAspect {
 
 
-    @Around("@within(org.springframework.web.bind.annotation.RestController)")
+    @Around("@within(org.springframework.web.bind.annotation.RestController) || @within(org.springframework.stereotype.Controller)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -42,11 +41,10 @@ public class SecurityCheckAspect {
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
             LogUtil.warn("拦截IP: {}", ip);
-            return JSONUtil.toJsonStr(new Result(403, "访问被拒绝"));
+            return "访问被拒绝：IP已被列入黑名单";
         }
 
         String userAgent = request.getHeader("User-Agent");
-
         String protocol = request.getScheme();
         String httpMethod = request.getMethod();
 
