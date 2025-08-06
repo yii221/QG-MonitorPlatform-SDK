@@ -13,7 +13,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -35,29 +35,34 @@ public class SecurityCheckAspect {
 
     @Around("@within(org.springframework.web.bind.annotation.RestController)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
-        // 在这里进行安全检查
-        // 获取请求信息
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = GetClientIpUtil.getClientIp(request);
 
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
-            System.err.println("\n\n=======ip在黑名单中********\n\n");
             LogUtil.warn("拦截IP: {}", ip);
             return JSONUtil.toJsonStr(new Result(403, "访问被拒绝"));
         }
 
         String userAgent = request.getHeader("User-Agent");
-        EnvironmentSnapshot environmentSnapshot = UserAgentUtil.parseUserAgent(userAgent);
-        System.out.println("\n\nEnvironmentSnapshot: " + environmentSnapshot + "\n\n");
-        System.out.println("IP: " + ip + ", User-Agent: " + userAgent);
-//        // 简单示例：判断IP是否在黑名单
-//        if (/*isBlackIp(ip)*/ true) {
-//            LogUtil.warn("检测到黑名单IP访问: " + ip + ", userAgent: "
-//                    + userAgent + "\n解析处理后信息：" + environmentSnapshot + "\n\n");
-//        }
-        // 如果检查通过，继续执行目标方法
+
+        String protocol = request.getScheme();
+        String httpMethod = request.getMethod();
+
+        // TODO：记录网络信息
+        EnvironmentSnapshot snapshot = UserAgentUtil.parseUserAgent(userAgent);
+        snapshot.setIp(ip);
+        snapshot.setProtocol(protocol);
+        snapshot.setHttpMethod(httpMethod);
+
+        // TODO：获取语言
+        snapshot.setLanguage(request.getHeader("Accept-Language"));
+        snapshot.setAjax("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
+
+        System.err.println("获取环境快照成功:" +  snapshot);
+
+        // TODO：继续执行目标方法
         return joinPoint.proceed();
     }
 }
