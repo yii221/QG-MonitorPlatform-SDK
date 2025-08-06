@@ -37,7 +37,7 @@ public class SecurityCheckAspect {
     /**
      * 通过 ip，绑定环境快照
      */
-    private static final ConcurrentHashMap<String, EnvironmentSnapshot> environmentSnapshot = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, EnvironmentSnapshot> environmentSnapshot = new ConcurrentHashMap<>();
 
     // TODO: 定时，每分钟清空一次环境快照
     static {
