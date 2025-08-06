@@ -54,10 +54,12 @@ public class SecurityCheckAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = GetClientIpUtil.getClientIp(request);
 
+
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
-            LogUtil.warn("拦截IP: {}", ip);
-            return "访问被拒绝：IP已被列入黑名单";
+            LogUtil.warn("拦截IP: {"+ip+"}");
+            throw new Exception("IP地址已被拦截，请联系管理员。");
+            /*return "IP地址已被拦截，请联系管理员。";*/
         }
 
         String userAgent = request.getHeader("User-Agent");
