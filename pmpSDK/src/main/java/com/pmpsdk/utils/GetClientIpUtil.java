@@ -6,12 +6,12 @@ import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.model.CountryResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.ClassPathResource;
-
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.util.Set;
 
 import static com.pmpsdk.utils.IpBlacklistUtil.isBlacklisted;
+
 public class GetClientIpUtil {
 
     /**

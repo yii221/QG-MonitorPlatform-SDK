@@ -1,6 +1,7 @@
 package com.pmpsdk.aspect;
 
 import com.pmpsdk.utils.IpBlacklistUtil;
+import com.pmpsdk.utils.LogUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,7 +16,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import static com.pmpsdk.utils.GetClientIpUtil.getClientIp;
+import static com.pmpsdk.utils.PostToServer.sendMethodInvocationStats;
 
 
 @Aspect
@@ -34,17 +37,40 @@ public class MethodInvocationAspect {
     private static final long WINDOW_TIME_MS = 1000;
     private static final int MALICIOUS_THRESHOLD = 20;
 
-    // TODO: 定时，清理空队列
+
     static {
+        // TODO: 定时，清理空滑动窗口队列
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
             methodInvocationWindows
                     .entrySet()
                     .removeIf(entry -> entry.getValue().isEmpty());
+            // TODO: 1秒后，每10秒执行1次
         }, 1, 10, TimeUnit.SECONDS);
+
+        // TODO: 定时，发送方法调用情况到服务端，并清空
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
+
+            // TODO: 获取所有方法的调用统计
+            Map<String, Integer> statistics = getMethodInvocationStatistics();
+            if (!statistics.isEmpty()) {
+                try {
+                    // TODO: 发送到服务器（需实现PostToServer）
+                    sendMethodInvocationStats(statistics);
+                    LogUtil.info("已发送方法调用统计到服务器: " + statistics.size() + " 条记录");
+
+                    // TODO: 清空统计
+                    methodInvocationCounts.clear();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            // TODO: 5分钟后，每小时执行1次
+        }, 5, 60, TimeUnit.MINUTES);
     }
 
     /**
      * 统计方法调用次数
+     *
      * @param joinPoint
      * @return
      * @throws Throwable

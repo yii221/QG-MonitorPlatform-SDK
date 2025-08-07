@@ -8,9 +8,9 @@ import com.pmpsdk.domain.Log;
 import com.pmpsdk.domain.PerformanceLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.crypto.SecretKey;
 import java.util.List;
+import java.util.Map;
 
 import static com.pmpsdk.utils.PostUrl.*;
 
@@ -142,6 +142,16 @@ public final class PostToServer {
         return postJSON(url, jsonData);
     }
 
+    /**
+     * 发送方法统计情况
+     *
+     * @param statistics
+     * @return
+     * @throws Exception
+     */
+    public static void sendMethodInvocationStats(Map<String, Integer> statistics) throws Exception {
+        postJSON(PostUrl.METHOD_USE_COUNT.getUrl(), JSONUtil.toJsonStr(statistics));
+    }
 
     /**
      * @param data
