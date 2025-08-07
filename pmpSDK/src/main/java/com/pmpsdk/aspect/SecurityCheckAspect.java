@@ -1,6 +1,8 @@
 package com.pmpsdk.aspect;
 
+import cn.hutool.json.JSONUtil;
 import com.pmpsdk.domain.EnvironmentSnapshot;
+import com.pmpsdk.domain.Result;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.GetClientIpUtil;
 import com.pmpsdk.utils.UserAgentUtil;
@@ -12,6 +14,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -50,7 +53,7 @@ public class SecurityCheckAspect {
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
             LogUtil.warn("拦截IP: " + ip);
-            return "IP地址已被拦截，请联系管理员。";
+            return JSONUtil.toJsonStr(new Result(403, "IP地址已被拦截，若有疑问，请联系项目管理员"));
         }
 
         String userAgent = request.getHeader("User-Agent");

@@ -44,7 +44,11 @@ public class SpringContextUtil implements ApplicationContextAware {
         QGAPIClient client = getBean(QGAPIClient.class);
         if (client != null) {
             PROJECT_TOKEN = client.getProjectToken();
-            System.err.println("\n===Q=G===>项目加载成功，当前token：" + PROJECT_TOKEN + "\n");
+            System.err.println("\n===Q=G===>项目加载成功，当前token：" +
+                    (PROJECT_TOKEN != null && PROJECT_TOKEN.length() > 3 ?
+                            "*****" + PROJECT_TOKEN.substring(PROJECT_TOKEN.length() - 3) :
+                            (PROJECT_TOKEN != null ? PROJECT_TOKEN : "无效token")) +
+                    "\n");
         }
     }
 }

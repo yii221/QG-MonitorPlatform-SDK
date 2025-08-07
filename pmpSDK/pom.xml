@@ -8,6 +8,7 @@
         <version>3.5.4</version>
         <relativePath/>
     </parent>
+
     <!-- 基本信息部分 -->
     <groupId>com.github.yeye145</groupId>
     <artifactId>pmpsdk</artifactId>

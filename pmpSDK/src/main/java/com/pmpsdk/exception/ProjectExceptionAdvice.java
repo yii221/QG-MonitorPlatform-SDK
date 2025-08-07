@@ -10,14 +10,17 @@ import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import java.lang.reflect.Method;
 
+@Order(4)
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
+
     @Resource
     private QGAPIClient qgAPIClient;
 
@@ -29,7 +32,8 @@ public class ProjectExceptionAdvice {
      */
     @ExceptionHandler(SDKException.class)
     public void DealSDKException(SDKException ex) throws Exception {
-        System.out.println("==>\nsdk内部异常:\n" + ex.getMessage() + "\n<==");
+        System.out.println("==>\n捕获到sdk内部异常" + ex.getClass().getName() +
+                ":\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
     }
 
@@ -42,7 +46,8 @@ public class ProjectExceptionAdvice {
      */
     @ExceptionHandler(Exception.class)
     public void CatchException(Exception ex) throws Exception {
-        System.out.println("==>\n未知异常:\n" + ex.getMessage() + "\n<==");
+        System.out.println("==>\n捕获到" + ex.getClass().getName() +
+                "异常:\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
     }
 
@@ -177,31 +182,6 @@ public class ProjectExceptionAdvice {
 //                .scheduleAtFixedRate(exceptionCount::clear, 1, 1, TimeUnit.MINUTES);
 //    }
 
-    /**
-     * 处理被标记为系统异常的异常
-     *
-     * @param ex
-     * @throws ClassNotFoundException
-     *//*
-    @ExceptionHandler(SystemException.class)
-    public void doSystemException(SystemException ex) throws ClassNotFoundException {
-        System.out.println("==>\n系统异常:  "
-                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
-    }
-
-    *//**
-     * 处理被标记为业务异常的异常
-     *
-     * @param ex
-     * @throws ClassNotFoundException
-     *//*
-    @ExceptionHandler(BusinessException.class)
-    public void doBusinessException(BusinessException ex) throws ClassNotFoundException {
-        System.out.println("==>\n业务异常: "
-                + ex.getCode() + "\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
-    }*/
 
 //    /**
 //     * 统计异常数量

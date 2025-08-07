@@ -88,7 +88,6 @@ public class GetClientIpUtil {
         // TODO：检查本地IP白名单
         if (isLocalIp(ip)) {
             // TODO：放行本地内网 ip
-            System.err.println("\n\n放行本地ip: " + ip + "\n\n");
             return false;
         } else {
             // TODO：获取IP所属国家

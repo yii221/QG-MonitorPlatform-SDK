@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(0)   // TODO：1、优先拦截异常
+@Order(0)   // TODO：1、优先把SDK内部异常转换
 public class SDKExceptionAspect {
 
     // TODO：切面访问：仅SDK内部

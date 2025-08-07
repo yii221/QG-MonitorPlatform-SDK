@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -43,9 +44,8 @@ public class LogUtil {
                 try {
                     // 这里将批量日志发送到服务器
                     PostToServer.sendLogMessage(batch);
-                    System.out.println("批量日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
-                    logger.error("批量日志上报异常", e);
+                    logger.error("批量日志上报异常{}", e.getMessage());
                 }
             }
         }, 0, 1, TimeUnit.SECONDS);
@@ -54,6 +54,7 @@ public class LogUtil {
 
     /**
      * debug
+     *
      * @param message
      */
     public static void debug(String message) {
@@ -65,10 +66,11 @@ public class LogUtil {
 
     /**
      * debug
+     *
      * @param message
      * @param module
      */
-    public static void debug(String message,String module) {
+    public static void debug(String message, String module) {
         logger.debug(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
@@ -77,9 +79,11 @@ public class LogUtil {
 
     /**
      * info
+     *
      * @param message
      */
     public static void info(String message) {
+        System.err.println("info：" + message);
         logger.info(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
@@ -88,6 +92,7 @@ public class LogUtil {
 
     /**
      * info
+     *
      * @param message
      * @param module
      */
@@ -95,14 +100,16 @@ public class LogUtil {
         logger.info(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
-        logQueue.add(buildLog("INFO", message,module != null ? module :  getModule()));
+        logQueue.add(buildLog("INFO", message, module != null ? module : getModule()));
     }
 
     /**
      * warn
+     *
      * @param message
      */
     public static void warn(String message) {
+        System.err.println("warn：" + message);
         logger.warn(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
@@ -111,6 +118,7 @@ public class LogUtil {
 
     /**
      * warn
+     *
      * @param message
      * @param module
      */
@@ -124,10 +132,10 @@ public class LogUtil {
 
     /**
      * error
+     *
      * @param message
      */
     public static void error(String message) {
-        System.err.println("/////// 出现了异常 ///////");
         logger.error(message);
         totalCount.increment();
         errorCount.increment();
@@ -137,6 +145,7 @@ public class LogUtil {
 
     /**
      * error
+     *
      * @param message
      * @param module
      */
@@ -150,6 +159,7 @@ public class LogUtil {
 
     /**
      * 获取当前模块名
+     *
      * @return
      */
     private static String getModule() {
@@ -161,6 +171,7 @@ public class LogUtil {
                 return annotation.type();
             }
         } catch (ClassNotFoundException e) {
+            throw new RuntimeException("找不到调用者类: " + callerClassName, e);
         }
         return "未定义";
     }
@@ -168,6 +179,7 @@ public class LogUtil {
 
     /**
      * 构建日志对象
+     *
      * @param level
      * @param message
      * @param module
@@ -186,7 +198,8 @@ public class LogUtil {
             if (attrs != null) {
                 request = attrs.getRequest();
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
         if (request != null) {
             String ip = GetClientIpUtil.getClientIp(request);
@@ -200,12 +213,6 @@ public class LogUtil {
             log.setEnvironment(client.getEnvironment());
         }
 
-        System.out.println("日志记录: " + log.getLevel() +
-                ", 模块: " + log.getModule() +
-                ", 内容: " + log.getContext() +
-                ", 项目ID: " + log.getProjectId() +
-                ", 环境: " + log.getEnvironment() +
-                ", 环境快照: " + log.getEnvironmentSnapshot());
         return log;
     }
 

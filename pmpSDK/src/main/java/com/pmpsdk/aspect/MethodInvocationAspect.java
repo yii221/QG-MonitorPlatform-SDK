@@ -1,5 +1,7 @@
 package com.pmpsdk.aspect;
 
+import cn.hutool.json.JSONUtil;
+import com.pmpsdk.domain.Result;
 import com.pmpsdk.utils.IpBlacklistUtil;
 import com.pmpsdk.utils.LogUtil;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -49,7 +52,6 @@ public class MethodInvocationAspect {
 
         // TODO: 定时，发送方法调用情况到服务端，并清空
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-
             // TODO: 获取所有方法的调用统计
             Map<String, Integer> statistics = getMethodInvocationStatistics();
             if (!statistics.isEmpty()) {
@@ -57,15 +59,14 @@ public class MethodInvocationAspect {
                     // TODO: 发送到服务器（需实现PostToServer）
                     sendMethodInvocationStats(statistics);
                     LogUtil.info("已发送方法调用统计到服务器: " + statistics.size() + " 条记录");
-
                     // TODO: 清空统计
                     methodInvocationCounts.clear();
                 } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    LogUtil.error("服务器繁忙: " + statistics.size() + " 条记录");
                 }
             }
-            // TODO: 5分钟后，每小时执行1次
-        }, 5, 60, TimeUnit.MINUTES);
+            // TODO: 1分钟后，每小时执行1次
+        }, 1, 60, TimeUnit.MINUTES);
     }
 
     /**
@@ -100,8 +101,7 @@ public class MethodInvocationAspect {
             if (isMaliciousAttack(methodWithIp)) {
                 // TODO: 加入黑名单
                 IpBlacklistUtil.addToBlacklist(clientIp);
-                System.err.println(getMethodInvocationStatistics());
-                return "访问被拒绝：IP已被列入黑名单";
+                return JSONUtil.toJsonStr(new Result(403, "访问被拒绝：IP已被列入黑名单"));
             }
         } catch (IllegalStateException e) {
             // TODO: 非Web请求（如定时任务）跳过检测
