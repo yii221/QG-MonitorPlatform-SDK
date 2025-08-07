@@ -1,10 +1,8 @@
 package com.pmpsdk.utils;
 
 import cn.hutool.core.util.StrUtil;
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import eu.bitwalker.useragentutils.*;
-@ThrowSDKException
 public class UserAgentUtil {
 
     /**

@@ -1,8 +1,5 @@
 package com.pmpsdk.exception;
 
-import com.pmpsdk.annotation.ThrowSDKException;
-
-@ThrowSDKException
 public class SDKException extends RuntimeException{
 
     private Integer code;

@@ -1,24 +1,19 @@
 package com.pmpsdk.aspect;
 
 import com.pmpsdk.annotation.Module;
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.PerformanceLog;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-
-
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -34,15 +29,13 @@ import java.util.concurrent.atomic.LongAdder;
  * @Date: 2025/8/5 15:47   // 时间
  * @Version: 1.0     // 版本
  */
-@ThrowSDKException
 @Aspect
 @Component
-@Order(1)
+@Order(3)
 public class PerformanceAspect {
 
     @Resource
     private QGAPIClient qgAPIClient;
-
 
     private static final long SLOW_THRESHOLD = 1000; // 慢请求阈值，单位毫秒
     private static final LongAdder qps = new LongAdder();

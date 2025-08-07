@@ -4,7 +4,6 @@ import cn.hutool.core.net.NetUtil;
 import cn.hutool.core.util.StrUtil;
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.model.CountryResponse;
-import com.pmpsdk.annotation.ThrowSDKException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.ClassPathResource;
 
@@ -13,7 +12,6 @@ import java.net.InetAddress;
 import java.util.Set;
 
 import static com.pmpsdk.utils.IpBlacklistUtil.isBlacklisted;
-@ThrowSDKException
 public class GetClientIpUtil {
 
     /**

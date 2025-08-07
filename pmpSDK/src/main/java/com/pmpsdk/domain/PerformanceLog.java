@@ -1,7 +1,5 @@
 package com.pmpsdk.domain;
 
-import com.pmpsdk.annotation.ThrowSDKException;
-
 /**
  * @Description: 性能日志  // 类说明
  * @ClassName: PerformanceLog    // 类名
@@ -9,8 +7,8 @@ import com.pmpsdk.annotation.ThrowSDKException;
  * @Date: 2025/8/5 15:48   // 时间
  * @Version: 1.0     // 版本
  */
-@ThrowSDKException
 public class PerformanceLog {
+
     private Long id;
     private String api;
     private long duration;
@@ -21,6 +19,7 @@ public class PerformanceLog {
     private boolean slow;
     private String environment;
     private EnvironmentSnapshot environmentSnapshot;
+    private DataType dataType = DataType.PERFORMANCE;
 
 
     public PerformanceLog() {
@@ -201,5 +200,9 @@ public class PerformanceLog {
 
     public String toString() {
         return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
+    }
+
+    public DataType getDataType() {
+        return dataType;
     }
 }

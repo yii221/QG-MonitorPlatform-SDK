@@ -1,25 +1,24 @@
 package com.pmpsdk.aspect;
 
-
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.exception.SDKException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@ThrowSDKException
 @Aspect
 @Component
+@Order(0)   // TODO：1、优先拦截异常
 public class SDKExceptionAspect {
 
-    @Around("@within(com.pmpsdk.annotation.ThrowSDKException)" +
-            " || @annotation(com.pmpsdk.annotation.ThrowSDKException)")
+    // TODO：切面访问：仅SDK内部
+    @Around("execution(* com.pmpsdk..*.*(..))")
     public Object convertException(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
             return joinPoint.proceed();
         } catch (Exception e) {
-            // 将异常转换为SDKException抛出
+            // TODO：将异常转换为SDKException抛出
             throw new SDKException(500, "SDK执行异常", e);
         }
     }

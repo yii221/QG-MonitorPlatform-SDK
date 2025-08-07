@@ -1,14 +1,11 @@
 package com.pmpsdk.utils;
 
-
-import com.pmpsdk.annotation.ThrowSDKException;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import java.util.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-@ThrowSDKException
+
+
 public class IpBlacklistUtil {
 
     /**
@@ -24,10 +21,8 @@ public class IpBlacklistUtil {
     private static final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
     static {
-        // TODO: 确保父目录存在
-        ensureParentDirExists();
-        loadBlacklist();
-        System.err.println("\n======加载本地黑名单成功*******\n");
+        // TODO: 初始化黑名单
+        init();
     }
 
     /**
@@ -39,7 +34,7 @@ public class IpBlacklistUtil {
             // TODO: 创建父目录（如果不存在）
             java.nio.file.Files.createDirectories(path.getParent());
         } catch (Exception e) {
-            System.err.println("创建黑名单父目录失败: " + e.getMessage());
+            throw new RuntimeException("Failed to create parent directory for blacklist file", e);
         }
     }
 
@@ -61,18 +56,24 @@ public class IpBlacklistUtil {
                 FileUtil.create(BLACKLIST_FILE, path);
             }
         } catch (Exception e) {
-            System.err.println("加载黑名单文件失败: " + e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             /** 释放锁 **/
             lock.writeLock().unlock();
         }
     }
 
-
+    /**
+     * 初始化黑名单
+     */
+    private static void init() {
+        // TODO：保证黑名单存在
+        ensureParentDirExists();
+        loadBlacklist();
+    }
 
     // TODO：---------------------------- ↑私有 ------------------------------------
     // TODO：---------------------------- ↓公有 ------------------------------------
-
 
 
     /**
@@ -80,22 +81,19 @@ public class IpBlacklistUtil {
      *
      * @param ip 新的黑名单的 ip地址
      */
-    public static void addToBlacklist(String ip) {
-        System.err.println("===>准备添加ip地址进黑名单: " + ip);
+    public static void addToBlacklist(String ip){
+        init();
         // TODO: 校验IP格式
         if (!isValidIp(ip)) {
-            System.err.println("IP格式无效: " + ip);
             return;
         }
-
         lock.writeLock().lock();
         try {
             if (blacklist.add(ip)) {
                 FileUtil.appendLine(Paths.get(BLACKLIST_FILE), ip);
             }
-
         } catch (Exception e) {
-            System.err.println("ip写入黑名单文件失败: " + e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             lock.writeLock().unlock();
         }
@@ -107,6 +105,7 @@ public class IpBlacklistUtil {
      * @param ip 待移除的IP地址
      */
     public static void removeFromBlacklist(String ip) {
+        init();
         lock.writeLock().lock();
         try {
             // TODO: 从内存集合中移除IP，若移除成功则更新文件
@@ -116,7 +115,7 @@ public class IpBlacklistUtil {
                 FileUtil.writeLines(path, new ArrayList<>(blacklist));
             }
         } catch (Exception e) {
-            System.err.println("更新黑名单文件失败（移除ip）: " + e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             lock.writeLock().unlock();
         }
@@ -129,6 +128,7 @@ public class IpBlacklistUtil {
      * @return true：IP在黑名单中；false：IP不在黑名单中
      */
     public static boolean isBlacklisted(String ip) {
+        init();
         lock.readLock().lock();
         try {
             return blacklist.contains(ip);
@@ -143,6 +143,7 @@ public class IpBlacklistUtil {
      * @return 包含所有黑名单 ip的 set集合
      */
     public static Set<String> getBlacklist() {
+        init();
         lock.readLock().lock();
         try {
             return new HashSet<>(blacklist);

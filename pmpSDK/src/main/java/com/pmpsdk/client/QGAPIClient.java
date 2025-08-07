@@ -1,9 +1,8 @@
 package com.pmpsdk.client;
 
 import cn.hutool.crypto.digest.DigestUtil;
-import com.pmpsdk.annotation.ThrowSDKException;
 
-@ThrowSDKException
+
 public class QGAPIClient {
 
     private String projectToken;
@@ -18,12 +17,10 @@ public class QGAPIClient {
     public QGAPIClient(String projectToken, String environment) {
         this.projectToken = projectToken;
         this.environment = environment;
-        System.err.println("QGAPIClient:" + projectToken + ":" + environment);
     }
 
     public QGAPIClient() {
     }
-
 
     /**
      * 生成签名
@@ -38,8 +35,6 @@ public class QGAPIClient {
 
         return sign;
     }
-
-
 
     /**
      * 获取

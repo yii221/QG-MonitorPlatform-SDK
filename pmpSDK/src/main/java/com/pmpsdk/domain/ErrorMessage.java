@@ -1,7 +1,5 @@
 package com.pmpsdk.domain;
 
-import com.pmpsdk.annotation.ThrowSDKException;
-
 /**
  * @Description: 报错信息  // 类说明
  * @ClassName: ErrorMessage    // 类名
@@ -9,25 +7,18 @@ import com.pmpsdk.annotation.ThrowSDKException;
  * @Date: 2025/8/4 20:45   // 时间
  * @Version: 1.0     // 版本
  */
-@ThrowSDKException
 public class ErrorMessage {
+
     private Long id;
-
     private Long timestamp;
-
     private String type;
-
     private String stack;
-
     private String module;
-
     private String source = "backend";
-
     private String projectId;
-
     private String environment;
-
     private EnvironmentSnapshot environmentSnapshot;
+    private DataType dataType = DataType.ERROR;
 
 
     public ErrorMessage() {
@@ -191,5 +182,9 @@ public class ErrorMessage {
 
     public String toString() {
         return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
+    }
+
+    public DataType getDataType() {
+        return dataType;
     }
 }

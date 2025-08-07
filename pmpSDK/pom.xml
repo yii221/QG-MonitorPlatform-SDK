@@ -8,19 +8,20 @@
         <version>3.5.4</version>
         <relativePath/>
     </parent>
-    <groupId>com.qg</groupId>
-    <artifactId>pmpSDK</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>pmpSDK</name>
-    <description> - 项目监控平台依赖</description>
-    <url>https://github.com/yii221/QG-MonitorPlatform-SDK</url>
+    <!-- 基本信息部分 -->
+    <groupId>com.github.yeye145</groupId>
+    <artifactId>pmpsdk</artifactId>
+    <version>1.0.0</version>
+    <name>pmpsdk</name>
+    <description>项目监控平台依赖</description>
+    <url>https://github.com/yeye145/pmpsdk</url>  <!-- 注意这里是pmpsdk（保持小写） -->
 
     <!-- GitHub 发布配置 -->
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://github.com/yii221/QG-MonitorPlatform-SDK</url>
+            <url>https://maven.pkg.github.com/yeye145/pmpsdk</url>  <!-- 注意小写 -->
         </repository>
     </distributionManagement>
 
@@ -36,19 +37,18 @@
         <developer>
             <id>qg</id>
             <name>qg</name>
-            <email>qg@gmail.com</email>
+            <email>1452756143@qq.com</email>
         </developer>
     </developers>
 
 
-
+    <!-- SCM配置 -->
     <scm>
-        <url>https://github.com/yii221/QG-MonitorPlatform-SDK</url>
-        <connection>scm:git:https://github.com/yii221/QG-MonitorPlatform-SDK.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:yii221/QG-MonitorPlatform-SDK.git</developerConnection>
+        <url>https://github.com/yeye145/pmpsdk</url>
+        <connection>scm:git:https://github.com/yeye145/pmpsdk.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:yeye145/pmpsdk.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
     <properties>
         <java.version>17</java.version>
         <lombok.version>1.18.30</lombok.version>
@@ -178,7 +178,7 @@
             <version>4.0.1</version>
         </dependency>
 
-
     </dependencies>
 
 </project>
+

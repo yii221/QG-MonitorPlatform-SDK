@@ -1,37 +1,38 @@
 package com.pmpsdk.aspect;
 
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.utils.IpBlacklistUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import static com.pmpsdk.utils.GetClientIpUtil.getClientIp;
 
-@ThrowSDKException
+
 @Aspect
 @Component
+@Order(2)       // TODO：3、统计方法调用次数，设置阈值，检测是否有恶意访问攻击
 public class MethodInvocationAspect {
+
     private static final ConcurrentHashMap<String, AtomicInteger> methodInvocationCounts = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String, Queue<Long>> methodInvocationWindows = new ConcurrentHashMap<>();
+
     /**
      * 恶意调用阈值
      * 1秒内
-     * 调用30次
+     * 调用20次
      */
     private static final long WINDOW_TIME_MS = 1000;
-    private static final int MALICIOUS_THRESHOLD = 30;
+    private static final int MALICIOUS_THRESHOLD = 20;
 
     // TODO: 定时，清理空队列
     static {
@@ -42,13 +43,13 @@ public class MethodInvocationAspect {
         }, 1, 10, TimeUnit.SECONDS);
     }
 
-
     /**
      * 统计方法调用次数
      * @param joinPoint
      * @return
      * @throws Throwable
      */
+    // TODO：切面范围：除了SDK内部
     @Around("execution(* com.*..*.*(..)) && !within(com.pmpsdk..*)")
     public Object countMethodInvocation(ProceedingJoinPoint joinPoint) throws Throwable {
         // TODO: 获取方法名
@@ -110,7 +111,6 @@ public class MethodInvocationAspect {
         }
 
     }
-
 
     /**
      * 获取所有方法的调用统计

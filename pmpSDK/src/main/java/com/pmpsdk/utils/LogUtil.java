@@ -1,23 +1,15 @@
 package com.pmpsdk.utils;
 
-
 import com.pmpsdk.annotation.Module;
-
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.Log;
-
-
-
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -28,8 +20,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 
 
-@ThrowSDKException
 public class LogUtil {
+
     private static final Logger logger = LoggerFactory.getLogger(LogUtil.class);
 
     private static final LongAdder totalCount = new LongAdder();
@@ -135,6 +127,7 @@ public class LogUtil {
      * @param message
      */
     public static void error(String message) {
+        System.err.println("/////// 出现了异常 ///////");
         logger.error(message);
         totalCount.increment();
         errorCount.increment();

@@ -1,15 +1,16 @@
 package com.pmpsdk.utils;
 
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-@ThrowSDKException
+
+
 @Component
 public class SpringContextUtil implements ApplicationContextAware {
+
     private static ApplicationContext applicationContext;
 
     /**
@@ -43,7 +44,7 @@ public class SpringContextUtil implements ApplicationContextAware {
         QGAPIClient client = getBean(QGAPIClient.class);
         if (client != null) {
             PROJECT_TOKEN = client.getProjectToken();
-            System.err.println("项目加载成功，当前token：" + PROJECT_TOKEN);
+            System.err.println("\n===Q=G===>项目加载成功，当前token：" + PROJECT_TOKEN + "\n");
         }
     }
 }

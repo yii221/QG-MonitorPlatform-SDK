@@ -1,7 +1,5 @@
 package com.pmpsdk.utils;
 
-import com.pmpsdk.annotation.ThrowSDKException;
-
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -17,7 +15,6 @@ import java.util.Base64;
  * @Date: 2025/8/5 17:32   // 时间
  * @Version: 1.0     // 版本
  */
-@ThrowSDKException
 public class CryptoUtil {
 
     private static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuIsxakJdfey1bMqM4exeRLiG3PfNr5ycYSjgi1Dsi26GEKPuqQOfcQaru/R08iOOlpaUa+Y99BMeoE2FjodDuwAHV0Pwmr1hETtvA6WMeB7cG/IbxzZ7nWQ50h3LidL8D6KQRHHM+awN9PE2kRvlVEidHuN7TwqCqNkybZ54373mc6GogoWLRktIuLhF+yxARWrlUXbEzRJmbdEl2oRI52zFkweanAAiRKn/ATTlAx0yA6EAqgJYS0Uv2q8ymFVeXciaDNegoCPillpa/zPm531uYaalyoS5r/0aDur/8hfeSvCp35z8Uj+lVAX/ZYvQkzvRL5mOxjmRKv9pYG1XdwIDAQAB";
@@ -25,22 +22,21 @@ public class CryptoUtil {
 
 
     private CryptoUtil() {
-        // 私有构造函数，防止实例化
+        // TODO：私有构造函数，防止实例化
     }
 
     public static PublicKey getPublicKey() throws Exception {
         return getPublicKeyFromString(PUBLIC_KEY);
     }
 
-
-    // 生成AES密钥
+    // TODO：生成AES密钥
     public static SecretKey generateAESKey(int keySize) throws Exception {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         keyGen.init(keySize);
         return keyGen.generateKey();
     }
 
-    // AES加密
+    // TODO：AES加密
     public static String aesEncrypt(String data, SecretKey aesKey) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, aesKey);
@@ -48,7 +44,7 @@ public class CryptoUtil {
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
-    // AES解密
+    // TODO：AES解密
     public static String aesDecrypt(String encryptedData, SecretKey aesKey) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, aesKey);
@@ -57,7 +53,7 @@ public class CryptoUtil {
     }
 
 
-    // 用RSA公钥加密AES密钥
+    // TODO：用RSA公钥加密AES密钥
     public static String rsaEncryptAESKey(SecretKey aesKey, PublicKey publicKey) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -65,7 +61,7 @@ public class CryptoUtil {
         return Base64.getEncoder().encodeToString(encryptedKey);
     }
 
-    // 用RSA私钥解密AES密钥
+    // TODO：用RSA私钥解密AES密钥
     public static SecretKey rsaDecryptAESKey(String encryptedKey, PrivateKey privateKey) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -74,7 +70,7 @@ public class CryptoUtil {
         return new SecretKeySpec(aesKeyBytes, "AES");
     }
 
-    // 公钥字符串转 PublicKey
+    // TODO：公钥字符串转 PublicKey
     public static PublicKey getPublicKeyFromString(String key) throws Exception {
         byte[] keyBytes = java.util.Base64.getDecoder().decode(key);
         java.security.spec.X509EncodedKeySpec spec = new java.security.spec.X509EncodedKeySpec(keyBytes);
@@ -82,7 +78,7 @@ public class CryptoUtil {
         return kf.generatePublic(spec);
     }
 
-    // 私钥字符串转 PrivateKey
+    // TODO：私钥字符串转 PrivateKey
     public static PrivateKey getPrivateKeyFromString(String key) throws Exception {
         byte[] keyBytes = java.util.Base64.getDecoder().decode(key);
         java.security.spec.PKCS8EncodedKeySpec spec = new java.security.spec.PKCS8EncodedKeySpec(keyBytes);

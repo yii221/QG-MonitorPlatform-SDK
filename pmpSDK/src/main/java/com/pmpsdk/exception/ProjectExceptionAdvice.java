@@ -4,7 +4,6 @@ package com.pmpsdk.exception;
 import com.pmpsdk.annotation.Module;
 import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.aspect.SecurityCheckAspect;
-import com.pmpsdk.annotation.ThrowSDKException;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.ErrorMessage;
@@ -21,7 +20,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.lang.reflect.Method;
 
-@ThrowSDKException
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
     @Resource
@@ -57,26 +55,26 @@ public class ProjectExceptionAdvice {
      * 获取异常信息
      *
      * @param ex
-     * @throws ClassNotFoundException
+     * @throws Exception
      */
-    private void errorMethod(Exception ex) throws ClassNotFoundException {
+    private void errorMethod(Exception ex) throws Exception {
 
+        // TODO：获取环境快照
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = request.getRemoteAddr();
         EnvironmentSnapshot snapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
 
-
-
-        // 获取异常类型
+        // TODO：获取异常类型
         Class<?> exceptionClass = ex.getClass();
 
-        // 获取异常发生的类和方法
+        // TODO：获取异常发生的类和方法
         StackTraceElement[] stackTrace = ex.getStackTrace();
         if (stackTrace.length > 0) {
             String errorClass = stackTrace[0].getClassName();
             String errorMethod = stackTrace[0].getMethodName();
             int lineNumber = stackTrace[0].getLineNumber();
 
+            // TODO：构建异常信息对象
             ErrorMessage message = new ErrorMessage();
             message.setEnvironmentSnapshot(snapshot);
             message.setType(exceptionClass.getSimpleName());
@@ -89,46 +87,78 @@ public class ProjectExceptionAdvice {
             message.setType("OtherException");
             message.setTimestamp(System.currentTimeMillis());
 
+            // TODO：获取模块注解内容
             Class<?> clazz = Class.forName(errorClass);
             Module modelAnnotation = clazz.getAnnotation(Module.class);
 
             if (modelAnnotation != null) {
                 String type = modelAnnotation.type();
                 message.setModule(type);
-//                countException(message.getType(), type);
-//                /**************    检查是否需要告警    ***************/
-//                if (shouldAlert(message.getType(), type)) {
-//                    int count = exceptionCount.get(type + ":" + message.getType()).get();
-//                    sendAlert(message.getType(), type, count, message);
-//                }
             } else {
                 message.setModule("UnknownModel");
             }
 
+            // TODO：获取项目Token和运行环境
             message.setProjectId(qgAPIClient.getProjectToken());
             message.setEnvironment(qgAPIClient.getEnvironment());
 
-            // 获取方法上的注解
-            for (Method method : clazz.getDeclaredMethods()) {
-                if (method.getName().equals(errorMethod)) {
-                    if (method.isAnnotationPresent(Monitor.class)) {
-                        PostToServer.sendErrorMessage(message);
-                        /**************    记录日志    ***************/
-                        LogUtil.error(message.getStack() +
-                                "\n项目ID: " + message.getProjectId() +
-                                "\n模型类型: " + message.getModule() +
-                                "\n环境: " + message.getEnvironment() +
-                                "\n异常类型: " + message.getType() +
-                                "\n时间戳: " + message.getTimestamp() +
-                                "\n环境快照: " + message.getEnvironmentSnapshot());
+            // TODO：检查类或方法是否有Monitor注解
+            boolean shouldMonitor = clazz.isAnnotationPresent(Monitor.class);
+
+            if (!shouldMonitor) {
+                // TODO：如果类上没有，检查方法上是否有
+                for (Method method : clazz.getDeclaredMethods()) {
+                    if (method.getName().equals(errorMethod) && method.isAnnotationPresent(Monitor.class)) {
+                        shouldMonitor = true;
+                        break;
                     }
                 }
             }
 
+            // TODO：如果有注解，进行日志记录
+            if (shouldMonitor) {
+                logError(message);
+            }
+
+
+//            // TODO：获取方法上的注解
+//            for (Method method : clazz.getDeclaredMethods()) {
+//
+//                if (method.getName().equals(errorMethod)) {
+//                    if (method.isAnnotationPresent(Monitor.class)) {
+//                        PostToServer.sendErrorMessage(message);
+//                        // TODO：记录日志
+//                        LogUtil.error(message.getStack() +
+//                                "\n项目ID: " + message.getProjectId() +
+//                                "\n模型类型: " + message.getModule() +
+//                                "\n环境: " + message.getEnvironment() +
+//                                "\n异常类型: " + message.getType() +
+//                                "\n时间戳: " + message.getTimestamp() +
+//                                "\n环境快照: " + message.getEnvironmentSnapshot());
+//                    }
+//                }
+//            }
+
         }
+
     }
 
-
+    /**
+     * 错误日志记录
+     *
+     * @param message
+     * @throws Exception
+     */
+    private void logError(ErrorMessage message) throws Exception {
+        PostToServer.sendErrorMessage(message);
+        LogUtil.error(message.getStack() +
+                "\n项目ID: " + message.getProjectId() +
+                "\n模型类型: " + message.getModule() +
+                "\n环境: " + message.getEnvironment() +
+                "\n异常类型: " + message.getType() +
+                "\n时间戳: " + message.getTimestamp() +
+                "\n环境快照: " + message.getEnvironmentSnapshot());
+    }
 
     //    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
 //    private static final ConcurrentHashMap<String, Long> lastAlertTime = new ConcurrentHashMap<>();

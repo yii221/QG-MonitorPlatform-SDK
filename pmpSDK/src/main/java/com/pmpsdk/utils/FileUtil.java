@@ -1,15 +1,11 @@
 package com.pmpsdk.utils;
 
-import com.pmpsdk.annotation.ThrowSDKException;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
-
-import static java.nio.file.Files.createFile;
 
 /**
  * @Description: 文件的工具类  // 类说明
@@ -18,13 +14,11 @@ import static java.nio.file.Files.createFile;
  * @Date: 2025/8/6 10:53   // 时间
  * @Version: 1.0     // 版本
  */
-@ThrowSDKException
 public class FileUtil {
 
     private FileUtil() {
-        // 私有构造函数，防止实例化
+        // TODO：私有构造函数，防止实例化
     }
-
 
     /**
      * @return void
@@ -40,7 +34,6 @@ public class FileUtil {
             System.out.println("文件创建成功");
         } catch (IOException ignored) {}
     }
-
 
     /**
      * @param path
