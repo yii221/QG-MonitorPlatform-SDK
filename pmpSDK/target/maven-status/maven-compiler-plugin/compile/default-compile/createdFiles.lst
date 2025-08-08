@@ -6,6 +6,7 @@ com\pmpsdk\client\QGAPIClient.class
 com\pmpsdk\domain\Log.class
 com\pmpsdk\aspect\SecurityCheckAspect.class
 com\pmpsdk\utils\GetClientIpUtil.class
+com\pmpsdk\aspect\MaliciousAttackAspect.class
 com\pmpsdk\exception\ProjectExceptionAdvice.class
 com\pmpsdk\utils\FileUtil.class
 com\pmpsdk\utils\SpringContextUtil.class
@@ -25,3 +26,4 @@ com\pmpsdk\utils\LogUtil.class
 com\pmpsdk\domain\ErrorMessage.class
 com\pmpsdk\domain\PerformanceLog.class
 com\pmpsdk\aspect\PerformanceAspect.class
+com\pmpsdk\annotation\MethodInvocation.class

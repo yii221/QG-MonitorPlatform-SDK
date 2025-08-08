@@ -48,11 +48,10 @@ public class SpringContextUtil implements ApplicationContextAware {
             MALICIOUS_THRESHOLD = client.getMaliciousThreshold() >= 0
                     ? client.getMaliciousThreshold()
                     : 999999;
-            System.err.println("\n===Q=G===>项目加载成功，当前token：" +
+            System.err.println("===Q=G===>项目加载成功，当前token：" +
                     (PROJECT_TOKEN != null && PROJECT_TOKEN.length() > 3 ?
                             "*****" + PROJECT_TOKEN.substring(PROJECT_TOKEN.length() - 3) :
-                            (PROJECT_TOKEN != null ? PROJECT_TOKEN : "无效token")) +
-                    "\n");
+                            (PROJECT_TOKEN != null ? PROJECT_TOKEN : "无效token")));
         }
     }
 }

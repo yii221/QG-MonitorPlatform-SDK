@@ -19,6 +19,13 @@
       "description": "运行环境类型(test/prod)",
       "defaultValue": "test",
       "sourceType": "com.pmpsdk.QGAPIClientConfig"
+    },
+    {
+      "name": "qgpmpsdk.client.malicious-threshold",
+      "type": "java.lang.Integer",
+      "description": "恶意请求阈值(次/秒)",
+      "defaultValue": 3,
+      "sourceType": "com.pmpsdk.QGAPIClientConfig"
     }
   ],
   "hints": [

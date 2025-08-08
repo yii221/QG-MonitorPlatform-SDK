@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -24,6 +25,7 @@ import static com.pmpsdk.utils.GetClientIpUtil.getClientIp;
 @Aspect
 @Component
 @Order(2)       // TODO: 3、检测是否有恶意访问攻击
+@DependsOn("springContextUtil")
 public class MaliciousAttackAspect {
 
     private static final ConcurrentHashMap<String, Queue<Long>> methodInvocationWindows = new ConcurrentHashMap<>();
@@ -57,7 +59,7 @@ public class MaliciousAttackAspect {
             " || @within(org.springframework.stereotype.Controller))" +
             " && !within(com.pmpsdk..*)")
     public Object detectMaliciousAttack(ProceedingJoinPoint joinPoint) throws Throwable {
-        // TODO: 恶意攻击检测
+       // TODO: 恶意攻击检测
         try {
             // TODO: 获取当前请求
             ServletRequestAttributes attributes =
