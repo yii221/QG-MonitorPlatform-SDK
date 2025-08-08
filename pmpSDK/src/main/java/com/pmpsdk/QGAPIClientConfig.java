@@ -14,19 +14,21 @@ public class QGAPIClientConfig {
 
     private String projectToken;
     private String environment = "test";
+    private int maliciousThreshold = 3; // 默认阈值3次/秒
 
     public QGAPIClientConfig() {
     }
 
-    public QGAPIClientConfig(String projectToken, String environment) {
+    public QGAPIClientConfig(String projectToken, String environment, int maliciousThreshold) {
         this.projectToken = projectToken;
         this.environment = environment;
+        this.maliciousThreshold = maliciousThreshold;
     }
 
 
     @Bean
     public QGAPIClient qgApiClient() {
-        return new QGAPIClient(projectToken, environment);
+        return new QGAPIClient(projectToken, environment, maliciousThreshold);
     }
 
 
@@ -62,7 +64,23 @@ public class QGAPIClientConfig {
         this.environment = environment;
     }
 
+    /**
+     * 获取
+     * @return maliciousThreshold
+     */
+    public int getMaliciousThreshold() {
+        return maliciousThreshold;
+    }
+
+    /**
+     * 设置
+     * @param maliciousThreshold
+     */
+    public void setMaliciousThreshold(int maliciousThreshold) {
+        this.maliciousThreshold = maliciousThreshold;
+    }
+
     public String toString() {
-        return "QGAPIClientConfig{projectToken = " + projectToken + ", environment = " + environment + "}";
+        return "QGAPIClientConfig{projectToken = " + projectToken + ", environment = " + environment + ", maliciousThreshold = " + maliciousThreshold + "}";
     }
 }

@@ -44,7 +44,8 @@ public class SecurityCheckAspect {
     }
 
     // TODO：切面范围：所有@RestController、@Controller注解下
-    @Around("@within(org.springframework.web.bind.annotation.RestController) || @within(org.springframework.stereotype.Controller)")
+    @Around("@within(org.springframework.web.bind.annotation.RestController)" +
+            " || @within(org.springframework.stereotype.Controller)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

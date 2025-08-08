@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Parameter;
 import java.util.*;
 
-@Order(5)
+@Order(3)
 @Aspect
 @Component
 public class XssAspect {

@@ -1,44 +1,24 @@
 package com.pmpsdk.client;
 
-import cn.hutool.crypto.digest.DigestUtil;
-
 
 public class QGAPIClient {
 
     private String projectToken;
     private String environment = "test"; // 默认环境为生产环境
+    private int maliciousThreshold = 3; // 默认阈值3次/秒
 
-    /**
-     * 构造客户端 API实例
-     *
-     * @param projectToken 项目令牌
-     * @param environment  环境
-     */
-    public QGAPIClient(String projectToken, String environment) {
-        this.projectToken = projectToken;
-        this.environment = environment;
-    }
 
     public QGAPIClient() {
     }
 
-    /**
-     * 生成签名
-     *
-     * @param body
-     * @param secretKey
-     * @return
-     */
-    public static String genSign(String body, String secretKey) {
-
-        String sign = DigestUtil.sha256Hex(body + secretKey);
-
-        return sign;
+    public QGAPIClient(String projectToken, String environment, int maliciousThreshold) {
+        this.projectToken = projectToken;
+        this.environment = environment;
+        this.maliciousThreshold = maliciousThreshold;
     }
 
     /**
      * 获取
-     *
      * @return projectToken
      */
     public String getProjectToken() {
@@ -47,7 +27,6 @@ public class QGAPIClient {
 
     /**
      * 设置
-     *
      * @param projectToken
      */
     public void setProjectToken(String projectToken) {
@@ -56,7 +35,6 @@ public class QGAPIClient {
 
     /**
      * 获取
-     *
      * @return environment
      */
     public String getEnvironment() {
@@ -65,11 +43,29 @@ public class QGAPIClient {
 
     /**
      * 设置
-     *
      * @param environment
      */
     public void setEnvironment(String environment) {
         this.environment = environment;
     }
 
+    /**
+     * 获取
+     * @return maliciousThreshold
+     */
+    public int getMaliciousThreshold() {
+        return maliciousThreshold;
+    }
+
+    /**
+     * 设置
+     * @param maliciousThreshold
+     */
+    public void setMaliciousThreshold(int maliciousThreshold) {
+        this.maliciousThreshold = maliciousThreshold;
+    }
+
+    public String toString() {
+        return "QGAPIClient{projectToken = " + projectToken + ", environment = " + environment + ", maliciousThreshold = " + maliciousThreshold + "}";
+    }
 }

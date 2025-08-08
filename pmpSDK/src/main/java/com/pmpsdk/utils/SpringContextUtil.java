@@ -17,6 +17,7 @@ public class SpringContextUtil implements ApplicationContextAware {
      * 获取配置类中的项目token
      */
     public static String PROJECT_TOKEN;
+    public static int MALICIOUS_THRESHOLD;
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
@@ -37,13 +38,16 @@ public class SpringContextUtil implements ApplicationContextAware {
     }
 
     /**
-     * 项目运行时读取 token
+     * 项目运行时读取 yml
      */
     @PostConstruct
-    public void initProjectToken() {
+    public static void initReadYml() {
         QGAPIClient client = getBean(QGAPIClient.class);
         if (client != null) {
             PROJECT_TOKEN = client.getProjectToken();
+            MALICIOUS_THRESHOLD = client.getMaliciousThreshold() >= 0
+                    ? client.getMaliciousThreshold()
+                    : 999999;
             System.err.println("\n===Q=G===>项目加载成功，当前token：" +
                     (PROJECT_TOKEN != null && PROJECT_TOKEN.length() > 3 ?
                             "*****" + PROJECT_TOKEN.substring(PROJECT_TOKEN.length() - 3) :

@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.LongAdder;
  */
 @Aspect
 @Component
-@Order(3)
+@Order(4)           // TODO: 5、统计性能数据
 public class PerformanceAspect {
 
     @Resource
