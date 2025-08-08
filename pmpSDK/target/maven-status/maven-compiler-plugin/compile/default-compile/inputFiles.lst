@@ -1,13 +1,13 @@
+C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\annotation\FreeForXssFilter.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\annotation\Module.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\annotation\Monitor.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\aspect\MethodInvocationAspect.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\aspect\PerformanceAspect.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\aspect\SDKExceptionAspect.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\aspect\SecurityCheckAspect.java
+C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\aspect\XssAspect.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\client\QGAPIClient.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\config\AOPConfig.java
-C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\config\XssFilter.java
-C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\config\XssHttpServletRequestWrapper.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\DataType.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\EnvironmentSnapshot.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\ErrorMessage.java

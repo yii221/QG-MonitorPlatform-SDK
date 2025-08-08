@@ -83,7 +83,6 @@ public class LogUtil {
      * @param message
      */
     public static void info(String message) {
-        System.err.println("info：" + message);
         logger.info(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();
@@ -109,7 +108,6 @@ public class LogUtil {
      * @param message
      */
     public static void warn(String message) {
-        System.err.println("warn：" + message);
         logger.warn(message);
         totalCount.increment();
         currentSecondCount.incrementAndGet();

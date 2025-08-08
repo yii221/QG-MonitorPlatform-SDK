@@ -66,7 +66,7 @@ public class MethodInvocationAspect {
                 }
             }
             // TODO: 1分钟后，每小时执行1次
-        }, 1, 60, TimeUnit.MINUTES);
+        }, 5, 10, TimeUnit.SECONDS);
     }
 
     /**

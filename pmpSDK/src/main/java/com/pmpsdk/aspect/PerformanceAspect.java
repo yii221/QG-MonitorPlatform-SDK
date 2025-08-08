@@ -61,7 +61,12 @@ public class PerformanceAspect {
     }
 
 
-    @Around("(@annotation(com.pmpsdk.annotation.Monitor))&&(@within(org.springframework.web.bind.annotation.RestController)||@within(org.springframework.stereotype.Controller))")
+    @Around("(@annotation(com.pmpsdk.annotation.Monitor)" +
+            " || @within(com.pmpsdk.annotation.Monitor))" +
+            " && (" +
+            "@within(org.springframework.web.bind.annotation.RestController)" +
+            " || @within(org.springframework.stereotype.Controller)" +
+            ")")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
         String ip  = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
         EnvironmentSnapshot environmentSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
@@ -84,7 +89,6 @@ public class PerformanceAspect {
                 module = targetClass.getAnnotation(Module.class).type();
             }
             log.setModule(module);
-
 
             log.setProjectId(qgAPIClient.getProjectToken());
             log.setEnvironment(qgAPIClient.getEnvironment());

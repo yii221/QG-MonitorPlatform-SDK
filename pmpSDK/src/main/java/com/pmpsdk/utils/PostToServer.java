@@ -19,24 +19,24 @@ public final class PostToServer {
 
     private static final Logger postLogger = LoggerFactory.getLogger(PostToServer.class);
 
-    static SecretKey aseKey;
-    static String aesKeyStr;
-
-    static {
-        try {
-            aseKey = CryptoUtil.generateAESKey(256);
-            aesKeyStr = CryptoUtil.rsaEncryptAESKey(aseKey, CryptoUtil.getPublicKey());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    static SecretKey aseKey;
+//    static String aesKeyStr;
+//
+//    static {
+//        try {
+//            aseKey = CryptoUtil.generateAESKey(256);
+//            aesKeyStr = CryptoUtil.rsaEncryptAESKey(aseKey, CryptoUtil.getPublicKey());
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 
     /**
      * 发送日志
      */
     private static String postLogJSON(String data) throws Exception {
-        return HttpUtil.post(LOG.getUrl(), getJson(data));
+        return HttpUtil.post(LOG.getUrl(), data);
     }
 
 
@@ -44,7 +44,7 @@ public final class PostToServer {
      * 发送错误
      */
     private static String postErrorJSON(String data) throws Exception {
-        return HttpUtil.post(ERROR.getUrl(), getJson(data));
+        return HttpUtil.post(ERROR.getUrl(), data);
     }
 
     /**
@@ -59,7 +59,8 @@ public final class PostToServer {
      * 发送任意 json
      */
     private static String postJSON(String url, String data) throws Exception {
-        return HttpUtil.post(url, getJson(data));
+//        return HttpUtil.post(url, getJson(data));
+        return HttpUtil.post(url, data);
     }
 
     public static void sendErrorMessage(ErrorMessage message) throws Exception {
@@ -90,21 +91,21 @@ public final class PostToServer {
         postJSON(PostUrl.METHOD_USE_COUNT.getUrl(), JSONUtil.toJsonStr(statistics));
     }
 
-    /**
-     * @param data
-     * @return java.lang.String
-     * @Author lrt
-     * @Description //TODO 将数据加密成json
-     * @Date 10:31 2025/8/6
-     * @Param
-     **/
-    private static String getJson(String data) throws Exception {
-        String s = CryptoUtil.aesEncrypt(data, aseKey);
-        String json = JSONUtil.createObj()
-                .set("aesKey", aesKeyStr)
-                .set("data", s)
-                .toString();
-        return json;
-    }
+//    /**
+//     * @param data
+//     * @return java.lang.String
+//     * @Author lrt
+//     * @Description //TODO 将数据加密成json
+//     * @Date 10:31 2025/8/6
+//     * @Param
+//     **/
+//    private static String getJson(String data) throws Exception {
+//        String s = CryptoUtil.aesEncrypt(data, aseKey);
+//        String json = JSONUtil.createObj()
+//                .set("aesKey", aesKeyStr)
+//                .set("data", s)
+//                .toString();
+//        return json;
+//    }
 
 }
