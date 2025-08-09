@@ -21,7 +21,7 @@ public class IpBlacklistUtil {
     private static final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
     static {
-        // TODO: 初始化黑名单
+        // 初始化黑名单
         init();
     }
 
@@ -31,7 +31,7 @@ public class IpBlacklistUtil {
     private static void ensureParentDirExists() {
         try {
             Path path = Paths.get(BLACKLIST_FILE);
-            // TODO: 创建父目录（如果不存在）
+            // 创建父目录（如果不存在）
             java.nio.file.Files.createDirectories(path.getParent());
         } catch (Exception e) {
             throw new RuntimeException("Failed to create parent directory for blacklist file", e);
@@ -67,13 +67,13 @@ public class IpBlacklistUtil {
      * 初始化黑名单
      */
     private static void init() {
-        // TODO：保证黑名单存在
+        // 保证黑名单存在
         ensureParentDirExists();
         loadBlacklist();
     }
 
-    // TODO：---------------------------- ↑私有 ------------------------------------
-    // TODO：---------------------------- ↓公有 ------------------------------------
+    // ---------------------------- ↑私有 ------------------------------------
+    // ---------------------------- ↓公有 ------------------------------------
 
 
     /**
@@ -83,7 +83,7 @@ public class IpBlacklistUtil {
      */
     public static void addToBlacklist(String ip){
         init();
-        // TODO: 校验IP格式
+        // 校验IP格式
         if (!isValidIp(ip)) {
             return;
         }
@@ -108,10 +108,10 @@ public class IpBlacklistUtil {
         init();
         lock.writeLock().lock();
         try {
-            // TODO: 从内存集合中移除IP，若移除成功则更新文件
+            // 从内存集合中移除IP，若移除成功则更新文件
             if (blacklist.remove(ip)) {
                 Path path = Paths.get(BLACKLIST_FILE);
-                // TODO: 直接将内存中最新的集合转为List，通过FileUtil写入文件
+                // 直接将内存中最新的集合转为List，通过FileUtil写入文件
                 FileUtil.writeLines(path, new ArrayList<>(blacklist));
             }
         } catch (Exception e) {

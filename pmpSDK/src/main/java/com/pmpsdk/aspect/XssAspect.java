@@ -27,12 +27,12 @@ public class XssAspect {
             "@annotation(org.springframework.web.bind.annotation.PutMapping)) && " +
             "!@annotation(com.pmpsdk.annotation.FreeForXssFilter)")
     public Object cleanXssAroundAPIMethod(ProceedingJoinPoint joinPoint) throws Throwable {
-        // TODO：获取方法签名和参数信息
+        // 获取方法签名和参数信息
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Object[] args = joinPoint.getArgs();
         Parameter[] parameters = signature.getMethod().getParameters();
 
-        // TODO：遍历所有参数，处理标记了@RequestBody的参数
+        // 遍历所有参数，处理标记了@RequestBody的参数
         for (int i = 0; i < parameters.length; i++) {
             if (isRequestBodyParameter(parameters[i])) {
                 args[i] = processXss(args[i]);
@@ -60,7 +60,7 @@ public class XssAspect {
             return null;
         }
 
-        // TODO：基本数据类型不需要处理
+        // 基本数据类型不需要处理
         if (target.getClass().isPrimitive() ||
                 target instanceof Number ||
                 target instanceof Boolean ||
@@ -68,37 +68,37 @@ public class XssAspect {
             return target;
         }
 
-        // TODO：处理字符串类型
+        // 处理字符串类型
         if (target instanceof String) {
             return cleanXss((String) target);
         }
 
-        // TODO：处理Map类型，递归处理每个value
+        // 处理Map类型，递归处理每个value
         if (target instanceof Map<?, ?> map) {
             Map<Object, Object> result = new LinkedHashMap<>(map.size());
             map.forEach((k, v) -> result.put(k, processXss(v)));
             return result;
         }
 
-        // TODO：处理集合类型，递归处理每个元素
+        // 处理集合类型，递归处理每个元素
         if (target instanceof Collection<?> collection) {
             List<Object> result = new ArrayList<>(collection.size());
             collection.forEach(item -> result.add(processXss(item)));
             return result;
         }
 
-        // TODO：处理自定义对象
+        // 处理自定义对象
         try {
             for (Field field : target.getClass().getDeclaredFields()) {
-                // TODO：设置字段可访问
+                // 设置字段可访问
                 field.setAccessible(true);
                 Object value = field.get(target);
 
                 if (value instanceof String) {
-                    // TODO：字符串字段直接过滤
+                    // 字符串字段直接过滤
                     field.set(target, cleanXss((String) value));
                 } else if (value != null && !value.getClass().isPrimitive()) {
-                    // TODO：非基本类型的对象字段递归处理
+                    // 非基本类型的对象字段递归处理
                     field.set(target, processXss(value));
                 }
             }
@@ -114,7 +114,7 @@ public class XssAspect {
      * @return
      */
     private String cleanXss(String value) {
-        // TODO：HuTool的HtmlUtil.filter()会移除HTML标签并转义特殊字符
+        // HuTool的HtmlUtil.filter()会移除HTML标签并转义特殊字符
         return StrUtil.isBlank(value) ? value : HtmlUtil.filter(value);
     }
 }

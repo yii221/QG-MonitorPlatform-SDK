@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.time.LocalDateTime;
+
 
 @Order(4)
 @RestControllerAdvice
@@ -60,23 +62,23 @@ public class ProjectExceptionAdvice {
      */
     private void errorMethod(Exception ex) throws Exception {
 
-        // TODO：获取环境快照
+        // 获取环境快照
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = request.getRemoteAddr();
         TimedEnvironmentSnapshot timedSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
         EnvironmentSnapshot environmentSnapshot = timedSnapshot != null ? timedSnapshot.getSnapshot() : null;
 
-        // TODO：获取异常类型
+        // 获取异常类型
         Class<?> exceptionClass = ex.getClass();
 
-        // TODO：获取异常发生的类和方法
+        // 获取异常发生的类和方法
         StackTraceElement[] stackTrace = ex.getStackTrace();
         if (stackTrace.length > 0) {
             String errorClass = stackTrace[0].getClassName();
             String errorMethod = stackTrace[0].getMethodName();
             int lineNumber = stackTrace[0].getLineNumber();
 
-            // TODO：构建异常信息对象
+            // 构建异常信息对象
             ErrorMessage message = new ErrorMessage();
             message.setEnvironmentSnapshot(environmentSnapshot);
             message.setErrorType(exceptionClass.getSimpleName());
@@ -87,9 +89,9 @@ public class ProjectExceptionAdvice {
                     "出错行号: " + lineNumber + "\n" +
                     "异常信息: " + ex.getMessage());
 
-            message.setTimestamp(System.currentTimeMillis());
+            message.setTimestamp(LocalDateTime.now());
 
-            // TODO：获取模块注解内容
+            // 获取模块注解内容
             Class<?> clazz = Class.forName(errorClass);
             Module modelAnnotation = clazz.getAnnotation(Module.class);
 
@@ -99,11 +101,11 @@ public class ProjectExceptionAdvice {
                 message.setModule("unknown");
             }
 
-            // TODO：获取项目Token和运行环境
+            // 获取项目Token和运行环境
             message.setProjectId(qgAPIClient.getProjectToken());
             message.setEnvironment(qgAPIClient.getEnvironment());
 
-            // TODO：进行日志记录
+            // 进行日志记录
             logError(message);
 
         }

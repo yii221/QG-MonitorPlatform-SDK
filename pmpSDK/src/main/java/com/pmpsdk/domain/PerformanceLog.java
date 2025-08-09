@@ -1,5 +1,11 @@
 package com.pmpsdk.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
 /**
  * @Description: 性能日志  // 类说明
  * @ClassName: PerformanceLog    // 类名
@@ -7,12 +13,14 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/5 15:48   // 时间
  * @Version: 1.0     // 版本
  */
+
+
 public class PerformanceLog {
 
     private Long id;
     private String api;
     private long duration;
-    private long timestamp;
+    private LocalDateTime timestamp;
     private String module;
     private String projectId;
     private String source = "backend";
@@ -21,11 +29,10 @@ public class PerformanceLog {
     private EnvironmentSnapshot environmentSnapshot;
     private DataType dataType = DataType.PERFORMANCE;
 
-
     public PerformanceLog() {
     }
 
-    public PerformanceLog(Long id, String api, long duration, long timestamp, String module, String projectId, String source, boolean slow, String environment, EnvironmentSnapshot environmentSnapshot) {
+    public PerformanceLog(Long id, String api, long duration, LocalDateTime timestamp, String module, String projectId, String source, boolean slow, String environment, EnvironmentSnapshot environmentSnapshot, DataType dataType) {
         this.id = id;
         this.api = api;
         this.duration = duration;
@@ -36,6 +43,7 @@ public class PerformanceLog {
         this.slow = slow;
         this.environment = environment;
         this.environmentSnapshot = environmentSnapshot;
+        this.dataType = dataType;
     }
 
     /**
@@ -90,7 +98,7 @@ public class PerformanceLog {
      * 获取
      * @return timestamp
      */
-    public long getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
@@ -98,7 +106,7 @@ public class PerformanceLog {
      * 设置
      * @param timestamp
      */
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -198,11 +206,23 @@ public class PerformanceLog {
         this.environmentSnapshot = environmentSnapshot;
     }
 
-    public String toString() {
-        return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
-    }
-
+    /**
+     * 获取
+     * @return dataType
+     */
     public DataType getDataType() {
         return dataType;
+    }
+
+    /**
+     * 设置
+     * @param dataType
+     */
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public String toString() {
+        return "PerformanceLog{id = " + id + ", api = " + api + ", duration = " + duration + ", timestamp = " + timestamp + ", module = " + module + ", projectId = " + projectId + ", source = " + source + ", slow = " + slow + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + ", dataType = " + dataType + "}";
     }
 }

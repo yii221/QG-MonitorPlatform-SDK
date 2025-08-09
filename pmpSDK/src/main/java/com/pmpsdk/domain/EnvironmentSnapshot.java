@@ -1,5 +1,6 @@
 package com.pmpsdk.domain;
 
+
 public class EnvironmentSnapshot {
     // 基础信息
     private String ip;
@@ -15,7 +16,6 @@ public class EnvironmentSnapshot {
 
     private boolean isAjax;
 
-
     public EnvironmentSnapshot() {
     }
 
@@ -30,6 +30,11 @@ public class EnvironmentSnapshot {
         this.language = language;
         this.isAjax = isAjax;
     }
+
+    public void setIsAjax(boolean isAjax) {
+        this.isAjax = isAjax;
+    }
+
 
     /**
      * 获取
@@ -165,14 +170,6 @@ public class EnvironmentSnapshot {
      */
     public boolean isIsAjax() {
         return isAjax;
-    }
-
-    /**
-     * 设置
-     * @param isAjax
-     */
-    public void setIsAjax(boolean isAjax) {
-        this.isAjax = isAjax;
     }
 
     public String toString() {

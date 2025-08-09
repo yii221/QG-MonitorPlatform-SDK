@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -33,7 +34,7 @@ import java.util.concurrent.atomic.LongAdder;
  */
 @Aspect
 @Component
-@Order(4)           // TODO: 5、统计性能数据
+@Order(4)           // 5、统计性能数据
 public class PerformanceAspect {
 
     @Resource
@@ -70,7 +71,7 @@ public class PerformanceAspect {
             ")")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
 
-        // TODO: 获取环境快照
+        // 获取环境快照
         String ip = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
         TimedEnvironmentSnapshot timedSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
         EnvironmentSnapshot environmentSnapshot = timedSnapshot != null ? timedSnapshot.getSnapshot() : null;
@@ -84,7 +85,7 @@ public class PerformanceAspect {
             PerformanceLog log = new PerformanceLog();
             log.setApi(pjp.getSignature().toShortString());
             log.setDuration(duration);
-            log.setTimestamp(System.currentTimeMillis());
+            log.setTimestamp(LocalDateTime.now());
             log.setSlow(duration > SLOW_THRESHOLD);
 
             Class<?> targetClass = pjp.getTarget().getClass();

@@ -1,5 +1,11 @@
 package com.pmpsdk.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
 /**
  * @Description: 报错信息  // 类说明
  * @ClassName: ErrorMessage    // 类名
@@ -7,10 +13,12 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/4 20:45   // 时间
  * @Version: 1.0     // 版本
  */
+
+
 public class ErrorMessage {
 
     private Long id;
-    private Long timestamp;
+    private LocalDateTime timestamp;
     private String errorType;
     private String stack;
     private String module;
@@ -20,11 +28,10 @@ public class ErrorMessage {
     private EnvironmentSnapshot environmentSnapshot;
     private DataType dataType = DataType.ERROR;
 
-
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long id, Long timestamp, String errorType, String stack, String module, String source, String projectId, String environment, EnvironmentSnapshot environmentSnapshot, DataType dataType) {
+    public ErrorMessage(Long id, LocalDateTime timestamp, String errorType, String stack, String module, String source, String projectId, String environment, EnvironmentSnapshot environmentSnapshot, DataType dataType) {
         this.id = id;
         this.timestamp = timestamp;
         this.errorType = errorType;
@@ -57,7 +64,7 @@ public class ErrorMessage {
      * 获取
      * @return timestamp
      */
-    public Long getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
@@ -65,7 +72,7 @@ public class ErrorMessage {
      * 设置
      * @param timestamp
      */
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 

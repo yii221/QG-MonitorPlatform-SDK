@@ -8,16 +8,16 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 /**
- * @Description: 文件的工具类  // 类说明
- * @ClassName: FileUtil    // 类名
- * @Author: lrt          // 创建者
- * @Date: 2025/8/6 10:53   // 时间
- * @Version: 1.0     // 版本
+ * @Description: 文件的工具类  //类说明
+ * @ClassName: FileUtil    //类名
+ * @Author: lrt          //创建者
+ * @Date: 2025/8/6 10:53   //时间
+ * @Version: 1.0     //版本
  */
 public class FileUtil {
 
     private FileUtil() {
-        // TODO：私有构造函数，防止实例化
+        // 私有构造函数，防止实例化
     }
 
     /**

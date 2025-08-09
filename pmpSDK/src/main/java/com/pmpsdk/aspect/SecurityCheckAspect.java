@@ -31,14 +31,14 @@ import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
  */
 @Aspect
 @Component
-@Order(1)   // TODO：2、然后检验黑名单，通行之后获取环境快照
+@Order(1)   // 2、然后检验黑名单，通行之后获取环境快照
 public class SecurityCheckAspect {
 
-    // TODO：通过 ip，绑定环境快照
+    // 通过 ip，绑定环境快照
     public static final ConcurrentHashMap<String, TimedEnvironmentSnapshot>
             environmentSnapshot = new ConcurrentHashMap<>();
 
-    // TODO: 定时，每37秒清空一次环境快照
+    // 定时，每37秒清空一次环境快照
     static {
         Executors.newSingleThreadScheduledExecutor()
                 .scheduleAtFixedRate(() ->
@@ -47,7 +47,7 @@ public class SecurityCheckAspect {
                 );
     }
 
-    // TODO：切面范围：所有@RestController、@Controller注解下
+    // 切面范围：所有@RestController、@Controller注解下
     @Around("@within(org.springframework.web.bind.annotation.RestController)" +
             " || @within(org.springframework.stereotype.Controller)")
     public Object checkSecurity(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -55,7 +55,7 @@ public class SecurityCheckAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = GetClientIpUtil.getClientIp(request);
 
-        // TODO: 检测 ip是否在黑名单中
+        // 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
             return JSONUtil.toJsonStr(new Result(403, "IP地址已被拦截，若有疑问，请联系项目管理员"));
         }
@@ -64,17 +64,17 @@ public class SecurityCheckAspect {
         String protocol = request.getScheme();
         String httpMethod = request.getMethod();
 
-        // TODO：记录网络信息
+        // 记录网络信息
         EnvironmentSnapshot snapshot = UserAgentUtil.parseUserAgent(userAgent);
         snapshot.setIp(ip);
         snapshot.setProtocol(protocol);
         snapshot.setHttpMethod(httpMethod);
 
-        // TODO：获取语言
+        // 获取语言
         snapshot.setLanguage(request.getHeader("Accept-Language"));
         snapshot.setIsAjax("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
 
-        // TODO：放进 map集合
+        // 放进 map集合
         environmentSnapshot.compute(ip, (ipKey, v) -> {
             if (v == null) {
                 return new TimedEnvironmentSnapshot(snapshot, 1);
@@ -84,7 +84,7 @@ public class SecurityCheckAspect {
             }
         });
 
-        // TODO：继续执行目标方法
+        // 继续执行目标方法
         return joinPoint.proceed();
     }
 }

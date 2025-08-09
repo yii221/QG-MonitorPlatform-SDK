@@ -1,5 +1,11 @@
 package com.pmpsdk.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
 /**
  * @Description: 日志应用类  // 类说明
  * @ClassName: Log    // 类名
@@ -7,10 +13,12 @@ package com.pmpsdk.domain;
  * @Date: 2025/8/4 22:36   // 时间
  * @Version: 1.0     // 版本
  */
+
+
 public class Log {
 
     private Long id;
-    private Long timestamp;
+    private LocalDateTime timestamp;
     private String level;
     private String context;
     private String module;
@@ -23,7 +31,7 @@ public class Log {
     public Log() {
     }
 
-    public Log(Long id, Long timestamp, String level, String context, String module, String source, String projectId, EnvironmentSnapshot environmentSnapshot, String environment) {
+    public Log(Long id, LocalDateTime timestamp, String level, String context, String module, String source, String projectId, EnvironmentSnapshot environmentSnapshot, String environment, DataType dataType) {
         this.id = id;
         this.timestamp = timestamp;
         this.level = level;
@@ -33,6 +41,7 @@ public class Log {
         this.projectId = projectId;
         this.environmentSnapshot = environmentSnapshot;
         this.environment = environment;
+        this.dataType = dataType;
     }
 
     /**
@@ -55,7 +64,7 @@ public class Log {
      * 获取
      * @return timestamp
      */
-    public Long getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
@@ -63,7 +72,7 @@ public class Log {
      * 设置
      * @param timestamp
      */
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -179,12 +188,23 @@ public class Log {
         this.environment = environment;
     }
 
-    public String toString() {
-        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + ", environment = " + environment + "}";
-
-    }
-
+    /**
+     * 获取
+     * @return dataType
+     */
     public DataType getDataType() {
         return dataType;
+    }
+
+    /**
+     * 设置
+     * @param dataType
+     */
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public String toString() {
+        return "Log{id = " + id + ", timestamp = " + timestamp + ", level = " + level + ", context = " + context + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environmentSnapshot = " + environmentSnapshot + ", environment = " + environment + ", dataType = " + dataType + "}";
     }
 }

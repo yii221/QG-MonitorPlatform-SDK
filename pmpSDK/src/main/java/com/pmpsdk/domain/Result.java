@@ -1,28 +1,22 @@
 package com.pmpsdk.domain;
 
 public class Result {
-
     private Object data;
     private Integer code;
     private String msg;
 
-
-    public Result(Integer code) {
-        this.code = code;
-    }
-
-    public Result(Integer code, Object data, String msg) {
-        this.data = data;
-        this.code = code;
-        this.msg = msg;
-    }
-
-    public Result(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
+    public Result(int i, String s) {
+        this.code = i;
+        this.msg = s;
     }
 
     public Result() {
+    }
+
+    public Result(Object data, Integer code, String msg) {
+        this.data = data;
+        this.code = code;
+        this.msg = msg;
     }
 
     /**
@@ -76,5 +70,4 @@ public class Result {
     public String toString() {
         return "Result{data = " + data + ", code = " + code + ", msg = " + msg + "}";
     }
-
 }

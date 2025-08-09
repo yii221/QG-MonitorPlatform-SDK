@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(0)   // TODO：1、优先把SDK内部异常转换
+@Order(0)   // 1、优先把SDK内部异常转换
 public class SDKExceptionAspect {
 
-    // TODO：切面访问：仅SDK内部
+    // 切面访问：仅SDK内部
     @Around("execution(* com.pmpsdk..*.*(..))")
     public Object convertException(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
             return joinPoint.proceed();
         } catch (Exception e) {
-            // TODO：将异常转换为SDKException抛出
+            // 将异常转换为SDKException抛出
             throw new SDKException(500, "SDK执行异常", e);
         }
     }

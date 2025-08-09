@@ -12,6 +12,7 @@
     import org.springframework.web.context.request.RequestContextHolder;
     import org.springframework.web.context.request.ServletRequestAttributes;
 
+    import java.time.LocalDateTime;
     import java.util.ArrayList;
     import java.util.List;
     import java.util.Queue;
@@ -186,7 +187,7 @@
          */
         private static Log buildLog(String level, String message, String module) {
             Log log = new Log();
-            log.setTimestamp(System.currentTimeMillis());
+            log.setTimestamp(LocalDateTime.now());
             log.setLevel(level);
             log.setContext(message);
             log.setModule(module);

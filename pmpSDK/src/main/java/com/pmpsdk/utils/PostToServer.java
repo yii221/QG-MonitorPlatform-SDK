@@ -8,7 +8,7 @@ import com.pmpsdk.domain.Log;
 import com.pmpsdk.domain.PerformanceLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.crypto.SecretKey;
+
 import java.util.List;
 import java.util.Map;
 
