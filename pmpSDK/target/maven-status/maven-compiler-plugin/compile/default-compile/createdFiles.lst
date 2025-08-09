@@ -26,4 +26,5 @@ com\pmpsdk\utils\LogUtil.class
 com\pmpsdk\domain\ErrorMessage.class
 com\pmpsdk\domain\PerformanceLog.class
 com\pmpsdk\aspect\PerformanceAspect.class
+com\pmpsdk\domain\TimedEnvironmentSnapshot.class
 com\pmpsdk\annotation\MethodInvocation.class

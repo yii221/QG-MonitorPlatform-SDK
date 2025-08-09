@@ -16,6 +16,7 @@ C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\do
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\Log.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\PerformanceLog.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\Result.java
+C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\domain\TimedEnvironmentSnapshot.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\exception\ProjectExceptionAdvice.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\exception\SDKException.java
 C:\Users\14527\Desktop\QG-MonitorPlatform-SDK\pmpSDK\src\main\java\com\pmpsdk\QGAPIClientConfig.java

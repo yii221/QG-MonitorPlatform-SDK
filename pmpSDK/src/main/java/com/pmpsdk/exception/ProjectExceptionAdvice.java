@@ -5,6 +5,7 @@ import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.ErrorMessage;
+import com.pmpsdk.domain.TimedEnvironmentSnapshot;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
@@ -62,7 +63,8 @@ public class ProjectExceptionAdvice {
         // TODO：获取环境快照
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = request.getRemoteAddr();
-        EnvironmentSnapshot snapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+        TimedEnvironmentSnapshot timedSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+        EnvironmentSnapshot environmentSnapshot = timedSnapshot != null ? timedSnapshot.getSnapshot() : null;
 
         // TODO：获取异常类型
         Class<?> exceptionClass = ex.getClass();
@@ -76,8 +78,8 @@ public class ProjectExceptionAdvice {
 
             // TODO：构建异常信息对象
             ErrorMessage message = new ErrorMessage();
-            message.setEnvironmentSnapshot(snapshot);
-            message.setType(exceptionClass.getSimpleName());
+            message.setEnvironmentSnapshot(environmentSnapshot);
+            message.setErrorType(exceptionClass.getSimpleName());
 
             message.setStack("出错类: " + errorClass + "\n" +
                     "异常类型: " + exceptionClass.getSimpleName() + "\n" +
@@ -116,7 +118,7 @@ public class ProjectExceptionAdvice {
      */
     private void logError(ErrorMessage message) throws Exception {
         PostToServer.sendErrorMessage(message);
-        LogUtil.error("异常上报=>" + message.getType()
+        LogUtil.error("异常上报=>" + message.getErrorType()
                 , message.getModule() != null ? message.getModule() : "unknown");
     }
 

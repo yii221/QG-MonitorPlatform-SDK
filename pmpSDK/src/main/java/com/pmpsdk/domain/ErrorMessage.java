@@ -11,7 +11,7 @@ public class ErrorMessage {
 
     private Long id;
     private Long timestamp;
-    private String type;
+    private String errorType;
     private String stack;
     private String module;
     private String source = "backend";
@@ -24,16 +24,17 @@ public class ErrorMessage {
     public ErrorMessage() {
     }
 
-    public ErrorMessage(Long id, Long timestamp, String type, String stack, String module, String source, String projectId, String environment, EnvironmentSnapshot environmentSnapshot) {
+    public ErrorMessage(Long id, Long timestamp, String errorType, String stack, String module, String source, String projectId, String environment, EnvironmentSnapshot environmentSnapshot, DataType dataType) {
         this.id = id;
         this.timestamp = timestamp;
-        this.type = type;
+        this.errorType = errorType;
         this.stack = stack;
         this.module = module;
         this.source = source;
         this.projectId = projectId;
         this.environment = environment;
         this.environmentSnapshot = environmentSnapshot;
+        this.dataType = dataType;
     }
 
     /**
@@ -70,18 +71,18 @@ public class ErrorMessage {
 
     /**
      * 获取
-     * @return type
+     * @return errorType
      */
-    public String getType() {
-        return type;
+    public String getErrorType() {
+        return errorType;
     }
 
     /**
      * 设置
-     * @param type
+     * @param errorType
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setErrorType(String errorType) {
+        this.errorType = errorType;
     }
 
     /**
@@ -180,11 +181,23 @@ public class ErrorMessage {
         this.environmentSnapshot = environmentSnapshot;
     }
 
-    public String toString() {
-        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", type = " + type + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + "}";
-    }
-
+    /**
+     * 获取
+     * @return dataType
+     */
     public DataType getDataType() {
         return dataType;
+    }
+
+    /**
+     * 设置
+     * @param dataType
+     */
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public String toString() {
+        return "ErrorMessage{id = " + id + ", timestamp = " + timestamp + ", errorType = " + errorType + ", stack = " + stack + ", module = " + module + ", source = " + source + ", projectId = " + projectId + ", environment = " + environment + ", environmentSnapshot = " + environmentSnapshot + ", dataType = " + dataType + "}";
     }
 }

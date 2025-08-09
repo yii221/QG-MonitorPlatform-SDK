@@ -138,21 +138,6 @@ public class IpBlacklistUtil {
     }
 
     /**
-     * 获取当前黑名单的快照
-     *
-     * @return 包含所有黑名单 ip的 set集合
-     */
-    public static Set<String> getBlacklist() {
-        init();
-        lock.readLock().lock();
-        try {
-            return new HashSet<>(blacklist);
-        } finally {
-            lock.readLock().unlock();
-        }
-    }
-
-    /**
      * 校验 ip地址格式是否有效
      *
      * @param ip 待校验的IP地址

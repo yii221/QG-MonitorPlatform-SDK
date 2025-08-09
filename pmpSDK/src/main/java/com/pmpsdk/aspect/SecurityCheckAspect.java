@@ -3,7 +3,8 @@ package com.pmpsdk.aspect;
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.Result;
-import com.pmpsdk.utils.LogUtil;
+import com.pmpsdk.domain.TimedEnvironmentSnapshot;
+
 import com.pmpsdk.utils.GetClientIpUtil;
 import com.pmpsdk.utils.UserAgentUtil;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,13 +35,16 @@ import static com.pmpsdk.utils.GetClientIpUtil.shouldIntercept;
 public class SecurityCheckAspect {
 
     // TODO：通过 ip，绑定环境快照
-    public static final ConcurrentHashMap<String, EnvironmentSnapshot> environmentSnapshot = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<String, TimedEnvironmentSnapshot>
+            environmentSnapshot = new ConcurrentHashMap<>();
 
-    // TODO: 定时，每10分钟清空一次环境快照
+    // TODO: 定时，每37秒清空一次环境快照
     static {
-        Executors
-                .newSingleThreadScheduledExecutor()
-                .scheduleAtFixedRate(environmentSnapshot::clear, 0, 10, TimeUnit.MINUTES);
+        Executors.newSingleThreadScheduledExecutor()
+                .scheduleAtFixedRate(() ->
+                                environmentSnapshot.entrySet().removeIf(e -> e.getValue().isExpired()),
+                        0, 37, TimeUnit.SECONDS
+                );
     }
 
     // TODO：切面范围：所有@RestController、@Controller注解下
@@ -71,7 +75,14 @@ public class SecurityCheckAspect {
         snapshot.setIsAjax("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
 
         // TODO：放进 map集合
-        environmentSnapshot.putIfAbsent(ip, snapshot);
+        environmentSnapshot.compute(ip, (ipKey, v) -> {
+            if (v == null) {
+                return new TimedEnvironmentSnapshot(snapshot, 1);
+            } else {
+                v.resetNewExpireTime(1);
+                return v;
+            }
+        });
 
         // TODO：继续执行目标方法
         return joinPoint.proceed();

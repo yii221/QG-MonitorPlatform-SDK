@@ -5,6 +5,7 @@
     import com.pmpsdk.client.QGAPIClient;
     import com.pmpsdk.domain.EnvironmentSnapshot;
     import com.pmpsdk.domain.Log;
+    import com.pmpsdk.domain.TimedEnvironmentSnapshot;
     import jakarta.servlet.http.HttpServletRequest;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
@@ -201,8 +202,10 @@
 
             if (request != null) {
                 String ip = GetClientIpUtil.getClientIp(request);
-                EnvironmentSnapshot snapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
-                log.setEnvironmentSnapshot(snapshot);
+                // TODO: 获取环境快照
+                TimedEnvironmentSnapshot timedSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+                EnvironmentSnapshot environmentSnapshot = timedSnapshot != null ? timedSnapshot.getSnapshot() : null;
+                log.setEnvironmentSnapshot(environmentSnapshot);
             }
 
             QGAPIClient client = SpringContextUtil.getBean(QGAPIClient.class);

@@ -4,6 +4,7 @@ import com.pmpsdk.annotation.Module;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.PerformanceLog;
+import com.pmpsdk.domain.TimedEnvironmentSnapshot;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
@@ -68,8 +69,11 @@ public class PerformanceAspect {
             " || @within(org.springframework.stereotype.Controller)" +
             ")")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
+
+        // TODO: 获取环境快照
         String ip = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
-        EnvironmentSnapshot environmentSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+        TimedEnvironmentSnapshot timedSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
+        EnvironmentSnapshot environmentSnapshot = timedSnapshot != null ? timedSnapshot.getSnapshot() : null;
 
         long start = System.currentTimeMillis();
         try {
