@@ -14,6 +14,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -52,9 +53,8 @@ public class PerformanceAspect {
                 try {
                     // 这里将批量日志发送到服务器
                     PostToServer.sendPerformanceLogMessage(batch);
-                    LogUtil.info("批量性能日志上报: " + batch.size() + " 条");
                 } catch (Exception e) {
-                    LogUtil.error("批量性能日志上报异常" + e.getMessage());
+                    LogUtil.error("批量性能日志上报异常=>" + e.getMessage());
                 }
             }
         }, 0, 1, TimeUnit.SECONDS);
@@ -68,7 +68,7 @@ public class PerformanceAspect {
             " || @within(org.springframework.stereotype.Controller)" +
             ")")
     public Object logPerformance(ProceedingJoinPoint pjp) throws Throwable {
-        String ip  = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
+        String ip = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getRemoteAddr();
         EnvironmentSnapshot environmentSnapshot = SecurityCheckAspect.environmentSnapshot.get(ip);
 
         long start = System.currentTimeMillis();
@@ -84,7 +84,7 @@ public class PerformanceAspect {
             log.setSlow(duration > SLOW_THRESHOLD);
 
             Class<?> targetClass = pjp.getTarget().getClass();
-            String module = "UnknownModel";
+            String module = "unknown";
             if (targetClass.isAnnotationPresent(Module.class)) {
                 module = targetClass.getAnnotation(Module.class).type();
             }
@@ -94,18 +94,8 @@ public class PerformanceAspect {
             log.setEnvironment(qgAPIClient.getEnvironment());
             log.setEnvironmentSnapshot(environmentSnapshot);
 
-
-            String methodName = pjp.getSignature().toShortString();
-
             // 上报性能日志
-            LogUtil.info("被监测的方法：" + methodName +
-                    "\n性能检测到：API: " + log.getApi() +
-                    ", \nDuration: " + log.getDuration() + "ms" +
-                    ", \nModule: " + log.getModule() +
-                    ", \nProject ID: " + log.getProjectId() +
-                    ", \nSlow: " + log.isSlow()
-                    + ", \nEnvironment: " + log.getEnvironment()
-                    + ", \nEnvironment Snapshot: " + log.getEnvironmentSnapshot());
+            LogUtil.info("性能数据上报=>" + log.getApi(), module);
             logQueue.add(log);
 
         }

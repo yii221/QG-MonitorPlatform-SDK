@@ -36,11 +36,11 @@ public class SecurityCheckAspect {
     // TODO：通过 ip，绑定环境快照
     public static final ConcurrentHashMap<String, EnvironmentSnapshot> environmentSnapshot = new ConcurrentHashMap<>();
 
-    // TODO: 定时，每分钟清空一次环境快照
+    // TODO: 定时，每10分钟清空一次环境快照
     static {
         Executors
                 .newSingleThreadScheduledExecutor()
-                .scheduleAtFixedRate(environmentSnapshot::clear, 0, 1, TimeUnit.MINUTES);
+                .scheduleAtFixedRate(environmentSnapshot::clear, 0, 10, TimeUnit.MINUTES);
     }
 
     // TODO：切面范围：所有@RestController、@Controller注解下
@@ -53,7 +53,6 @@ public class SecurityCheckAspect {
 
         // TODO: 检测 ip是否在黑名单中
         if (shouldIntercept(ip)) {
-            LogUtil.warn("拦截IP: " + ip);
             return JSONUtil.toJsonStr(new Result(403, "IP地址已被拦截，若有疑问，请联系项目管理员"));
         }
 

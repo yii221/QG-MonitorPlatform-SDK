@@ -7,11 +7,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PmpSdkApplicationTests {
 
-    @Test
-    void contextLoads() {
-
-
-        LogUtil.info("测试");
-    }
-
 }

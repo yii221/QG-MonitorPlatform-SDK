@@ -3,6 +3,7 @@ package com.pmpsdk.aspect;
 import cn.hutool.json.JSONUtil;
 import com.pmpsdk.domain.Result;
 import com.pmpsdk.utils.IpBlacklistUtil;
+import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.SpringContextUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -77,6 +78,7 @@ public class MaliciousAttackAspect {
             if (isMaliciousAttack(methodWithIp)) {
                 // TODO: 加入黑名单
                 IpBlacklistUtil.addToBlacklist(clientIp);
+                LogUtil.warn("IP: " + clientIp + "，访问过频繁，已拉入黑名单");
                 return JSONUtil.toJsonStr(new Result(403, "访问被拒绝：IP已被列入黑名单"));
             }
         } catch (IllegalStateException e) {

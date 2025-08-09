@@ -33,7 +33,7 @@ public class MethodInvocationAspect {
                 try {
                     // TODO: 发送到服务器（需实现PostToServer）
                     sendMethodInvocationStats(statistics);
-                    LogUtil.info("已发送方法调用统计到服务器: " + statistics.size() + " 条记录");
+                    LogUtil.info("方法统计上报", "SDK");
                     // TODO: 清空统计
                     methodInvocationCounts.clear();
                 } catch (Exception e) {

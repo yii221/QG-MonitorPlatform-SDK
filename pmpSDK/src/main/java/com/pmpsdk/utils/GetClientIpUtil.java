@@ -92,10 +92,9 @@ public class GetClientIpUtil {
         } else {
             // TODO：获取IP所属国家
             String countryCode = getCountryCode(ip);
-            System.err.println("国家代码: " + countryCode);
 
             if (countryCode == null) {
-                LogUtil.warn("不是中国IP: " + ip);
+                LogUtil.warn("拦截非国内IP：" + ip);
                 // TODO：未知国家默认拦截
                 return true;
             }

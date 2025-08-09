@@ -1,7 +1,6 @@
 package com.pmpsdk.exception;
 
 import com.pmpsdk.annotation.Module;
-import com.pmpsdk.annotation.Monitor;
 import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import java.lang.reflect.Method;
+
 
 @Order(4)
 @RestControllerAdvice
@@ -31,7 +30,7 @@ public class ProjectExceptionAdvice {
      * @throws Exception
      */
     @ExceptionHandler(SDKException.class)
-    public void DealSDKException(SDKException ex) throws Exception {
+    public void dealSDKException(SDKException ex) throws Exception {
         System.out.println("==>\n捕获到sdk内部异常" + ex.getClass().getName() +
                 ":\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
@@ -45,7 +44,7 @@ public class ProjectExceptionAdvice {
      * @throws Exception
      */
     @ExceptionHandler(Exception.class)
-    public void CatchException(Exception ex) throws Exception {
+    public void catchException(Exception ex) throws Exception {
         System.out.println("==>\n捕获到" + ex.getClass().getName() +
                 "异常:\n" + ex.getMessage() + "\n<==");
         errorMethod(ex);
@@ -81,64 +80,29 @@ public class ProjectExceptionAdvice {
             message.setType(exceptionClass.getSimpleName());
 
             message.setStack("出错类: " + errorClass + "\n" +
+                    "异常类型: " + exceptionClass.getSimpleName() + "\n" +
                     "出错方法: " + errorMethod + "\n" +
                     "出错行号: " + lineNumber + "\n" +
                     "异常信息: " + ex.getMessage());
 
-            message.setType("OtherException");
             message.setTimestamp(System.currentTimeMillis());
 
             // TODO：获取模块注解内容
             Class<?> clazz = Class.forName(errorClass);
             Module modelAnnotation = clazz.getAnnotation(Module.class);
 
-            if (modelAnnotation != null) {
-                String type = modelAnnotation.type();
-                message.setModule(type);
+            if (modelAnnotation != null && modelAnnotation.type() != null) {
+                message.setModule(modelAnnotation.type());
             } else {
-                message.setModule("UnknownModel");
+                message.setModule("unknown");
             }
 
             // TODO：获取项目Token和运行环境
             message.setProjectId(qgAPIClient.getProjectToken());
             message.setEnvironment(qgAPIClient.getEnvironment());
 
-            // TODO：检查类或方法是否有Monitor注解
-            boolean shouldMonitor = clazz.isAnnotationPresent(Monitor.class);
-
-            if (!shouldMonitor) {
-                // TODO：如果类上没有，检查方法上是否有
-                for (Method method : clazz.getDeclaredMethods()) {
-                    if (method.getName().equals(errorMethod) && method.isAnnotationPresent(Monitor.class)) {
-                        shouldMonitor = true;
-                        break;
-                    }
-                }
-            }
-
-            // TODO：如果有注解，进行日志记录
-            if (shouldMonitor) {
-                logError(message);
-            }
-
-
-//            // TODO：获取方法上的注解
-//            for (Method method : clazz.getDeclaredMethods()) {
-//
-//                if (method.getName().equals(errorMethod)) {
-//                    if (method.isAnnotationPresent(Monitor.class)) {
-//                        PostToServer.sendErrorMessage(message);
-//                        // TODO：记录日志
-//                        LogUtil.error(message.getStack() +
-//                                "\n项目ID: " + message.getProjectId() +
-//                                "\n模型类型: " + message.getModule() +
-//                                "\n环境: " + message.getEnvironment() +
-//                                "\n异常类型: " + message.getType() +
-//                                "\n时间戳: " + message.getTimestamp() +
-//                                "\n环境快照: " + message.getEnvironmentSnapshot());
-//                    }
-//                }
-//            }
+            // TODO：进行日志记录
+            logError(message);
 
         }
 
@@ -152,13 +116,8 @@ public class ProjectExceptionAdvice {
      */
     private void logError(ErrorMessage message) throws Exception {
         PostToServer.sendErrorMessage(message);
-        LogUtil.error(message.getStack() +
-                "\n项目ID: " + message.getProjectId() +
-                "\n模型类型: " + message.getModule() +
-                "\n环境: " + message.getEnvironment() +
-                "\n异常类型: " + message.getType() +
-                "\n时间戳: " + message.getTimestamp() +
-                "\n环境快照: " + message.getEnvironmentSnapshot());
+        LogUtil.error("异常上报=>" + message.getType()
+                , message.getModule() != null ? message.getModule() : "unknown");
     }
 
     //    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
