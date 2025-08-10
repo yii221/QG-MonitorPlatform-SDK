@@ -9,6 +9,8 @@ import com.pmpsdk.domain.PerformanceLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
@@ -35,32 +37,32 @@ public final class PostToServer {
     /**
      * 发送日志
      */
-    private static String postLogJSON(String data) throws Exception {
-        return HttpUtil.post(LOG.getUrl(), data);
+    private static void postLogJSON(String data) throws Exception {
+        HttpUtil.post(LOG.getUrl(), data);
     }
 
 
     /**
      * 发送错误
      */
-    private static String postErrorJSON(String data) throws Exception {
-        return HttpUtil.post(ERROR.getUrl(), data);
+    private static void postErrorJSON(String data) throws Exception {
+        HttpUtil.post(ERROR.getUrl(), data);
     }
 
     /**
      * 发送性能
      */
-    private static String postPerformanceJSON(String data) {
-        return HttpUtil.post(PERFORMANCE.getUrl(), data);
+    private static void postPerformanceJSON(String data) {
+        HttpUtil.post(PERFORMANCE.getUrl(), data);
     }
 
 
     /**
      * 发送任意 json
      */
-    private static String postJSON(String url, String data) throws Exception {
+    private static void postJSON(String url, String data) throws Exception {
 //        return HttpUtil.post(url, getJson(data));
-        return HttpUtil.post(url, data);
+        HttpUtil.post(url, data);
     }
 
     public static void sendErrorMessage(ErrorMessage message) throws Exception {
@@ -88,7 +90,9 @@ public final class PostToServer {
      * @throws Exception
      */
     public static void sendMethodInvocationStats(Map<String, Integer> statistics) throws Exception {
-        postJSON(PostUrl.METHOD_USE_COUNT.getUrl(), JSONUtil.toJsonStr(statistics));
+        String rawData = SpringContextUtil.PROJECT_TOKEN + "@" + JSONUtil.toJsonStr(statistics);
+        String encodedData = URLEncoder.encode(rawData, StandardCharsets.UTF_8);
+        postJSON(PostUrl.METHOD_USE_COUNT.getUrl(), encodedData);
     }
 
 //    /**

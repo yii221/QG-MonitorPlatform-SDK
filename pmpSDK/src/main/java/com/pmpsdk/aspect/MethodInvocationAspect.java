@@ -31,7 +31,7 @@ public class MethodInvocationAspect {
             Map<String, Integer> statistics = getMethodInvocationStatistics();
             if (!statistics.isEmpty()) {
                 try {
-                    // 发送到服务器（需实现PostToServer）
+                    // 发送到服务器
                     sendMethodInvocationStats(statistics);
                     LogUtil.info("方法统计上报", "SDK");
                     // 清空统计
