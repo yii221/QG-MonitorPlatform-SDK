@@ -10,6 +10,8 @@ import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -23,20 +25,21 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class ProjectExceptionAdvice {
 
+    private static final Logger log = LoggerFactory.getLogger(ProjectExceptionAdvice.class);
+
+
     @Resource
     private QGAPIClient qgAPIClient;
 
     /**
-     * 处理未被注解标记的异常
+     * 处理被注解标记的异常
      *
      * @param ex
      * @throws Exception
      */
     @ExceptionHandler(SDKException.class)
     public void dealSDKException(SDKException ex) throws Exception {
-        System.out.println("==>\n捕获到sdk内部异常" + ex.getClass().getName() +
-                ":\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
+        errorMethod(ex, 0);
     }
 
 
@@ -48,9 +51,7 @@ public class ProjectExceptionAdvice {
      */
     @ExceptionHandler(Exception.class)
     public void catchException(Exception ex) throws Exception {
-        System.out.println("==>\n捕获到" + ex.getClass().getName() +
-                "异常:\n" + ex.getMessage() + "\n<==");
-        errorMethod(ex);
+        errorMethod(ex, 1);
     }
 
 
@@ -60,7 +61,7 @@ public class ProjectExceptionAdvice {
      * @param ex
      * @throws Exception
      */
-    private void errorMethod(Exception ex) throws Exception {
+    private void errorMethod(Exception ex, int from) throws Exception {
 
         // 获取环境快照
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -105,6 +106,14 @@ public class ProjectExceptionAdvice {
             message.setProjectId(qgAPIClient.getProjectToken());
             message.setEnvironment(qgAPIClient.getEnvironment());
 
+            if (from == 0) {
+                log.error("\n==>\n{}:{}SDK中{}异常:\n{}\n<=="
+                        , errorClass, errorMethod, ex.getClass().getName(), ex.getMessage());
+            } else {
+                log.error("\n==>\n{}:{}捕获到{}异常:\n{}\n<=="
+                        , errorClass, errorMethod, ex.getClass().getName(), ex.getMessage());
+            }
+
             // 进行日志记录
             logError(message);
 
@@ -124,84 +133,5 @@ public class ProjectExceptionAdvice {
                 , message.getModule() != null ? message.getModule() : "unknown");
     }
 
-    //    private static final ConcurrentHashMap<String, AtomicInteger> exceptionCount = new ConcurrentHashMap<>();
-//    private static final ConcurrentHashMap<String, Long> lastAlertTime = new ConcurrentHashMap<>();
-//
-//    /**
-//     * 异常阈值配置
-//     */
-//    private static final int EXCEPTION_THRESHOLD = 10;
-//    private static final long ALERT_INTERVAL = TimeUnit.MINUTES.toMillis(15);
-//
-
-//
-//    /**
-//     * 异常数量计数器，每分钟重置
-//     *
-//     *
-//     */
-//    static {
-//        Executors.newSingleThreadScheduledExecutor()
-//                .scheduleAtFixedRate(exceptionCount::clear, 1, 1, TimeUnit.MINUTES);
-//    }
-
-
-//    /**
-//     * 统计异常数量
-//     *
-//     * @param exceptionType
-//     * @param module
-//     */
-//    private void countException(String exceptionType, String module) {
-//        String key = module + ":" + exceptionType;
-//        exceptionCount.computeIfAbsent(key, k -> new AtomicInteger(0)).incrementAndGet();
-//    }
-//
-//    /**
-//     * 判断是否需要发送告警
-//     *
-//     * @param exceptionType
-//     * @param module
-//     * @return
-//     */
-//    private boolean shouldAlert(String exceptionType, String module) {
-//        String key = module + ":" + exceptionType;
-//        int count = exceptionCount.getOrDefault(key, new AtomicInteger(0)).get();
-//
-//        // 超过阈值
-//        if (count >= EXCEPTION_THRESHOLD) {
-//            long lastTime = lastAlertTime.getOrDefault(key, 0L);
-//            long currentTime = System.currentTimeMillis();
-//
-//            // 首次超过阈值或已过冷却期
-//            if (lastTime == 0 || currentTime - lastTime > ALERT_INTERVAL) {
-//                lastAlertTime.put(key, currentTime);
-//
-//                // 如果是重复告警，检查是否达到升级条件
-//                if (lastTime != 0 && count >= EXCEPTION_THRESHOLD * 3) {
-//                    AlertUtil.upgradeAlert(module, exceptionType, count);
-//                }
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    /**
-//     * 发送告警
-//     *
-//     * @param exceptionType
-//     * @param module
-//     * @param count
-//     * @param errorMessage
-//     */
-//    private void sendAlert(String exceptionType, String module, int count, ErrorMessage errorMessage) {
-//        String alertMessage = String.format(
-//                "【异常告警】模块: %s, 异常类型: %s, 当前次数: %d, 超过阈值: %d\n" +
-//                        "最近错误信息: %s",
-//                module, exceptionType, count, EXCEPTION_THRESHOLD, errorMessage.getStack());
-//
-//       // AlertUtil.sendAlert(alertMessage);
-//    }
 }
 
