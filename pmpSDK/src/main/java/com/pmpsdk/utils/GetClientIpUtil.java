@@ -4,8 +4,10 @@ import cn.hutool.core.net.NetUtil;
 import cn.hutool.core.util.StrUtil;
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.model.CountryResponse;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.ClassPathResource;
+
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.util.Set;
@@ -33,12 +35,15 @@ public class GetClientIpUtil {
     private static DatabaseReader geoIpReader;
 
     static {
-        try (InputStream dbStream = new ClassPathResource("GeoLite2-Country.mmdb").getInputStream()) {
+        try {
+            // 加载数据库文件
+            InputStream dbStream = new ClassPathResource("GeoLite2-Country.mmdb").getInputStream();
+            // 初始化 DatabaseReader
             geoIpReader = new DatabaseReader.Builder(dbStream).build();
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            LogUtil.error("GeoIP2 数据库初始化失败: " + e.getMessage());
         }
     }
-
 
     /**
      * 获取客户端 IP
@@ -79,6 +84,7 @@ public class GetClientIpUtil {
      * @return true=拦截, false=放行
      */
     public static boolean shouldIntercept(String ip) {
+
         // TODO：检查IP是否在黑名单中
         if (isBlacklisted(ip)) {
             LogUtil.warn("拦截黑名单IP: " + ip);
