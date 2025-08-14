@@ -81,8 +81,7 @@ public class MaliciousAttackAspect {
                 LogUtil.warn("IP: " + clientIp + "，访问过频繁，已拉入黑名单");
                 return JSONUtil.toJsonStr(new Result(403, "访问被拒绝：IP已被列入黑名单"));
             }
-        } catch (IllegalStateException e) {
-            // 非Web请求（如定时任务）跳过检测
+        } catch (IllegalStateException ignored) {
         }
 
         return joinPoint.proceed();

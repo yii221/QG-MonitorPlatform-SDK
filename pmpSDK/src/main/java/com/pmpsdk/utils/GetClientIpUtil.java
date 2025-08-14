@@ -47,7 +47,7 @@ public class GetClientIpUtil {
             cityGeoReader = new DatabaseReader.Builder(cityStream).build();
             isGeoIpInitialized = true;
         } catch (Exception e) {
-            LogUtil.error("GeoIP2 数据库初始化失败: " + e.getMessage(),"sdk-ip");
+            LogUtil.error("GeoIP2 数据库初始化失败: " + e.getMessage(), "sdk-ip");
         }
     }
 
@@ -90,22 +90,77 @@ public class GetClientIpUtil {
      * @return true=拦截, false=放行
      */
     public static boolean shouldIntercept(String ip) {
-
         // 检查IP是否在黑名单中
         if (isBlacklisted(ip)) {
-            LogUtil.warn("拦截黑名单IP: " + ip,"sdk-ip");
+            logInterception(ip, "ip已被拉入黑名单", null, null, null, null);
             return true;
         }
 
         // 检查本地IP白名单
         if (isLocalIp(ip)) {
-            // 放行本地内网 ip
             return false;
-        } else {
-            // 判断IP所属国家是否放行
-            return checkCountryCode(ip);
+        }
+
+        // 判断IP所属国家是否放行
+        return checkCountryCode(ip);
+    }
+
+    /**
+     * 统一记录拦截日志
+     */
+    private static void logInterception(String ip, String reason,
+                                        String country, String city,
+                                        Double latitude, Double longitude) {
+        String logMsg = String.format("拦截ip:%s,reason:%s,country:%s,city:%s,latitude:%s,longitude:%s",
+                ip,
+                reason,
+                Optional.ofNullable(country).orElse("unknown"),
+                Optional.ofNullable(city).orElse("unknown"),
+                Optional.ofNullable(latitude).map(Object::toString).orElse("0.0"),
+                Optional.ofNullable(longitude).map(Object::toString).orElse("0.0"));
+
+        LogUtil.warn(logMsg, "sdk-ip");
+    }
+
+    private static boolean checkCountryCode(String ip) {
+        try {
+            // 判断GeoIP是否初始化成功
+            if (!isGeoIpInitialized) {
+                logInterception(ip, "GeoIP未初始化", null, null, null, null);
+                return true;
+            }
+
+            // 获取IP地址、城市名称
+            InetAddress ipAddress = InetAddress.getByName(ip);
+            CityResponse cityResponse = cityGeoReader.city(ipAddress);
+            String countryCode = cityResponse.getCountry().getIsoCode();
+            String countryName = cityResponse.getCountry().getName();
+            String cityName = Optional.ofNullable(cityResponse.getCity())
+                    .map(AbstractNamedRecord::getName)
+                    .orElse("unknown");
+
+            // 获取经纬度信息
+            Location location = cityResponse.getLocation();
+            Double latitude = location != null ? location.getLatitude() : null;
+            Double longitude = location != null ? location.getLongitude() : null;
+
+            if (countryCode == null) {
+                logInterception(ip, "ip所属国家未知", null, null, null, null);
+                return true;
+            }
+
+            if (ALLOWED_COUNTRIES.contains(countryCode)) {
+                return false;
+            } else {
+                logInterception(ip, "ip为境外访问", countryName, cityName, latitude, longitude);
+                return true;
+            }
+        } catch (Exception e) {
+            logInterception(ip, "GeoIP查询失败", null, null, null, null);
+            return true;
         }
     }
+
 
     /**
      * 检查IP是否为本地IP
@@ -119,69 +174,6 @@ public class GetClientIpUtil {
         );
     }
 
-    /**
-     * 获取该 ip的来源国家
-     *
-     * @param ip
-     * @return
-     */
-    private static boolean checkCountryCode(String ip) {
-        try {
-
-            if (!isGeoIpInitialized) {
-                System.err.println("GeoIP 数据库未初始化，无法验证IP地域");
-                return true; // 或根据业务需求返回默认值
-            }
-
-            // 获取国家编码
-            InetAddress ipAddress = InetAddress.getByName(ip);
-            CityResponse cityResponse = cityGeoReader.city(ipAddress);
-            String countryCode = cityResponse.getCountry().getIsoCode();
-
-            // 获取经纬度
-            Double latitude = Optional.ofNullable(cityResponse.getLocation())
-                    .map(Location::getLatitude)
-                    .orElse(0.0);
-            Double longitude = Optional.ofNullable(cityResponse.getLocation())
-                    .map(Location::getLongitude)
-                    .orElse(0.0);
-
-            String countryName = cityResponse.getCountry().getName();
-            String cityName = Optional.ofNullable(cityResponse.getCity())
-                    .map(AbstractNamedRecord::getName)
-                    .orElse("unknown");
-
-            System.err.println("\n\n\n\nip：" + ip);
-            System.err.println("国家：" + countryName);
-            System.err.println("城市：" + cityName);
-            System.err.println("latitude:" + latitude + ",longitude:" + longitude);
-
-            if (countryCode == null) {
-                LogUtil.warn("unknown ip:" + ip + ",无法识别ip来源","sdk-ip");
-                // 未知国家默认拦截
-                return true;
-            }
-
-            // 检查是否在允许列表中
-            if (ALLOWED_COUNTRIES.contains(countryCode)) {
-                LogUtil.info("country:" + cityResponse.getCountry().getName() +
-                             ",city:" + cityResponse.getCity().getName() +
-                             ",ip:" + ipAddress + ",latitude:" + latitude +
-                             ",longitude:" + longitude + ",访问了您的项目","sdk-ip");
-                return false;
-            } else {
-                LogUtil.error("country:" + cityResponse.getCountry().getName() +
-                              ",city:" + cityResponse.getCity().getName() +
-                              ",ip:" + ipAddress + ",latitude:" + latitude +
-                              ",longitude:" + longitude + ",非法访问","sdk-ip");
-                return true;
-            }
-
-        } catch (Exception e) {
-            LogUtil.error("GeoIP库中查无此ip：" + ip,"sdk-ip");
-            return true;
-        }
-    }
 }
 
 
