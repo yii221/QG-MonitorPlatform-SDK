@@ -5,6 +5,7 @@ import com.pmpsdk.aspect.SecurityCheckAspect;
 import com.pmpsdk.client.QGAPIClient;
 import com.pmpsdk.domain.EnvironmentSnapshot;
 import com.pmpsdk.domain.ErrorMessage;
+import com.pmpsdk.domain.Result;
 import com.pmpsdk.domain.TimedEnvironmentSnapshot;
 import com.pmpsdk.utils.LogUtil;
 import com.pmpsdk.utils.PostToServer;
@@ -38,8 +39,9 @@ public class ProjectExceptionAdvice {
      * @throws Exception
      */
     @ExceptionHandler(SDKException.class)
-    public void dealSDKException(SDKException ex) throws Exception {
+    public Result dealSDKException(SDKException ex) throws Exception {
         errorMethod(ex, 0);
+        return new Result(500, "sdk内部异常:" + ex.getMessage());
     }
 
 
@@ -50,8 +52,9 @@ public class ProjectExceptionAdvice {
      * @throws Exception
      */
     @ExceptionHandler(Exception.class)
-    public void catchException(Exception ex) throws Exception {
+    public Result catchException(Exception ex) throws Exception {
         errorMethod(ex, 1);
+        return new Result(500, "捕获到异常:" + ex.getMessage());
     }
 
 

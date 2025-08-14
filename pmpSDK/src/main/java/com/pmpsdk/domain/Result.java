@@ -5,9 +5,9 @@ public class Result {
     private Integer code;
     private String msg;
 
-    public Result(int i, String s) {
-        this.code = i;
-        this.msg = s;
+    public Result(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 
     public Result() {
