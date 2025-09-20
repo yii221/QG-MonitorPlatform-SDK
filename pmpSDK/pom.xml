@@ -15,14 +15,14 @@
     <version>1.0.0</version>
     <name>pmpsdk</name>
     <description>项目监控平台依赖</description>
-    <url>https://github.com/yeye145/pmpsdk</url>  <!-- 注意这里是pmpsdk（保持小写） -->
+    <url>https://github.com/yeye145/pmpsdk</url>
 
     <!-- GitHub 发布配置 -->
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/yeye145/pmpsdk</url>  <!-- 注意小写 -->
+            <url>https://maven.pkg.github.com/yeye145/pmpsdk</url>
         </repository>
     </distributionManagement>
 

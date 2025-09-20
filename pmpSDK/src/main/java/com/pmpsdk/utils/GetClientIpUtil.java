@@ -90,15 +90,16 @@ public class GetClientIpUtil {
      * @return true=拦截, false=放行
      */
     public static boolean shouldIntercept(String ip) {
-        // 检查IP是否在黑名单中
-        if (isBlacklisted(ip)) {
-            logInterception(ip, "ip已被拉入黑名单", null, null, null, null);
-            return true;
-        }
 
         // 检查本地IP白名单
         if (isLocalIp(ip)) {
             return false;
+        }
+
+        // 检查IP是否在黑名单中
+        if (isBlacklisted(ip)) {
+            logInterception(ip, "ip已被拉入黑名单", null, null, null, null);
+            return true;
         }
 
         // 判断IP所属国家是否放行

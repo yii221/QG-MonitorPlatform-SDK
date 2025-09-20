@@ -40,8 +40,8 @@ public class MethodInvocationAspect {
                     LogUtil.error("服务器繁忙: " + statistics.size() + " 条记录");
                 }
             }
-            // 1分钟后，每小时执行1次
-        }, 5, 10, TimeUnit.SECONDS);
+            // 1分钟后，每1分钟执行一次
+        }, 0, 1, TimeUnit.MINUTES);
     }
 
     /**

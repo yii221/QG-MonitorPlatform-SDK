@@ -2,6 +2,7 @@ package com.pmpsdk.aspect;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HtmlUtil;
+import com.pmpsdk.utils.LogUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -38,6 +39,7 @@ public class XssAspect {
                 args[i] = processXss(args[i]);
             }
         }
+        LogUtil.info("XSS过滤完毕", "sdk-xss-filter");
         return joinPoint.proceed(args);
     }
 
