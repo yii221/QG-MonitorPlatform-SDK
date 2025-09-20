@@ -22,21 +22,21 @@
 //
 //
 //    private CryptoUtil() {
-//        // TODO：私有构造函数，防止实例化
+//        // 私有构造函数，防止实例化
 //    }
 //
 //    public static PublicKey getPublicKey() throws Exception {
 //        return getPublicKeyFromString(PUBLIC_KEY);
 //    }
 //
-//    // TODO：生成AES密钥
+//    // 生成AES密钥
 //    public static SecretKey generateAESKey(int keySize) throws Exception {
 //        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 //        keyGen.init(keySize);
 //        return keyGen.generateKey();
 //    }
 //
-//    // TODO：AES加密
+//    // AES加密
 //    public static String aesEncrypt(String data, SecretKey aesKey) throws Exception {
 //        Cipher cipher = Cipher.getInstance("AES");
 //        cipher.init(Cipher.ENCRYPT_MODE, aesKey);
@@ -44,7 +44,7 @@
 //        return Base64.getEncoder().encodeToString(encrypted);
 //    }
 //
-//    // TODO：AES解密
+//    // AES解密
 //    public static String aesDecrypt(String encryptedData, SecretKey aesKey) throws Exception {
 //        Cipher cipher = Cipher.getInstance("AES");
 //        cipher.init(Cipher.DECRYPT_MODE, aesKey);
@@ -53,7 +53,7 @@
 //    }
 //
 //
-//    // TODO：用RSA公钥加密AES密钥
+//    // 用RSA公钥加密AES密钥
 //    public static String rsaEncryptAESKey(SecretKey aesKey, PublicKey publicKey) throws Exception {
 //        Cipher cipher = Cipher.getInstance("RSA");
 //        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -61,7 +61,7 @@
 //        return Base64.getEncoder().encodeToString(encryptedKey);
 //    }
 //
-//    // TODO：用RSA私钥解密AES密钥
+//    // 用RSA私钥解密AES密钥
 //    public static SecretKey rsaDecryptAESKey(String encryptedKey, PrivateKey privateKey) throws Exception {
 //        Cipher cipher = Cipher.getInstance("RSA");
 //        cipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -70,7 +70,7 @@
 //        return new SecretKeySpec(aesKeyBytes, "AES");
 //    }
 //
-//    // TODO：公钥字符串转 PublicKey
+//    // 公钥字符串转 PublicKey
 //    public static PublicKey getPublicKeyFromString(String key) throws Exception {
 //        byte[] keyBytes = java.util.Base64.getDecoder().decode(key);
 //        java.security.spec.X509EncodedKeySpec spec = new java.security.spec.X509EncodedKeySpec(keyBytes);
@@ -78,7 +78,7 @@
 //        return kf.generatePublic(spec);
 //    }
 //
-//    // TODO：私钥字符串转 PrivateKey
+//    // 私钥字符串转 PrivateKey
 //    public static PrivateKey getPrivateKeyFromString(String key) throws Exception {
 //        byte[] keyBytes = java.util.Base64.getDecoder().decode(key);
 //        java.security.spec.PKCS8EncodedKeySpec spec = new java.security.spec.PKCS8EncodedKeySpec(keyBytes);
